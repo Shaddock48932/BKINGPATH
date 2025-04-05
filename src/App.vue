@@ -3,9 +3,11 @@ import { ref, onMounted, watch, onBeforeUnmount } from 'vue'
 import WordCard from './components/WordCard.vue'
 import BackgroundUploader from './components/BackgroundUploader.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
+import NoteBook from './components/NoteBook.vue'
 
 // 可用的单词列表文件
 const wordLists = [
+{ name: '游戏词汇', file: '../src/data/gamebase.json' },
   { name: '计算机专业词汇', file: '../src/data/cs.json' },
   { name: '前端', file: '../src/data/web.json' },
   { name: 'Java', file: '../src/data/javause.json' },
@@ -13,7 +15,7 @@ const wordLists = [
   { name: '日常易错词', file: '../src/data/dailyuse.json' },
   { name: 'UE常用词汇', file: '../src/data/uebase.json' },
   { name: 'C++', file: '../src/data/cplusplus.json' },
-  { name: '游戏词汇', file: '../src/data/gamebase.json' },
+
 ]
 
 // 当前选择的单词列表
@@ -185,40 +187,48 @@ const handleMusicUpload = (event) => {
 
 <template>
   <div class="container">
+    <NoteBook />
     <MusicPlayer ref="musicPlayerRef" />
     <Transition name="fade" mode="out-in">
-      <div v-if="isLoading" class="loading" key="loading">
-        <i class="fas fa-spinner fa-spin"></i> 加载中...
-      </div>
-      <div v-else-if="errorMessage" class="error" key="error">
-        <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
-      </div>
-      <div v-else class="content" key="content" :class="{ 'visible': isContentVisible }">
-        <div class="userRepeat">
-          <button class="circle-btn" @click="showRandomWord" title="单击Enter"></button>
-          <input 
-            type="text" 
-            v-model="userInput"
-            placeholder="自由的代价是永远的警惕。——《C Primer Plus》" 
-          />
-          <button class="circle-btn" @click="showRandomWord" title="单击Enter"></button>
+      <template v-if="isLoading">
+        <div class="loading" key="loading">
+          <i class="fas fa-spinner fa-spin"></i> 加载中...
         </div>
-        <div class="navigation">
-          <WordCard 
-            ref="wordCardRef"
-            :word="currentWord.word"
-            :translation="currentWord.translation"
-            lang="en-US"
-          />
+      </template>
+      <template v-else-if="errorMessage">
+        <div class="error" key="error">
+          <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
         </div>
-        
-        <div class="progress">
-          <span class="tag" v-if="currentWord.tags && currentWord.tags.length > 0">
-            {{ currentWord.tags[0] }}
-          </span>
-          <span class="count">{{ currentIndex + 1 }} / {{ wordsList.length }}</span>
-        </div>
-      </div>
+      </template>
+      <template v-else>
+        <transition name="content-fade" mode="out-in">
+          <div class="content" key="content" :class="{ 'visible': isContentVisible }">
+            <div class="userRepeat">
+              <button class="circle-btn" @click="showRandomWord" title="单击Enter"></button>
+              <input 
+                type="text" 
+                v-model="userInput"
+                placeholder="自由的代价是永远的警惕。——《C Primer Plus》" 
+              />
+              <button class="circle-btn" @click="showRandomWord" title="单击Enter"></button>
+            </div>
+            <div class="navigation">
+              <WordCard 
+                ref="wordCardRef"
+                :word="currentWord.word"
+                :translation="currentWord.translation"
+                lang="en-US"
+              />
+            </div>
+            <div class="progress">
+              <span class="tag" v-if="currentWord.tags && currentWord.tags.length > 0">
+                {{ currentWord.tags[0] }}
+              </span>
+              <span class="count">{{ currentIndex + 1 }} / {{ wordsList.length }}</span>
+            </div>
+          </div>
+        </transition>
+      </template>
     </Transition>
 
     <!-- 单词列表选择器 -->
