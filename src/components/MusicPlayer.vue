@@ -4,7 +4,6 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import callOfSilence from '../assets/music/Call of Silence.mp3'
 import Sincerely from '../assets/music/Sincerely.mp3'
 import Young from '../assets/music/Young and Beautiful.mp3'
-import Rain from '../assets/music/rain.mp3'
 
 
 const isPlaying = ref(false)
@@ -21,7 +20,6 @@ const musicList = ref([
   { name: 'Call of Silence', url: callOfSilence },
   { name: 'Sincerely', url: Sincerely },
   { name: 'Young and Beautiful', url: Young },
-  { name: '雷雨交加', url: Rain },
 ])
 
 // 添加新音乐到列表
