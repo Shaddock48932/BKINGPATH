@@ -5,8 +5,6 @@
 ```bash
 # 安装所需依赖
 npm install
-npm install express cors
-npm install -D concurrently
 ```
 
 ## 启动方法
@@ -22,15 +20,14 @@ npm run start
 npm run dev
 
 # 终端2：启动情思服务
-node server-feelings.js
+npm run feelings
 ```
 
 ## 使用情思功能
 
 1. 点击应用右上角 💟 图标打开情思面板
 2. 在底部输入框中输入ID和情思内容，按Enter提交
-3. 面板右上角会显示同步状态（正在同步/同步成功/同步失败）
-4. 数据自动保存到 `src/data/encrypted-feelings.json`
+3. 数据自动保存到 `src/data/encrypted-feelings.json`
 
 ## 工作原理
 

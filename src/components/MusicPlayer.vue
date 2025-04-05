@@ -1,11 +1,13 @@
 <!-- 音乐播放器 -->
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, inject } from 'vue'
 import callOfSilence from '../assets/music/Call of Silence.mp3'
 import Sincerely from '../assets/music/Sincerely.mp3'
 import Young from '../assets/music/Young and Beautiful.mp3'
 import Radio from '../assets/music/radio.mp3'
 
+// 注入音效函数
+const playTouchSound = inject('playTouchSound')
 
 const isPlaying = ref(false)
 const isRotating = ref(false)
@@ -168,6 +170,7 @@ onUnmounted(() => {
       :class="{ 'rotating': isRotating }"
       @click="handleClick"
       @dblclick="handleDoubleClick"
+      @mouseenter="playTouchSound"
       :title="currentMusicName || '点击显示音乐列表'"
     >
       🎵

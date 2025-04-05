@@ -1,0 +1,37 @@
+{
+  "todos": [
+    {
+      "id": 1743868385943,
+      "text": "喝一口水",
+      "completed": true,
+      "timestamp": 1743868385943,
+      "reward": 1,
+      "completedAt": 1743868401904
+    },
+    {
+      "id": 1743868521024,
+      "text": "再喝一口水",
+      "completed": true,
+      "timestamp": 1743868521024,
+      "reward": 1,
+      "completedAt": 1743868523654
+    },
+    {
+      "id": 1743868543589,
+      "text": "再喝一口水",
+      "completed": true,
+      "timestamp": 1743868543589,
+      "reward": 1,
+      "completedAt": 1743868544671
+    },
+    {
+      "id": 1743868583438,
+      "text": "呼吸一次",
+      "completed": true,
+      "timestamp": 1743868583438,
+      "reward": 1,
+      "completedAt": 1743868584942
+    }
+  ],
+  "lastUpdated": "2025-04-05T16:00:25.345Z"
+}

@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "feelings": "node server-feelings.js",
-    "start": "concurrently \"npm run dev\" \"node server-feelings.js\""
+    "start": "concurrently \"npm run dev\" \"npm run feelings\""
   },
   "dependencies": {
     "axios": "^1.8.4",

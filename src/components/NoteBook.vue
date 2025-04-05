@@ -1,6 +1,6 @@
 <template>
     <div class="notebook-container" :class="{ 'expanded': isExpanded }">
-        <div class="notebook-button" @click.stop="toggleExpand">
+        <div class="notebook-button" @click.stop="toggleExpand" @mouseenter="playTouchSound">
             <span class="icon">💟</span>
         </div>
 
@@ -9,7 +9,7 @@
                 <div class="notebook-header">
                     <h3>情思</h3>
                     <div class="sync-status" v-if="syncStatus !== 'idle'">
-                        <span class="sync-message" :class="syncStatus">{{ syncMessage }}</span>
+                        <span class="sync-message" :class="syncStatus"></span>
                     </div>
                     <!-- <button class="close-btn" @click="toggleExpand">
                         <span class="fas fa-times">✘</span>
@@ -36,10 +36,14 @@
                     <div class="input-group">
                         <input type="text" v-model="userId" placeholder="ID" class="user-id-input"
                             @paste.prevent @contextmenu.prevent @copy.prevent @cut.prevent @keydown="handleKeyDownUserId" 
-                            autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+                            autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off"
+                            data-form-type="other" inputmode="text" data-lpignore="true"
+                            data-1p-ignore="true" data-disable-autofill>
                         <input type="text" v-model="message" placeholder="情思" class="message-input"
                             @keyup.enter="addNote" @paste.prevent @contextmenu.prevent @copy.prevent @cut.prevent @keydown="handleKeyDownMessage" 
-                            autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off">
+                            autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off"
+                            data-form-type="other" inputmode="text" data-lpignore="true"
+                            data-1p-ignore="true" data-disable-autofill>
                         <button class="send-btn" @click.stop.prevent="addNote">
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -51,11 +55,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
+import { ref, onMounted, onUnmounted, watch, computed, inject } from 'vue'
 import { encryptedData, dataSignature } from '../data/encrypted-feelings.js'
 import { encryptData, decryptData, createSignature, verifySignature } from '../utils/encryption.js'
 import { decryptFeelingItem, encryptFeelingItem, decryptContent, encryptContent } from '../utils/feelingsEncryption.js'
-import encryptedFeelingsData from '../data/encrypted-feelings.json'
+
+// 注入音效函数
+const playTouchSound = inject('playTouchSound')
 
 // 使用加密过的情思数据
 const isExpanded = ref(false)
@@ -69,7 +75,6 @@ const panel = ref(null)
 
 // 添加情思同步状态
 const syncStatus = ref('idle'); // 'idle', 'syncing', 'success', 'error'
-const syncMessage = ref('');
 const syncTimeout = ref(null);
 
 // 显示解密后的笔记内容
@@ -119,12 +124,7 @@ const defaultFeelingsData = [
 // 解密和验证基础情思数据
 const decryptBaseNotes = () => {
     try {
-        // 从 encrypted-feelings.json 中读取加密的情思数据
-        baseNotes.value = [...encryptedFeelingsData];
-        // 合并笔记数据
-        mergeNotes();
-
-        // 以下代码保留但不执行，作为备用
+        // 不再从json文件中读取，而是直接使用encrypted-feelings.js中的数据
         // 解密数据
         const decryptedData = decryptData(encryptedData)
         if (!decryptedData) {
@@ -156,9 +156,14 @@ const decryptBaseNotes = () => {
             console.error('情思数据签名验证失败，可能已被篡改')
             baseNotes.value = [...defaultFeelingsData]
         }
+        
+        // 合并笔记数据
+        mergeNotes();
     } catch (error) {
         console.error('解密情思数据失败', error)
         baseNotes.value = [...defaultFeelingsData]
+        // 确保在出错的情况下也能合并笔记
+        mergeNotes();
     }
 }
 
@@ -342,7 +347,6 @@ const syncFeelingsToServer = async () => {
     try {
         // 设置同步状态
         syncStatus.value = 'syncing';
-        syncMessage.value = '正在同步...';
         
         // 准备数据
         const allFeelings = [...baseNotes.value, ...additionalNotes.value]
@@ -361,14 +365,12 @@ const syncFeelingsToServer = async () => {
         
         if (result.success) {
             syncStatus.value = 'success';
-            syncMessage.value = '同步成功';
         } else {
             throw new Error(result.message || '同步失败');
         }
     } catch (error) {
         console.error('同步情思数据失败:', error);
         syncStatus.value = 'error';
-        syncMessage.value = `同步失败: ${error.message}`;
     } finally {
         // 3秒后清除状态
         if (syncTimeout.value) {
@@ -376,7 +378,6 @@ const syncFeelingsToServer = async () => {
         }
         syncTimeout.value = setTimeout(() => {
             syncStatus.value = 'idle';
-            syncMessage.value = '';
         }, 3000);
     }
 };

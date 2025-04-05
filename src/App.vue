@@ -1,9 +1,98 @@
 <script setup>
-import { ref, onMounted, watch, onBeforeUnmount } from 'vue'
+import { ref, onMounted, watch, onBeforeUnmount, provide } from 'vue'
 import WordCard from './components/WordCard.vue'
 import BackgroundUploader from './components/BackgroundUploader.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 import NoteBook from './components/NoteBook.vue'
+import TodoList from './components/TodoList.vue'
+
+// 导入音效
+import nextSound from './assets/sound/next.mp3'
+import buttonSound from './assets/sound/button2.mp3'
+import touchSound from './assets/sound/touch.mp3'
+
+// 音效音量设置
+const soundVolume = ref(0.4) // 默认音量50%
+
+// 金币系统
+const coins = ref(0)
+const coinAnimating = ref(false)
+const isSaving = ref(false) // 保存状态
+const serverError = ref(false) // 服务器错误状态
+
+// 增加金币函数
+const addCoins = async (amount) => {
+  if(amount > 1){
+    // 设置动画标记
+    coinAnimating.value = true
+  }
+  
+  // 增加金币
+  coins.value += amount
+  
+  // 使用金币API保存数据
+  try {
+    isSaving.value = true;
+    serverError.value = false;
+    
+    const response = await fetch('http://localhost:3031/api/save-coins', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ coins: coins.value })
+    });
+    
+    if (!response.ok) {
+      throw new Error('保存到服务器失败');
+    }
+    
+    console.log('金币数据已成功保存到服务器');
+    
+  } catch (error) {
+    console.error('保存金币数据失败:', error);
+    serverError.value = true;
+  } finally {
+    isSaving.value = false;
+    
+    // 重置动画标记
+    setTimeout(() => {
+      coinAnimating.value = false
+    }, 500)
+  }
+}
+
+// 从服务器加载金币数据
+const loadCoinsFromServer = async () => {
+  try {
+    // 尝试从金币API获取数据
+    const response = await fetch('http://localhost:3031/api/get-coins');
+    
+    if (!response.ok) {
+      throw new Error('获取金币数据失败');
+    }
+    
+    const data = await response.json();
+    
+    if (data.success && data.data && typeof data.data.coins === 'number') {
+      coins.value = data.data.coins;
+      console.log('从服务器加载了金币数据:', coins.value);
+    } else if (data.coins !== undefined) {
+      coins.value = data.coins;
+      console.log('从服务器加载了金币数据:', coins.value);
+    } else {
+      console.log('服务器中没有找到金币数据，初始化为0');
+      coins.value = 0;
+    }
+    
+    serverError.value = false;
+    
+  } catch (error) {
+    console.error('加载金币数据失败:', error);
+    serverError.value = true;
+    coins.value = 0;
+  }
+}
 
 // 可用的单词列表文件
 const wordLists = [
@@ -45,6 +134,54 @@ const lastCtrlTime = ref(0)
 // 音乐播放器引用
 const musicPlayerRef = ref(null)
 
+// 音效对象
+const nextAudio = new Audio(nextSound)
+const buttonAudio = new Audio(buttonSound)
+const touchAudio = new Audio(touchSound)
+
+// 设置音效音量
+nextAudio.volume = soundVolume.value
+buttonAudio.volume = soundVolume.value
+touchAudio.volume = soundVolume.value
+
+// 调整音效音量的函数
+const setSoundVolume = (volume) => {
+  if (volume < 0) volume = 0
+  if (volume > 1) volume = 1
+  
+  soundVolume.value = volume
+  nextAudio.volume = volume
+  buttonAudio.volume = volume
+  touchAudio.volume = volume
+  localStorage.setItem('soundVolume', volume.toString())
+}
+
+// 播放音效函数
+const playNextSound = () => {
+  nextAudio.currentTime = 0
+  nextAudio.play()
+}
+
+const playButtonSound = () => {
+  buttonAudio.currentTime = 0
+  buttonAudio.play()
+}
+
+const playTouchSound = () => {
+  touchAudio.currentTime = 0
+  touchAudio.play()
+}
+
+// 将音效函数提供给子组件
+provide('playNextSound', playNextSound)
+provide('playButtonSound', playButtonSound)
+provide('playTouchSound', playTouchSound)
+provide('setSoundVolume', setSoundVolume)
+provide('soundVolume', soundVolume)
+
+// 将addCoins函数提供给子组件
+provide('addCoins', addCoins)
+
 /**
  * 显示随机单词
  */
@@ -59,6 +196,7 @@ const showRandomWord = () => {
   currentIndex.value = newIndex
   currentWord.value = wordsList.value[newIndex]
   userInput.value = '' // 清除输入框内容
+  playNextSound() // 播放下一个音效
 }
 
 /**
@@ -105,6 +243,7 @@ const loadWordsList = async (listFile) => {
 // 监听单词列表切换
 watch(() => currentList.value, (newList) => {
   loadWordsList(newList.file)
+  playButtonSound() // 播放切换音效
 })
 
 // 监听用户输入
@@ -114,6 +253,9 @@ watch(() => userInput.value, (newValue) => {
   
   if (newValue === currentWord.value.word) {
     input.style.color = 'white'
+    playTouchSound()
+    // 正确输入单词时奖励金币
+    addCoins(1)
   } else {
     input.style.color = '#ff6b6b'
   }
@@ -121,6 +263,15 @@ watch(() => userInput.value, (newValue) => {
 
 // 初始加载
 onMounted(() => {
+  // 从本地存储加载音量设置
+  const savedVolume = localStorage.getItem('soundVolume')
+  if (savedVolume !== null) {
+    setSoundVolume(parseFloat(savedVolume))
+  }
+  
+  // 从服务器加载金币数据
+  loadCoinsFromServer();
+  
   loadWordsList(currentList.value.file)
   
   // 添加键盘事件监听
@@ -183,12 +334,56 @@ const handleMusicUpload = (event) => {
   // 清空input，允许重复上传同一文件
   event.target.value = ''
 }
+
+// todolist点击处理
+const todoClickTimer = ref(null)
+const showTodoList = ref(false)
+const isTodoRotating = ref(false)
+const todoListRef = ref(null)
+
+// 简化todolist点击处理逻辑
+const handleTodoClick = () => {
+  // 直接切换显示状态
+  showTodoList.value = !showTodoList.value
+}
+
+const handleTodoDoubleClick = (e) => {
+  // 双击时阻止触发单击事件
+  e.stopPropagation()
+  isTodoRotating.value = !isTodoRotating.value
+  playTouchSound()
+}
 </script>
 
 <template>
+  <div class="ceil-bar">
+    <div class="money-box">
+      <span class="coin-icon">💸</span>
+      <span class="coin-count" :class="{ 'coin-animate': coinAnimating }">
+        {{ coins }}
+        <small v-if="isSaving" class="saving-indicator">
+          <i class="saving-dot"></i>
+        </small>
+        <small v-if="serverError" class="error-indicator">!</small>
+      </span>
+    </div>
+    <div class="todolist">
+      <span 
+        class="todolist-icon" 
+        :class="{ 'rotating': isTodoRotating }"
+        @mouseenter="playTouchSound" 
+        @click="handleTodoClick"
+        @dblclick="handleTodoDoubleClick($event)"
+        title="待办事项"
+      >📋</span>
+    </div>
+  </div>
+  
+  <TodoList v-model:showTodoList="showTodoList" ref="todoListRef" />
+  <NoteBook />
+  <MusicPlayer ref="musicPlayerRef" />
+  
   <div class="container">
-    <NoteBook />
-    <MusicPlayer ref="musicPlayerRef" />
     <Transition name="fade" mode="out-in">
       <template v-if="isLoading">
         <div class="loading" key="loading">
@@ -230,7 +425,6 @@ const handleMusicUpload = (event) => {
         </transition>
       </template>
     </Transition>
-
     <!-- 单词列表选择器 -->
     <div class="list-selector">
       <button 
@@ -238,7 +432,7 @@ const handleMusicUpload = (event) => {
         :key="list.file"
         class="list-btn"
         :class="{ 'active': currentList === list }"
-        @click="currentList = list"
+        @click="currentList = list; playButtonSound()"
       >
         {{ list.name }}
       </button>
@@ -254,7 +448,7 @@ const handleMusicUpload = (event) => {
           @change="handleMusicUpload"
           style="display: none;"
         />
-        <i class="fas fa-music"></i> 添加小曲
+        <i class="fas fa-music" style="color: rgba(255, 255, 255, 0.6);"></i> 添加小曲
       </label>
       <!-- 背景上传器 -->
       <BackgroundUploader />
@@ -262,7 +456,218 @@ const handleMusicUpload = (event) => {
   </div>
 </template>
 
+<style>
+/* 禁用浏览器自动填充弹框和相关样式 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(30, 30, 35, 0.9) inset !important;
+  -webkit-text-fill-color: #e0e0e5 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* 禁用Chrome的自动填充蓝色背景 */
+input:-webkit-autofill {
+  background-clip: content-box !important;
+}
+
+/* 禁用浏览器记住密码的弹窗 */
+input {
+  /* 禁用自动完成 */
+  autocomplete: "off";
+  /* 禁用自动填充 */
+  -webkit-autofill: "off";
+}
+
+/* 禁用Edge/IE的明黄色自动填充背景 */
+input:-ms-input-placeholder {
+  opacity: 1;
+}
+</style>
+
 <style scoped>
+.ceil-bar{
+  position: fixed;
+  top: 20px;
+  left: 5vw;
+  width: 60vw;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  /* background: rgba(0, 0, 0, 0.5); */
+  /* backdrop-filter: blur(10px); */
+}
+/* 金币盒样式 */
+.money-box {
+  z-index: 1000;
+  width: 110px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0 15px;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.money-box:hover {
+  opacity: 1;
+}
+
+.coin-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
+
+.coin-count {
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+}
+
+.saving-indicator {
+  position: absolute;
+  top: -2px;
+  right: -10px;
+  opacity: 0.8;
+}
+
+.saving-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #00ff00;
+  animation: blink 0.8s infinite alternate;
+}
+
+.error-indicator {
+  position: absolute;
+  top: -2px;
+  right: -8px;
+  color: #ff5252;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.coin-animate {
+  transform: scale(1.2);
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+.money-box::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+  animation: soft-breath 6s ease-in-out infinite;
+  z-index: -1;
+  filter: blur(3px);
+}
+
+.money-box::after {
+  content: '';
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  border-radius: 20px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 60%);
+  animation: soft-breath-outer 6s ease-in-out infinite 0.5s;
+  z-index: -2;
+  filter: blur(5px);
+}
+
+.money-box:hover {
+  cursor: pointer;
+  /* transform: translateY(-2px); */
+}
+
+@media (min-width: 1245px) {
+  .money-box {
+    width: 110px;
+    height: 48px;
+    font-size: 24px;
+  }
+  
+  .coin-icon {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .money-box {
+    left: 70px;
+    top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .money-box {
+    left: 60px;
+    top: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+@keyframes soft-breath {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+    filter: brightness(0.8) blur(3px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+    filter: brightness(1.2) blur(3px);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+    filter: brightness(0.8) blur(3px);
+  }
+}
+
+@keyframes soft-breath-outer {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+    filter: brightness(0.8) blur(5px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+    filter: brightness(1.1) blur(5px);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+    filter: brightness(0.8) blur(5px);
+  }
+}
+
 .container {
   padding: 20px;
   max-width: 800px;
@@ -598,6 +1003,10 @@ const handleMusicUpload = (event) => {
 }
 .upload-btn-music{
   margin-bottom: 50px;
+  font-family: serif;
+  height: 20px;
+  opacity: 0.7;
+  backdrop-filter: blur(8px);
 }
 .upload-btn:hover {
   background: rgba(255, 255, 255, 0.2);
@@ -646,4 +1055,101 @@ const handleMusicUpload = (event) => {
   }
 }
 
+@keyframes blink {
+  0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+.todolist {
+  /* position: absolute; */
+  /* left: 90px; */
+  /* margin-top: 0px; */
+  margin-left: 20px;
+  z-index: 1000;
+}
+
+.todolist-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  user-select: none;
+  z-index: 2;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  animation: rotate 15s linear infinite;
+  animation-play-state: paused;
+  opacity: 0.5;
+}
+
+.todolist-icon:hover {
+  opacity: 1;
+}
+
+.todolist-icon::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+  animation: soft-breath 6s ease-in-out infinite;
+  z-index: -1;
+  filter: blur(3px);
+}
+
+.todolist-icon::after {
+  content: '';
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 60%);
+  animation: soft-breath-outer 6s ease-in-out infinite 0.5s;
+  z-index: -2;
+  filter: blur(5px);
+}
+
+.todolist-icon:active {
+  transform: scale(0.9);
+}
+
+@media (min-width: 1245px) {
+  .todolist-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .todolist {
+    left: 70px;
+    top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .todolist {
+    left: 55px;
+    top: 10px;
+  }
+  
+  .todolist-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
 </style>

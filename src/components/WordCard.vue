@@ -286,6 +286,7 @@ button::-moz-focus-inner {
   gap: 15px;
   transition: all 0.3s ease;
   box-sizing: border-box;
+  transition: 0.3s ease-in-out;
 }
 
 .content-wrapper {
@@ -299,9 +300,7 @@ button::-moz-focus-inner {
   min-height: 100px;
 }
 
-.content-wrapper:hover {
-  background-color: rgba(0, 0, 0, 0.02);
-}
+
 
 /* 单词文本样式 */
 .word {
@@ -343,7 +342,7 @@ button::-moz-focus-inner {
 .btn {
   width: 36px;
   height: 36px;
-  border: 1px solid #666;
+  border: 1px solid #cfcfcf;
   border-radius: 8px;
   display: flex;
   align-items: center;
