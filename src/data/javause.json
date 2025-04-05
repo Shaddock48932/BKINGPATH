@@ -1,0 +1,1282 @@
+[
+    {
+        "id": 1,
+        "word": "abstract class",
+        "translation": "抽象类,抽象类不能创建对象，主要用来创建子类。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 2,
+        "word": "inheritance",
+        "translation": "继承，一个类从另一个类继承数据和行为。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 3,
+        "word": "access specifier",
+        "translation": "访问标识符，用于方法或变量定义，限定了哪些类可以访问该方法或变量。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 4,
+        "word": "polymorphism",
+        "translation": "多态，允许对象通过不同方式表现自己。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 5,
+        "word": "parameter",
+        "translation": "参数",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 6,
+        "word": "address",
+        "translation": "地址,计算机内存中的每个位置都有一个地址。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 7,
+        "word": "algorithm",
+        "translation": "算法，完成某项任务所需要的一步一步的过程。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 8,
+        "word": "encapsulation",
+        "translation": "封装，将数据和方法绑定在一起，保护数据不被外部直接访问。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 9,
+        "word": "API",
+        "translation": "应用编程接口，针对软件包或“工具箱”的接口说明。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 10,
+        "word": "Applet",
+        "translation": "小程序,一种在Web浏览器中运行在Web页面上的Java程序。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 11,
+        "word": "animation",
+        "translation": "动画，由一组静态图片快速显示展示出动态效果。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 12,
+        "word": "package",
+        "translation": "包，用于组织类、接口等相关的 Java 程序元素。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 13,
+        "word": "array",
+        "translation": "数组，一个顺序排列的元素列表。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 14,
+        "word": "extends",
+        "translation": "扩展，表示类继承另一个类。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 15,
+        "word": "assignment statement",
+        "translation": "赋值语句，将值存储到变量中。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 16,
+        "word": "asynchronous",
+        "translation": "异步。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 17,
+        "word": "ASCII",
+        "translation": "美国信息交换标准码，用7个比特对字符编码。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 18,
+        "word": "implements",
+        "translation": "实现，表示类实现接口。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 19,
+        "word": "binary number",
+        "translation": "二进制数，用一组0、1序列表示数值。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 20,
+        "word": "binary tree",
+        "translation": "二叉树，一种链式数据结构，由两棵更小的二叉树与根节点组成。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 21,
+        "word": "throw",
+        "translation": "抛出，手动抛出异常。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 22,
+        "word": "black box",
+        "translation": "黑盒，系统或组件在使用时无需关心内部结构。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 23,
+        "word": "block",
+        "translation": "块，被花括号包围的一组语句。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 24,
+        "word": "flush",
+        "translation": "清空",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 25,
+        "word": "blocking queue",
+        "translation": "阻塞队列，当队列为空时，出队操作会引发阻塞。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 26,
+        "word": "bottom",
+        "translation": "up design-自底向上设计，从系统的基础组件开始设计。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 27,
+        "word": "branch",
+        "translation": "分支，通过分支从多个执行路径中进行选择。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 28,
+        "word": "byte",
+        "translation": "字节，由8个比特组成的内存单元。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 29,
+        "word": "bytecode",
+        "translation": "字节码，Java程序被编译成的机器语言。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 30,
+        "word": "charset",
+        "translation": "字符集，将字符数据编码为二进制的特定编码形式。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 31,
+        "word": "checked exception",
+        "translation": "受检异常，必须处理的异常。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 32,
+        "word": "class",
+        "translation": "类，Java的基础编程单元，包含静态方法、非静态方法和变量。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 33,
+        "word": "synchronized",
+        "translation": "同步，保证线程安全的关键字。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 34,
+        "word": "volatile",
+        "translation": "易变，表示变量可能会被多个线程同时修改。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 35,
+        "word": "command",
+        "translation": "line interface-命令行接口，用户向计算机输入命令进行交互。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 36,
+        "word": "comment",
+        "translation": "注释，被计算机忽略的文本，目的是帮助人们理解程序。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 37,
+        "word": "compiler",
+        "translation": "编译器，将高级语言程序翻译成机器语言程序。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 38,
+        "word": "component",
+        "translation": "组件，GUI中的可视元素，如按钮或菜单。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 39,
+        "word": "constructor",
+        "translation": "构造函数，创建类对象的特殊子程序。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 40,
+        "word": "assert",
+        "translation": "断言，用于在调试时检查假设的条件。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 41,
+        "word": "public",
+        "translation": "公共的，表示某个方法或类是公共的，可以被外部访问。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 42,
+        "word": "Spring Framework",
+        "translation": "开源框架，用于构建企业级 Java 应用，支持依赖注入和 AOP。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 43,
+        "word": "Hibernate",
+        "translation": "ORM 框架，用于简化 Java 对象与数据库的映射。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 44,
+        "word": "data structure",
+        "translation": "数据结构，经过组织的数据集合。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 45,
+        "word": "deadlock",
+        "translation": "死锁，多个线程无限等待的情况。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 46,
+        "word": "default method",
+        "translation": "默认方法，Java 8接口中的方法，提供默认实现。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 47,
+        "word": "default package",
+        "translation": "默认包，没有包名。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 48,
+        "word": "deprecated",
+        "translation": "弃用，表示已经废弃的内容。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 49,
+        "word": "dialog box",
+        "translation": "对话框，依赖其它窗体创建的新窗体。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 50,
+        "word": "distributed computing",
+        "translation": "分布式计算，网络连接多个计算机进行并行处理。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 51,
+        "word": "enum",
+        "translation": "枚举类型，列举了类型所有可能值。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 52,
+        "word": "Spring Boot",
+        "translation": "用于快速开发和部署 Spring 应用的框架。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 53,
+        "word": "exception",
+        "translation": "异常，程序控制流程之外的错误或异常情况。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 54,
+        "word": "fetch",
+        "translation": "and-execute cycle-获取-执行周期，CPU执行机器语言程序的过程。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 55,
+        "word": "Maven",
+        "translation": "构建和依赖管理工具，用于 Java 项目。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 56,
+        "word": "frame",
+        "translation": "帧，组成动画的某一幅画面。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 57,
+        "word": "JUnit",
+        "translation": "用于 Java 单元测试的框架。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 58,
+        "word": "garbage collection",
+        "translation": "垃圾回收，自动回收内存的过程。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 59,
+        "word": "generic",
+        "translation": "泛型，泛型编程编写的代码可以适应多种数据类型。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 60,
+        "word": "Struts",
+        "translation": "经典的 Java Web 应用框架，支持 MVC 架构，提供了丰富的标签库和可扩展性。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 61,
+        "word": "Batis",
+        "translation": "MyBatis,持久化框架，提供了更细粒度的 SQL 控制，提供高效灵活的数据库操作。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 62,
+        "word": "Dynamic Link Library",
+        "translation": "动态链接库",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 63,
+        "word": "hash table",
+        "translation": "哈希表，一种优化的数据结构。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 64,
+        "word": "heap",
+        "translation": "堆，计算机内存中存储对象的区域。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 65,
+        "word": "language",
+        "translation": "语言，Java是计算机语言。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 66,
+        "word": "Enterprise",
+        "translation": "企业版",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 67,
+        "word": "IDE",
+        "translation": "集成开发环境，包含创建、编辑和执行程序的工具。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 68,
+        "word": "identifier",
+        "translation": "标识符，在程序中用作名字的一组字符。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 69,
+        "word": "index",
+        "translation": "索引号，元素在数组中的位置编号。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 70,
+        "word": "implementation",
+        "translation": "实现，黑盒的内部实现，如子程序的实现代码。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 71,
+        "word": "inheritance",
+        "translation": "继承，一个类可以继承另一个类。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 72,
+        "word": "instance",
+        "translation": "实例，类的对象。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 73,
+        "word": "instance variable",
+        "translation": "实例变量，类中的非静态变量。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 74,
+        "word": "interface",
+        "translation": "接口，定义了一个或多个抽象方法的类型。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 75,
+        "word": "interpreter",
+        "translation": "解释器，将编程语言中的指令逐条翻译成机器语言。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 76,
+        "word": "I/O",
+        "translation": "输入/输出，计算机程序与外部部分的通讯方式。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 77,
+        "word": "iterator",
+        "translation": "迭代器，与集合相关联的对象，用于遍历集合。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 78,
+        "word": "Java Collection Framework",
+        "translation": "Java集合框架，一组标准类实现的泛型数据结构。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 79,
+        "word": "trim",
+        "translation": "整理",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 80,
+        "word": "JDK",
+        "translation": "Java开发工具集，支持编译、运行Java程序的基本软件。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 81,
+        "word": "Java Development Kit",
+        "translation": "java开发工具包",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 82,
+        "word": "Grails",
+        "translation": "基于 Groovy 和 Spring，专注于 Web 应用开发。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 83,
+        "word": "JVM",
+        "translation": "Java虚拟机，将字节码作为机器语言执行的虚拟计算机。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 84,
+        "word": "layout manager",
+        "translation": "布局管理器，负责对容器中组件进行布局的对象。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 85,
+        "word": "JVM",
+        "translation": "Java VirtualMachine,Java虚拟机",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 86,
+        "word": "dependency",
+        "translation": "依赖，项目或应用所需的外部库或组件。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 87,
+        "word": "serialization",
+        "translation": "序列化，将对象转换为字节流，以便存储或传输。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 88,
+        "word": "Gradle",
+        "translation": "一个现代的构建工具，支持构建自动化、依赖管理和多项目构建。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 89,
+        "word": "Apache Tomcat",
+        "translation": "一个流行的开源 Java Servlet 容器，用于运行 Java Web 应用。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 90,
+        "word": "Redis",
+        "translation": "一个高效的内存数据存储，支持键值对数据存储，用于缓存和会话管理。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 91,
+        "word": "Docker",
+        "translation": "一种容器化技术，允许开发者在隔离的环境中部署应用。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 92,
+        "word": "machine",
+        "translation": "机器，机器语言是由计算机能够直接执行的指令组成的编程语言。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 93,
+        "word": "Kubernetes",
+        "translation": "一个开源的容器编排平台，用于自动化容器的部署、扩展和管理。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 94,
+        "word": "Amazon Web Services",
+        "translation": "亚马逊提供的云计算服务，支持托管和部署 Java 应用。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 95,
+        "word": "JSON Web Token",
+        "translation": "JWT,用于在 Web 应用中安全传递信息的开放标准。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 96,
+        "word": "Mockito",
+        "translation": "一个用于 Java 的模拟测试框架，常用于单元测试中的对象模拟。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 97,
+        "word": "Swagger",
+        "translation": "用于 API 文档生成和测试的工具，特别用于 RESTful API 的描述。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 98,
+        "word": "module",
+        "translation": "模块，系统中的组件，与其他部分以简单清晰的方式进行交互。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 99,
+        "word": "multitasking",
+        "translation": "多任务，计算机一次执行多个任务。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 100,
+        "word": "multiprocessing",
+        "translation": "多重处理，使用多个处理器进行任务处理。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 101,
+        "word": "mutual exclusion",
+        "translation": "互斥，防止两个线程同时访问相同资源。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 102,
+        "word": "Exception",
+        "translation": "意外，异常",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 103,
+        "word": "Jenkins",
+        "translation": "自动化构建和持续集成工具，广泛用于 Java 项目的持续集成。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 104,
+        "word": "node",
+        "translation": "节点，链式数据结构中的某个对象。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 105,
+        "word": "MySQL",
+        "translation": " 一个开源的关系型数据库管理系统，广泛应用于 Java Web 项目。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 106,
+        "word": "object",
+        "translation": "对象，程序中带有数据（变量）和行为（方法）的实体。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 107,
+        "word": "Vaadin",
+        "translation": "用于构建现代化 Web 应用的 Java 框架，支持服务器端和客户端的 UI 开发。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 108,
+        "word": "operating system",
+        "translation": "操作系统，计算机中一直运行的基础软件。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 109,
+        "word": "operator",
+        "translation": "操作符，如“+”，用于进行数学计算或其他操作。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 110,
+        "word": "Thymeleaf",
+        "translation": "一个 Java 模板引擎，广泛用于生成 Web 页面。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 111,
+        "word": "Unicode",
+        "translation": "统一的字符编码标准, 采用双字节对字符进行编码",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 112,
+        "word": "overriding",
+        "translation": "重写，子类重新定义从父类继承的方法。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 113,
+        "word": "package",
+        "translation": "包，相关类和子包的有名集合。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 114,
+        "word": "parallel processing",
+        "translation": "并行处理，同时执行多个任务。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 115,
+        "word": "parameter",
+        "translation": "参数，调用子程序时向子程序提供的信息。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 116,
+        "word": "parameterized",
+        "translation": "参数化，参数化类型包含一种或多种类型参数的类型。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 117,
+        "word": "parsing",
+        "translation": "解析，确定字符串语法结构的过程。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 118,
+        "word": "polymorphism",
+        "translation": "多态，调用实例方法的意义取决于对象的实际类型。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 119,
+        "word": "pointer",
+        "translation": "指针，代表计算机内存中某个地址的值。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 120,
+        "word": "pragmatics",
+        "translation": "语用学，编写程序的经验法则。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 121,
+        "word": "precedence",
+        "translation": "优先级，操作符的优先级决定了多个操作符的执行顺序。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 122,
+        "word": "precondition",
+        "translation": "前置条件，为了让程序正确运行必须满足的条件。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 123,
+        "word": "postcondition",
+        "translation": "后置条件，程序执行结束后必须满足的条件。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 124,
+        "word": "protocol",
+        "translation": "协议，构成合法通信的一组规范。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 125,
+        "word": "pseudocode",
+        "translation": "伪代码，非正式算法规范，类似英语的算法描述。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 126,
+        "word": "race condition",
+        "translation": "竞态条件，并行编程中的错误源，因多个线程改动共享资源引发错误。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 127,
+        "word": "recursion",
+        "translation": "递归，子程序直接或间接调用自身的过程。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 128,
+        "word": "reference",
+        "translation": "引用，指针的另一种称呼，指向内存地址。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 129,
+        "word": "Interrupted",
+        "translation": "中断的",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 130,
+        "word": "reserved word",
+        "translation": "保留字，编程语言中具有特殊意义的词，不能用作标识符。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 131,
+        "word": "resource",
+        "translation": "资源，程序中的图片、声音、数据文件等。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 132,
+        "word": "void",
+        "translation": "空的，表示方法没有返回值。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 133,
+        "word": "set",
+        "translation": "集合，一组没有重复的对象。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 134,
+        "word": "scope",
+        "translation": "作用域，表示程序中声明的标识符的有效范围。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 135,
+        "word": "semantics",
+        "translation": "语义，语言中的符号表示的意义。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 136,
+        "word": "sentinel value",
+        "translation": "哨兵值，用来表示数据序列结束的特殊标记。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 137,
+        "word": "Static",
+        "translation": "静态",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 138,
+        "word": "interface",
+        "translation": "接口",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 139,
+        "word": "socket",
+        "translation": "套接字，计算机程序间的逻辑连接。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 140,
+        "word": "stack",
+        "translation": "栈，一种只能在一端添加或移除元素的列表数据结构。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 141,
+        "word": "standard input",
+        "translation": "标准输入，程序读取输入数据的标准源。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 142,
+        "word": "standard output",
+        "translation": "标准输出，程序输出数据的标准目标。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 143,
+        "word": "state machine",
+        "translation": "状态机，一种计算机模型，通过状态切换来决定行为。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 144,
+        "word": "step wise refinement",
+        "translation": "逐步精化法，算法开发技术，逐步细化算法步骤。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 145,
+        "word": "stream",
+        "translation": "流，表示输入或输出数据源或目标的抽象。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 146,
+        "word": "subclass",
+        "translation": "子类，继承另一个类的类，获得其数据和行为。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 147,
+        "word": "subroutine",
+        "translation": "子程序，一系列指令，通过子程序名调用执行。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 148,
+        "word": "super",
+        "translation": "特殊变量，指向方法所在类的父类，用于访问父类的成员变量。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 149,
+        "word": "syntax",
+        "translation": "语法，语言中符号的规则和结构。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 150,
+        "word": "synchronized",
+        "translation": "线程，同步。一个时间内只能有一个线程得到执行。另一个线程必须等待当前线程",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 151,
+        "word": "this",
+        "translation": "特殊变量，指向方法所在的类实例。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 152,
+        "word": "thread",
+        "translation": "线程，计算机中执行的一系列指令的抽象表示。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 153,
+        "word": "thread pool",
+        "translation": "线程池，一组可以执行任务的工作线程。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 154,
+        "word": "top down design",
+        "translation": "自顶向下设计，开始将问题作为整体处理，再逐步拆分。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 155,
+        "word": "type",
+        "translation": "类型，数值的特定类型，如整型、字符型等。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 156,
+        "word": "Unicode",
+        "translation": "统一编码标准，将字符编码为二进制数的方式。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 157,
+        "word": "static",
+        "translation": "静态的，声明变量或方法是属于类的，而不是某个对象的。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 158,
+        "word": "variable",
+        "translation": "变量，用来存储数据的内存位置或一系列位置。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 159,
+        "word": "wrapper class",
+        "translation": "包装类，类似 Double、Integer 等类，将基本类型值“包装”在对象中。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    },
+    {
+        "id": 160,
+        "word": "XML",
+        "translation": "可扩展标记语言，一种用于表示文本数据的标准语言。",
+        "tags": [
+            "Java常用词汇"
+        ]
+    }
+]

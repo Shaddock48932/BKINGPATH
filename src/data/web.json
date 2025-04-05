@@ -1,0 +1,2746 @@
+[
+    {
+        "id": 1,
+        "word": "HTML",
+        "translation": "超文本标记语言",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 2,
+        "word": "Head",
+        "translation": "文档头部",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 3,
+        "word": "Body",
+        "translation": "文档主体",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 6,
+        "word": "Span",
+        "translation": "无语义行内元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 7,
+        "word": "image",
+        "translation": "图片",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 8,
+        "word": "source",
+        "translation": "源",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 9,
+        "word": "Alt",
+        "translation": "替代文本",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 11,
+        "word": "Href",
+        "translation": "链接地址",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 12,
+        "word": "Target",
+        "translation": "打开方式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 13,
+        "word": "Title",
+        "translation": "标题",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 14,
+        "word": "Style",
+        "translation": "样式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 15,
+        "word": "Class",
+        "translation": "类名",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 16,
+        "word": "ID",
+        "translation": "元素 ID",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 17,
+        "word": "Table",
+        "translation": "表格",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 18,
+        "word": "Tr",
+        "translation": "行",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 21,
+        "word": "Colspan",
+        "translation": "列合并",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 22,
+        "word": "Rowspan",
+        "translation": "行合并",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 23,
+        "word": "Form",
+        "translation": "表单",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 24,
+        "word": "Input",
+        "translation": "输入框",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 25,
+        "word": "Type",
+        "translation": "输入类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 26,
+        "word": "Name",
+        "translation": "名称",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 27,
+        "word": "Value",
+        "translation": "值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 28,
+        "word": "Checked",
+        "translation": "是否勾选",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 29,
+        "word": "Radio",
+        "translation": "单选框",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 30,
+        "word": "Checkbox",
+        "translation": "多选框",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 31,
+        "word": "Select",
+        "translation": "下拉框",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 32,
+        "word": "Option",
+        "translation": "选项",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 33,
+        "word": "Disabled",
+        "translation": "禁用",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 34,
+        "word": "Readonly",
+        "translation": "只读",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 35,
+        "word": "Button",
+        "translation": "按钮",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 36,
+        "word": "Submit",
+        "translation": "提交按钮",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 37,
+        "word": "Reset",
+        "translation": "重置按钮",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 38,
+        "word": "Label",
+        "translation": "文本标签",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 39,
+        "word": "Textarea",
+        "translation": "文本域",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 40,
+        "word": "Rows",
+        "translation": "行数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 41,
+        "word": "Cols",
+        "translation": "列数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 42,
+        "word": "Placeholder",
+        "translation": "提示语",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 43,
+        "word": "Required",
+        "translation": "是否必填",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 44,
+        "word": "Maxlength",
+        "translation": "最大长度",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 45,
+        "word": "Minlength",
+        "translation": "最小长度",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 46,
+        "word": "Pattern",
+        "translation": "格式匹配",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 47,
+        "word": "Email",
+        "translation": "邮箱类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 48,
+        "word": "Tel",
+        "translation": "电话类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 49,
+        "word": "Password",
+        "translation": "密码类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 50,
+        "word": "Number",
+        "translation": "数字类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 51,
+        "word": "Date",
+        "translation": "日期类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 52,
+        "word": "Time",
+        "translation": "时间类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 53,
+        "word": "Range",
+        "translation": "范围类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 54,
+        "word": "Color",
+        "translation": "颜色类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 55,
+        "word": "Search",
+        "translation": "搜索类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 56,
+        "word": "Datetime",
+        "translation": "日期时间类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 58,
+        "word": "Week",
+        "translation": "星期类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 60,
+        "word": "Fieldset",
+        "translation": "表单元素组",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 61,
+        "word": "Legend",
+        "translation": "表单元素组标题",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 62,
+        "word": "Label",
+        "translation": "表单控件标签",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 63,
+        "word": "Option",
+        "translation": "选项",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 64,
+        "word": "Command",
+        "translation": "命令",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 65,
+        "word": "Menu",
+        "translation": "上下文菜单",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 66,
+        "word": "Footer",
+        "translation": "底部",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 67,
+        "word": "Header",
+        "translation": "页眉",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 68,
+        "word": "Video",
+        "translation": "视频",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 69,
+        "word": "Audio",
+        "translation": "音频",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 70,
+        "word": "Source",
+        "translation": "媒体资源",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 71,
+        "word": "Track",
+        "translation": "字幕轨道",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 72,
+        "word": "Canvas",
+        "translation": "画布",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 74,
+        "word": "Path",
+        "translation": "路径",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 75,
+        "word": "Rect",
+        "translation": "矩形",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 76,
+        "word": "Circle",
+        "translation": "圆形",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 77,
+        "word": "Ellipse",
+        "translation": "椭圆",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 78,
+        "word": "Line",
+        "translation": "直线",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 79,
+        "word": "Polygon",
+        "translation": "多边形",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 80,
+        "word": "Polyline",
+        "translation": "折线",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 81,
+        "word": "Text",
+        "translation": "文本",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 82,
+        "word": "Tspan",
+        "translation": "文本段落",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 83,
+        "word": "Gradient",
+        "translation": "渐变",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 84,
+        "word": "Stop",
+        "translation": "渐变停止点",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 85,
+        "word": "Clippath",
+        "translation": "剪裁路径",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 86,
+        "word": "Mask",
+        "translation": "遮罩",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 87,
+        "word": "Filter",
+        "translation": "滤镜",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 88,
+        "word": "Blur",
+        "translation": "模糊滤镜",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 91,
+        "word": "FeOffset",
+        "translation": "偏移滤镜",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 93,
+        "word": "FeComponentTransfer",
+        "translation": "分量转换滤镜",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 99,
+        "word": "Foreign",
+        "translation": "外部",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 101,
+        "word": "Iframe",
+        "translation": "内嵌框架",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 102,
+        "word": "Source",
+        "translation": "多媒体资源",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 103,
+        "word": "Object",
+        "translation": "对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 104,
+        "word": "Param",
+        "translation": "参数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 105,
+        "word": "Style",
+        "translation": "样式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 106,
+        "word": "Script",
+        "translation": "脚本",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 108,
+        "word": "Type",
+        "translation": "脚本类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 109,
+        "word": "Async",
+        "translation": "异步加载",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 110,
+        "word": "Defer",
+        "translation": "延迟加载",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 111,
+        "word": "Charset",
+        "translation": "字符集",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 112,
+        "word": "Comment",
+        "translation": "注释",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 113,
+        "word": "Doctype",
+        "translation": "文档类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 115,
+        "word": "Language",
+        "translation": "语言",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 116,
+        "word": "Meta",
+        "translation": "页面元数据",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 117,
+        "word": "Charset",
+        "translation": "字符集",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 118,
+        "word": "Viewport",
+        "translation": "视口",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 119,
+        "word": "Content",
+        "translation": "属性值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 120,
+        "word": "Http",
+        "translation": "equiv - HTTP 头部",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 121,
+        "word": "Refresh",
+        "translation": "定时刷新",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 122,
+        "word": "Link",
+        "translation": "文档关联",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 123,
+        "word": "Rel",
+        "translation": "关联类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 125,
+        "word": "Size",
+        "translation": "尺寸",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 126,
+        "word": "Media",
+        "translation": "媒体查询条件",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 127,
+        "word": "Icon",
+        "translation": "页面图标",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 128,
+        "word": "Base",
+        "translation": "基础 URL",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 129,
+        "word": "Target",
+        "translation": "目标窗口",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 130,
+        "word": "Download",
+        "translation": "下载链接",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 131,
+        "word": "Charset",
+        "translation": "字符集",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 132,
+        "word": "Manifest",
+        "translation": "应用程序清单",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 133,
+        "word": "Contenteditable",
+        "translation": "可编辑性",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 134,
+        "word": "Spellcheck",
+        "translation": "拼写检查",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 135,
+        "word": "Translate",
+        "translation": "翻译",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 136,
+        "word": "Accesskey",
+        "translation": "快捷键",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 137,
+        "word": "AutoFocus",
+        "translation": "自动聚焦",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 138,
+        "word": "Enterkeyhint",
+        "translation": "回车键提示",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 139,
+        "word": "Formaction",
+        "translation": "自定义提交地址",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 140,
+        "word": "Formenctype",
+        "translation": "自定义编码类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 141,
+        "word": "Formmethod",
+        "translation": "自定义提交方法",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 142,
+        "word": "Formnovalidate",
+        "translation": "自定义表单验证",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 143,
+        "word": "Formtarget",
+        "translation": "自定义打开方式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 144,
+        "word": "Hidden",
+        "translation": "隐藏元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 145,
+        "word": "Ismap",
+        "translation": "图像地图",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 146,
+        "word": "Longdesc",
+        "translation": "图像说明文本",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 147,
+        "word": "Usemap",
+        "translation": "链接到图像地图",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 148,
+        "word": "Noresize",
+        "translation": "禁止调整窗口大小",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 149,
+        "word": "Noshade",
+        "translation": "禁止阴影",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 150,
+        "word": "Wrap",
+        "translation": "文本换行方式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 151,
+        "word": "selector",
+        "translation": "选择器",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 152,
+        "word": "property",
+        "translation": "属性",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 153,
+        "word": "value",
+        "translation": "值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 154,
+        "word": "class",
+        "translation": "类",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 155,
+        "word": "id",
+        "translation": "ID",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 156,
+        "word": "element",
+        "translation": "元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 157,
+        "word": "width",
+        "translation": "宽度",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 158,
+        "word": "height",
+        "translation": "高度",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 159,
+        "word": "margin",
+        "translation": "边距",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 160,
+        "word": "padding",
+        "translation": "内边距",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 161,
+        "word": "border",
+        "translation": "边框",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 162,
+        "word": "background",
+        "translation": "背景",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 163,
+        "word": "color",
+        "translation": "颜色",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 164,
+        "word": "font",
+        "translation": "字体",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 165,
+        "word": "text",
+        "translation": "文本",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 166,
+        "word": "display",
+        "translation": "显示",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 167,
+        "word": "position",
+        "translation": "定位",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 168,
+        "word": "float",
+        "translation": "浮动",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 169,
+        "word": "clear",
+        "translation": "清除浮动",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 170,
+        "word": "overflow",
+        "translation": "溢出",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 172,
+        "word": "cursor",
+        "translation": "鼠标指针",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 173,
+        "word": "transition",
+        "translation": "过渡",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 174,
+        "word": "animation",
+        "translation": "动画",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 175,
+        "word": "flexbox",
+        "translation": "弹性盒子布局",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 176,
+        "word": "grid",
+        "translation": "网格布局",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 177,
+        "word": "box",
+        "translation": "shadow - 盒子阴影",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 178,
+        "word": "text",
+        "translation": "shadow - 文本阴影",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 179,
+        "word": "opacity",
+        "translation": "不透明度",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 180,
+        "word": "transform",
+        "translation": "变换",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 181,
+        "word": "filter",
+        "translation": "滤镜",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 182,
+        "word": "gradient",
+        "translation": "渐变",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 183,
+        "word": "media query",
+        "translation": "媒体查询",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 184,
+        "word": "box model",
+        "translation": "盒子模型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 185,
+        "word": "inline",
+        "translation": "行内",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 186,
+        "word": "block",
+        "translation": "块级",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 187,
+        "word": "inline",
+        "translation": "block - 行内块级",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 188,
+        "word": "font",
+        "translation": "size - 字体大小",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 189,
+        "word": "line",
+        "translation": "height - 行高",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 190,
+        "word": "text",
+        "translation": "align - 文本对齐",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 191,
+        "word": "vertical",
+        "translation": "align - 垂直对齐",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 192,
+        "word": "list",
+        "translation": "style - 列表样式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 193,
+        "word": "border",
+        "translation": "radius - 边框圆角",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 194,
+        "word": "outline",
+        "translation": "外边框",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 195,
+        "word": "word",
+        "translation": "wrap - 换行",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 196,
+        "word": "text",
+        "translation": "overflow - 文本溢出",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 197,
+        "word": "white",
+        "translation": "space - 空格处理",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 198,
+        "word": "letter",
+        "translation": "spacing - 字符间距",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 199,
+        "word": "word",
+        "translation": "spacing - 单词间距",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 200,
+        "word": "box",
+        "translation": "sizing - 盒子尺寸",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 201,
+        "word": "top",
+        "translation": "上方距离",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 202,
+        "word": "right",
+        "translation": "右侧距离",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 203,
+        "word": "bottom",
+        "translation": "下方距离",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 204,
+        "word": "left",
+        "translation": "左侧距离",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 205,
+        "word": "visibility",
+        "translation": "显示状态",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 206,
+        "word": "table",
+        "translation": "表格",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 210,
+        "word": "user",
+        "translation": "select - 用户选择",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 211,
+        "word": "pointer",
+        "translation": "events - 指针事件",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 212,
+        "word": "font",
+        "translation": "weight - 字体粗细",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 215,
+        "word": "background",
+        "translation": "size - 背景尺寸",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 219,
+        "word": "justify",
+        "translation": "content - 主轴对齐方式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 220,
+        "word": "align",
+        "translation": "items - 侧轴对齐方式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 226,
+        "word": "flex",
+        "translation": "basis - 基准大小",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 229,
+        "word": "grid",
+        "translation": "gap - 网格间距",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 236,
+        "word": "gap",
+        "translation": "网格间距",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 237,
+        "word": "counter",
+        "translation": "reset - 计数器重置",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 240,
+        "word": "attr",
+        "translation": "获取元素属性值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 241,
+        "word": "calc",
+        "translation": "计算值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 242,
+        "word": "hover",
+        "translation": "鼠标悬停伪类",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 243,
+        "word": "active",
+        "translation": "鼠标点击伪类",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 244,
+        "word": "focus",
+        "translation": "获取焦点伪类",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 246,
+        "word": "before",
+        "translation": "在元素前插入内容",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 247,
+        "word": "after",
+        "translation": "在元素后插入内容",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 248,
+        "word": "first",
+        "translation": "letter - 对文本的第一个字母进行特殊处理",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 250,
+        "word": "media",
+        "translation": "媒体查询=",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 251,
+        "word": "alert",
+        "translation": "弹出警告框",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 252,
+        "word": "anchor",
+        "translation": "创建锚元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 253,
+        "word": "append",
+        "translation": "添加元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 254,
+        "word": "apply",
+        "translation": "调用函数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 255,
+        "word": "argument",
+        "translation": "参数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 256,
+        "word": "array",
+        "translation": "数组",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 257,
+        "word": "assign",
+        "translation": "对象赋值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 259,
+        "word": "await",
+        "translation": "等待异步执行结束",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 260,
+        "word": "bind",
+        "translation": "绑定函数到对象上",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 261,
+        "word": "boolean",
+        "translation": "布尔数据类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 262,
+        "word": "break",
+        "translation": "跳出循环",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 263,
+        "word": "buffer",
+        "translation": "缓冲区",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 264,
+        "word": "callback",
+        "translation": "回调函数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 265,
+        "word": "catch",
+        "translation": "捕获异常",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 266,
+        "word": "charAt",
+        "translation": "字符串方法，返回指定位置字符",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 267,
+        "word": "chartCode",
+        "translation": "字符串方法，返回指定字符编码",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 268,
+        "word": "class",
+        "translation": "类",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 269,
+        "word": "clear",
+        "translation": "清除控制台",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 270,
+        "word": "clone",
+        "translation": "克隆对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 271,
+        "word": "close",
+        "translation": "关闭窗口",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 272,
+        "word": "console",
+        "translation": "控制台对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 273,
+        "word": "const",
+        "translation": "常量",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 274,
+        "word": "constructor",
+        "translation": "构造函数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 275,
+        "word": "continue",
+        "translation": "跳过本轮循环",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 276,
+        "word": "cookie",
+        "translation": "cookie",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 277,
+        "word": "createElement",
+        "translation": "创建元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 278,
+        "word": "createTextNode",
+        "translation": "创建文本节点",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 279,
+        "word": "crypto",
+        "translation": "加密相关",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 280,
+        "word": "CSS",
+        "translation": "层叠样式表",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 281,
+        "word": "date",
+        "translation": "日期对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 282,
+        "word": "debugger",
+        "translation": "断点调试",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 283,
+        "word": "decodeURI",
+        "translation": "解码 URI",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 284,
+        "word": "decodeURIComponent",
+        "translation": "解码 URI 组件",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 285,
+        "word": "default",
+        "translation": "默认值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 286,
+        "word": "delete",
+        "translation": "删除属性",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 287,
+        "word": "do",
+        "translation": "循环结构",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 288,
+        "word": "document",
+        "translation": "文档对象模型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 289,
+        "word": "DOM",
+        "translation": "文档对象模型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 290,
+        "word": "double",
+        "translation": "双精度浮点数数据类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 291,
+        "word": "else",
+        "translation": "if 语句中的分支",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 292,
+        "word": "empty",
+        "translation": "空值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 295,
+        "word": "error",
+        "translation": "错误信息",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 296,
+        "word": "escape",
+        "translation": "转义字符串",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 297,
+        "word": "eval",
+        "translation": "计算字符串表达式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 298,
+        "word": "event",
+        "translation": "事件",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 299,
+        "word": "false",
+        "translation": "布尔值，表示假",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 300,
+        "word": "fetch",
+        "translation": "发送网络请求",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 301,
+        "word": "filter",
+        "translation": "数组过滤器",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 302,
+        "word": "find",
+        "translation": "查找数组元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 303,
+        "word": "flat",
+        "translation": "扁平化数组",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 304,
+        "word": "float",
+        "translation": "单精度浮点数数据类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 305,
+        "word": "floor",
+        "translation": "取整函数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 306,
+        "word": "forEach",
+        "translation": "数组迭代器",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 309,
+        "word": "function",
+        "translation": "函数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 310,
+        "word": "get",
+        "translation": "获取对象属性",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 311,
+        "word": "global",
+        "translation": "全局对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 312,
+        "word": "hash",
+        "translation": "URL 哈希值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 313,
+        "word": "history",
+        "translation": "浏览器访问历史记录",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 317,
+        "word": "if",
+        "translation": "条件语句",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 318,
+        "word": "import",
+        "translation": "导入其他模块",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 319,
+        "word": "in",
+        "translation": "属性是否存在",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 320,
+        "word": "includes",
+        "translation": "判断元素是否在数组中",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 321,
+        "word": "index",
+        "translation": "在字符串中的位置",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 322,
+        "word": "indexOf",
+        "translation": "在数组中的位置",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 323,
+        "word": "Infinity",
+        "translation": "无穷大",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 325,
+        "word": "instanceOf",
+        "translation": "判断对象类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 326,
+        "word": "isFinite",
+        "translation": "判断是否为有限数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 327,
+        "word": "isNaN",
+        "translation": "判断是否为 NaN",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 328,
+        "word": "join",
+        "translation": "连接数组元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 329,
+        "word": "JSON",
+        "translation": "JavaScript 对象表示法",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 330,
+        "word": "key",
+        "translation": "对象键名",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 331,
+        "word": "label",
+        "translation": "表单标签",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 332,
+        "word": "length",
+        "translation": "字符串或数组长度",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 333,
+        "word": "let",
+        "translation": "块级作用域变量",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 334,
+        "word": "link",
+        "translation": "创建链接元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 335,
+        "word": "load",
+        "translation": "页面加载事件",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 336,
+        "word": "location",
+        "translation": "URL 相关信息",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 337,
+        "word": "log",
+        "translation": "控制台输出",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 338,
+        "word": "map",
+        "translation": "数组映射",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 339,
+        "word": "match",
+        "translation": "字符串匹配",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 340,
+        "word": "Math",
+        "translation": "数学计算对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 341,
+        "word": "max",
+        "translation": "最大值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 342,
+        "word": "message",
+        "translation": "消息传递",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 343,
+        "word": "min",
+        "translation": "最小值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 344,
+        "word": "module",
+        "translation": "模块化",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 345,
+        "word": "moveBy",
+        "translation": "移动窗口",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 346,
+        "word": "navigator",
+        "translation": "浏览器信息",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 347,
+        "word": "new",
+        "translation": "创建实例对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 348,
+        "word": "null",
+        "translation": "空对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 349,
+        "word": "number",
+        "translation": "数字数据类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 350,
+        "word": "object",
+        "translation": "对象数据类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 351,
+        "word": "of",
+        "translation": "创建数组",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 352,
+        "word": "on",
+        "translation": "绑定事件",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 353,
+        "word": "open",
+        "translation": "打开新窗口",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 354,
+        "word": "operator",
+        "translation": "运算符",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 355,
+        "word": "optional",
+        "translation": "可选链",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 356,
+        "word": "or",
+        "translation": "或运算",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 357,
+        "word": "outerHTML",
+        "translation": "获取或设置元素的 HTML 包含外部标签",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 358,
+        "word": "output",
+        "translation": "输出",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 359,
+        "word": "package",
+        "translation": "包",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 360,
+        "word": "parseFloat",
+        "translation": "字符串转换为浮点数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 361,
+        "word": "parseInt",
+        "translation": "字符串转换为整数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 362,
+        "word": "parent",
+        "translation": "父节点",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 363,
+        "word": "parse",
+        "translation": "解析 JSON",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 364,
+        "word": "pass",
+        "translation": "传递参数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 365,
+        "word": "pop",
+        "translation": "删除数组末尾元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 366,
+        "word": "Default",
+        "translation": "默认事件",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 367,
+        "word": "print",
+        "translation": "打印内容",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 368,
+        "word": "prompt",
+        "translation": "提示用户输入",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 369,
+        "word": "prototype",
+        "translation": "实例原型对象",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 370,
+        "word": "push",
+        "translation": "向数组末尾添加元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 371,
+        "word": "querySelector",
+        "translation": "返回第一个匹配的元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 372,
+        "word": "random",
+        "translation": "随机数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 373,
+        "word": "range",
+        "translation": "数值范围",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 374,
+        "word": "reduce",
+        "translation": "数组归并操作",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 375,
+        "word": "RegExp",
+        "translation": "正则表达式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 376,
+        "word": "reload",
+        "translation": "重新加载页面",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 377,
+        "word": "replace",
+        "translation": "替换文本",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 378,
+        "word": "return",
+        "translation": "返回函数值",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 379,
+        "word": "reverse",
+        "translation": "反转数组",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 380,
+        "word": "screen",
+        "translation": "屏幕信息",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 381,
+        "word": "script",
+        "translation": "JavaScript 脚本",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 382,
+        "word": "scroll",
+        "translation": "滚动",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 385,
+        "word": "search",
+        "translation": "URL 查询参数",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 386,
+        "word": "select",
+        "translation": "选择表单元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 387,
+        "word": "set",
+        "translation": "设置对象属性",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 388,
+        "word": "setInterval",
+        "translation": "定时操作，按指定间隔重复执行",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 389,
+        "word": "setTimeout",
+        "translation": "定时操作，延迟执行一次",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 390,
+        "word": "shift",
+        "translation": "删除数组首个元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 391,
+        "word": "slice",
+        "translation": "截取数组片段",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 392,
+        "word": "sort",
+        "translation": "数组排序",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 393,
+        "word": "source",
+        "translation": "源代码",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 394,
+        "word": "splice",
+        "translation": "插入或删除元素",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 395,
+        "word": "split",
+        "translation": "字符串分割成数组",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 396,
+        "word": "static",
+        "translation": "静态属性与方法",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 397,
+        "word": "strict",
+        "translation": "严格模式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 398,
+        "word": "string",
+        "translation": "字符串数据类型",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 399,
+        "word": "style",
+        "translation": "行内样式",
+        "tags": [
+            "前端词汇"
+        ]
+    },
+    {
+        "id": 400,
+        "word": "switch",
+        "translation": "多分支语句",
+        "tags": [
+            "前端词汇"
+        ]
+    }
+]

@@ -1,0 +1,802 @@
+[
+    {
+        "id": 1,
+        "word": "actor",
+        "translation": "(演员/物体)：场景中的基本对象，可以是可视的或不可视的。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 2,
+        "word": "blueprint",
+        "translation": "(蓝图)：虚幻引擎的可视化脚本系统，用于编写游戏逻辑。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 3,
+        "word": "component",
+        "translation": "(组件)：附加到actor上的功能模块，定义其行为和属性。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 4,
+        "word": "pawn",
+        "translation": "(棋子)：可被玩家或AI控制的角色或物体。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 5,
+        "word": "character",
+        "translation": "(角色)：具有复杂移动和动画功能的pawn，通常用于玩家角色。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 6,
+        "word": "controller",
+        "translation": "(控制器)：用于控制pawn行为的对象，包括玩家控制器和AI控制器。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 7,
+        "word": "game mode",
+        "translation": "(游戏模式)：定义游戏规则和流程的类。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 8,
+        "word": "game state",
+        "translation": "(游戏状态)：存储游戏当前状态的数据类。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 9,
+        "word": "player state",
+        "translation": "(玩家状态)：存储玩家特定信息的类。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 10,
+        "word": "hud",
+        "translation": "(头顶显示)：显示在屏幕上的用户界面元素，如血条、得分等。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 11,
+        "word": "widget",
+        "translation": "(小部件)：用户界面的基本元素，如按钮、文本框等。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 12,
+        "word": "material",
+        "translation": "(材质)：定义物体表面外观的资源，如颜色、纹理等。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 13,
+        "word": "texture",
+        "translation": "(纹理)：用于给材质添加细节的图像资源。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 14,
+        "word": "shader",
+        "translation": "(着色器)：控制渲染效果的程序，定义如何绘制物体。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 15,
+        "word": "mesh",
+        "translation": "(网格)：3D模型的几何体数据，包含顶点和面信息。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 16,
+        "word": "static mesh",
+        "translation": "(静态网格)：不需要动画的静态3D模型。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 17,
+        "word": "skeletal mesh",
+        "translation": "(骨骼网格)：带有骨骼动画的3D模型。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 18,
+        "word": "animation",
+        "translation": "(动画)：控制模型运动的资源。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 19,
+        "word": "sequence",
+        "translation": "(序列)：一系列动画或事件的集合，用于创建过场动画。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 20,
+        "word": "blend space",
+        "translation": "(混合空间)：根据输入参数平滑过渡不同动画的工具。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 21,
+        "word": "state machine",
+        "translation": "(状态机)：管理不同动画状态及其转换的系统。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 22,
+        "word": "collision",
+        "translation": "(碰撞)：物体之间的碰撞检测和响应系统。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 23,
+        "word": "trigger",
+        "translation": "(触发器)：用于检测并响应玩家或物体进入特定区域的区域。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 24,
+        "word": "light",
+        "translation": "(光源)：场景中的光源，用于照亮物体。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 25,
+        "word": "shadow",
+        "translation": "(阴影)：物体投射在其他表面上的阴影效果。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 26,
+        "word": "reflection",
+        "translation": "(反射)：模拟光线反射的效果。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 27,
+        "word": "refraction",
+        "translation": "(折射)：模拟光线折射的效果。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 28,
+        "word": "post-process",
+        "translation": "(后处理)：应用于渲染结果后的后期处理效果，如模糊、色调调整等。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 29,
+        "word": "particle system",
+        "translation": "(粒子系统)：用于创建粒子效果，如烟雾、火焰等。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 30,
+        "word": "niagara",
+        "translation": "(尼亚加拉)：虚幻引擎的高级粒子系统，用于创建复杂的视觉效果。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 31,
+        "word": "lumen",
+        "translation": "(光源)：虚幻引擎5中的全局光照系统，提供实时全局光照和反射效果。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 32,
+        "word": "nanite",
+        "translation": "(纳米)：虚幻引擎5中的虚拟化几何体技术，允许高效渲染大量细节。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 33,
+        "word": "world",
+        "translation": "(世界)：游戏世界的容器，管理所有actor和场景元素。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 34,
+        "word": "level",
+        "translation": "(关卡)：游戏中的关卡或场景，包含特定的环境和内容。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 35,
+        "word": "world partition",
+        "translation": "(世界分区)：虚幻引擎5中的世界分区系统，用于管理大型开放世界。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 36,
+        "word": "world composition",
+        "translation": "(世界组合)：虚幻引擎4中的世界组合工具，用于管理大型关卡。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 37,
+        "word": "landscape",
+        "translation": "(地形)：用于创建大规模地形的工具。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 38,
+        "word": "foliage",
+        "translation": "(植被)：用于在地形上添加植被的工具。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 39,
+        "word": "navmesh",
+        "translation": "(导航网格)：导航网格，用于AI路径寻找。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 40,
+        "word": "pathfinding",
+        "translation": "(路径寻找)：计算从一点到另一点的最佳路径的算法。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 41,
+        "word": "behavior tree",
+        "translation": "(行为树)：用于定义AI行为的树形结构。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 42,
+        "word": "ai perception",
+        "translation": "(AI感知)：AI感知系统，用于模拟视觉、听觉等感知能力。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 43,
+        "word": "delegates",
+        "translation": "(委托)：C++中的回调机制，用于事件处理。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 44,
+        "word": "events",
+        "translation": "(事件)：蓝图中的事件，用于响应特定操作或条件。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 45,
+        "word": "delegate",
+        "translation": "(委托)：C++中的委托，类似于函数指针，用于事件和回调。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 46,
+        "word": "multicast delegate",
+        "translation": "(多播委托)：可以绑定多个函数的委托，用于广播事件。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 47,
+        "word": "interface",
+        "translation": "(接口)：定义类应实现的功能集合的蓝图或C++类。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 48,
+        "word": "struct",
+        "translation": "(结构体)：自定义数据类型，用于组合不同类型的数据。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 49,
+        "word": "enum",
+        "translation": "(枚举)：枚举类型，用于表示一组常量值。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 50,
+        "word": "namespace",
+        "translation": "(命名空间)：命名空间，用于组织代码，避免命名冲突。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 51,
+        "word": "constructor",
+        "translation": "(构造函数)：类的构造函数，用于初始化对象。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 52,
+        "word": "destructor",
+        "translation": "(析构函数)：类的析构函数，用于清理对象。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 53,
+        "word": "garbage collection",
+        "translation": "(垃圾回收)：自动内存管理机制，用于回收不再使用的对象。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 54,
+        "word": "reflection",
+        "translation": "(反射)：在运行时获取类型信息的机制。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 55,
+        "word": "serialization",
+        "translation": "(序列化)：将对象转换为可存储或传输格式的过程。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 56,
+        "word": "deserialization",
+        "translation": "(反序列化)：将存储或传输格式的数据转换回对象的过程。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 57,
+        "word": "replication",
+        "translation": "(复制)：在网络游戏中同步数据和事件的机制。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 58,
+        "word": "networking",
+        "translation": "(网络)：支持多人游戏的网络通信功能。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 59,
+        "word": "client-server",
+        "translation": "(客户端-服务器)：一种网络架构，客户端向服务器请求数据。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 60,
+        "word": "peer-to-peer",
+        "translation": "(点对点)：一种网络架构，节点之间直接通信。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 61,
+        "word": "bandwidth",
+        "translation": "(带宽)：网络传输数据的速率。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 62,
+        "word": "latency",
+        "translation": "(延迟)：数据传输的延迟时间。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 63,
+        "word": "packet loss",
+        "translation": "(数据包丢失)：数据包在传输过程中丢失的现象。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 64,
+        "word": "replicated",
+        "translation": "(已复制)：在网络中同步的属性或函数。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 65,
+        "word": "RPC",
+        "translation": "(远程过程调用)：远程过程调用，用于在网络上调用函数。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 66,
+        "word": "LOD",
+        "translation": "(细节层次)：根据摄像机距离显示不同细节级别的模型。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 67,
+        "word": "culling",
+        "translation": "(剔除)：剔除视野外或不可见的物体，以提高性能。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 68,
+        "word": "frustum",
+        "translation": "(视锥体)：摄像机视锥体，定义可见区域。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 69,
+        "word": "occlusion",
+        "translation": "(遮挡)：遮挡，判断物体是否被其他物体遮挡。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 70,
+        "word": "baking",
+        "translation": "(烘焙)：预计算并存储光照、阴影等信息以提高性能的过程。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 71,
+        "word": "lightmap",
+        "translation": "(光照贴图)：存储预计算光照信息的纹理。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 72,
+        "word": "reflection capture",
+        "translation": "(反射捕捉)：捕捉环境反射信息的体积。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 73,
+        "word": "skybox",
+        "translation": "(天空盒)：模拟天空的立方体纹理。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 74,
+        "word": "post-processing volume",
+        "translation": "(后处理体积)：影响场景后期处理效果的区域。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 75,
+        "word": "depth of field",
+        "translation": "(景深)：景深效果，模拟相机焦距。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 76,
+        "word": "motion blur",
+        "translation": "(运动模糊)：运动模糊效果，模拟快速移动物体的模糊。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 77,
+        "word": "bloom",
+        "translation": "(辉光)：辉光效果，使明亮区域产生光晕。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 78,
+        "word": "vignette",
+        "translation": "(晕影)：晕影效果，图像四周变暗。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 79,
+        "word": "color grading",
+        "translation": "(色彩分级)：色调映射，调整图像的色彩和亮度。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 80,
+        "word": "lens flare",
+        "translation": "(镜头光晕)：镜头光晕效果，模拟镜头反射。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 81,
+        "word": "ambient occlusion",
+        "translation": "(环境光遮蔽)：环境光遮蔽效果，增强阴影细节。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 82,
+        "word": "anisotropic filtering",
+        "translation": "(各向异性过滤)：各向异性过滤，改善纹理在不同角度下的质量。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 83,
+        "word": "antialiasing",
+        "translation": "(抗锯齿)：抗锯齿技术，减少图像中的锯齿状边缘。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 84,
+        "word": "shader model",
+        "translation": "(着色器模型)：定义着色器功能和特性的版本。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 85,
+        "word": "GPU",
+        "translation": "(图形处理单元)：图形处理单元，负责图形渲染计算。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 86,
+        "word": "CPU",
+        "translation": "(中央处理单元)：中央处理单元，负责一般计算任务。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 87,
+        "word": "multithreading",
+        "translation": "(多线程)：多线程技术，允许同时执行多个任务。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 88,
+        "word": "profiling",
+        "translation": "(性能分析)：性能分析，检测程序的性能瓶颈。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 89,
+        "word": "debugging",
+        "translation": "(调试)：调试，查找和修复程序中的错误。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 90,
+        "word": "optimization",
+        "translation": "(优化)：优化，改进程序性能或资源使用。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 91,
+        "word": "asset pack",
+        "translation": "(资源包)：包含多个资源的打包文件。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 92,
+        "word": "content browser",
+        "translation": "(内容浏览器)：虚幻编辑器中用于管理资源的窗口。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 93,
+        "word": "source control",
+        "translation": "(源代码控制)：源代码管理，跟踪和控制代码变更。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 94,
+        "word": "version control",
+        "translation": "(版本控制)：版本控制，管理文件的不同版本。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 95,
+        "word": "dependency",
+        "translation": "(依赖)：依赖关系，一个模块对另一个模块的需求。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 96,
+        "word": "refactoring",
+        "translation": "(重构)：重构，修改代码结构而不改变功能。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 97,
+        "word": "unit test",
+        "translation": "(单元测试)：单元测试，验证代码单元功能正确性的测试。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 98,
+        "word": "integration test",
+        "translation": "(集成测试)：集成测试，验证多个组件协同工作的正确性。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 99,
+        "word": "build",
+        "translation": "(构建)：构建，将源代码和资源打包成可执行文件的过程。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    },
+    {
+        "id": 100,
+        "word": "deployment",
+        "translation": "(部署)：部署，将应用程序发布到目标环境的过程。",
+        "tags": [
+            "UE常用词汇"
+        ]
+    }
+]

@@ -1,0 +1,2474 @@
+[
+    {
+        "id": 1,
+        "word": "visual novel",
+        "translation": "视觉小说 以文字叙述为主，搭配图片和音乐，注重剧情体验。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 2,
+        "word": "virtual reality game",
+        "translation": "虚拟现实游戏 通过VR设备提供沉浸式游戏体验。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 3,
+        "word": "vertical scrolling",
+        "translation": "纵向卷轴 游戏画面纵向移动的表现方式，常见于射击游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 4,
+        "word": "vehicle simulation",
+        "translation": "载具模拟 模拟驾驶汽车、飞机等交通工具的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 5,
+        "word": "turn-based",
+        "translation": "回合制 玩家和敌人轮流行动的战斗或策略机制。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 6,
+        "word": "trading card game",
+        "translation": "卡牌对战游戏 通过构建卡组进行战斗的游戏，强调策略与收集。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 7,
+        "word": "tower defense",
+        "translation": "塔防游戏 玩家建造防御塔以阻止敌人通过特定路线。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 8,
+        "word": "text adventure",
+        "translation": "文字冒险游戏 以文字描述为主，通过输入命令推进剧情。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 9,
+        "word": "survival horror",
+        "translation": "生存恐怖游戏 强调恐怖氛围与生存要素的游戏类型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 10,
+        "word": "survival game",
+        "translation": "生存游戏 玩家需采集资源、建造工具以求生存。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 11,
+        "word": "strategy game",
+        "translation": "策略游戏 以计划、部署和战术操作为核心玩法。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 12,
+        "word": "stealth game",
+        "translation": "潜行游戏 强调躲避敌人视线、隐秘行动的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 13,
+        "word": "sports game",
+        "translation": "体育游戏 模拟各种体育项目，如足球、篮球、网球等。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 14,
+        "word": "simulation RPG",
+        "translation": "模拟角色扮演游戏 融合模拟养成和角色扮演元素的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 15,
+        "word": "simulation game",
+        "translation": "模拟游戏 模拟现实系统，如城市建设、人生、经营等。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 16,
+        "word": "side scrolling",
+        "translation": "横向卷轴 游戏画面横向移动的表现方式，常见于动作游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 17,
+        "word": "shooting game",
+        "translation": "射击游戏 玩家以射击敌人为核心玩法的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 18,
+        "word": "sandbox",
+        "translation": "沙盒游戏 提供高度自由的游戏环境和玩法，无固定目标。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 19,
+        "word": "role-play game",
+        "translation": "角色扮演游戏 玩家扮演角色进行冒险、战斗、成长等活动。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 20,
+        "word": "rogue-like",
+        "translation": "类Roguelike游戏 具有随机地图、永久死亡、回合制等特点的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 21,
+        "word": "rhythm game",
+        "translation": "音乐节奏游戏 玩家根据节奏进行按键操作的游戏类型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 22,
+        "word": "real-time tactics",
+        "translation": "即时战术 强调小队控制和战术部署的即时战略游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 23,
+        "word": "real-time strategy",
+        "translation": "即时战略游戏 玩家实时建造、生产、控制军队进行对战。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 24,
+        "word": "racing",
+        "translation": "赛车游戏 模拟驾驶竞速的游戏类型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 25,
+        "word": "puzzle game",
+        "translation": "益智游戏 通过解谜、逻辑、观察等方式通关的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 26,
+        "word": "platform game",
+        "translation": "平台跳跃游戏 强调跳跃、移动的动作游戏，常见横版风格。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 27,
+        "word": "platform",
+        "translation": "游戏平台 指游戏运行的平台，如PC、主机、移动端等。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 28,
+        "word": "PC game",
+        "translation": "电脑游戏 在个人电脑平台上运行的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 29,
+        "word": "party game",
+        "translation": "派对游戏 多人互动性强，适合聚会游玩的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 30,
+        "word": "open world",
+        "translation": "开放世界 提供自由探索、大地图和非线性任务的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 31,
+        "word": "online game",
+        "translation": "网络游戏 通过网络与其他玩家交互进行的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 32,
+        "word": "multiplayer online battle arena (MOBA)",
+        "translation": "多人在线战术竞技游戏 以团队对抗为主，玩家操控英雄在竞技场中作战。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 33,
+        "word": "multi-user dungeon (MUD)",
+        "translation": "多人地牢文字游戏 早期基于文本的多人在线角色扮演游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 34,
+        "word": "mobile game",
+        "translation": "手机游戏 在移动设备上运行的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 35,
+        "word": "massively multiplayer online role-playing game (MMORPG)",
+        "translation": "大型多人在线角色扮演游戏 数千玩家共享世界进行冒险、任务、交易等活动。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 36,
+        "word": "life simulation",
+        "translation": "人生模拟游戏 模拟人的日常生活、成长、社交的游戏类型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 37,
+        "word": "interactive movie",
+        "translation": "互动电影 融合电影叙事与玩家选择的互动体验。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 38,
+        "word": "indie game",
+        "translation": "独立游戏 小型开发团队制作，创意独特，不依赖大厂发行。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 39,
+        "word": "idle game",
+        "translation": "放置游戏 玩家无需频繁操作即可自动进行的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 40,
+        "word": "home console",
+        "translation": "家用主机 如PlayStation、Xbox等用于运行游戏的硬件设备。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 41,
+        "word": "graphic adventure",
+        "translation": "图形冒险游戏 强调剧情、探索和解谜，配合图像表现。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 42,
+        "word": "flight simulator",
+        "translation": "飞行模拟器 模拟真实飞行操作的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 43,
+        "word": "first-person shooter",
+        "translation": "第一人称射击游戏 以第一人称视角进行射击的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 44,
+        "word": "fighting game",
+        "translation": "格斗游戏 双方角色进行近战对抗的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 45,
+        "word": "expansion pack",
+        "translation": "扩展包 为原有游戏添加新内容的补充资料片。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 46,
+        "word": "escape room",
+        "translation": "密室逃脱游戏 玩家需在限定时间内解谜逃离密室。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 47,
+        "word": "dungeon",
+        "translation": "地下城 游戏中用于探索、战斗的迷宫或关卡区域。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 48,
+        "word": "doom-like",
+        "translation": "类毁灭战士游戏 早期第一人称射击风格的游戏类型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 49,
+        "word": "DLC (Downloadable Content)",
+        "translation": "可下载内容 官方提供的游戏额外扩展包。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 50,
+        "word": "construction and management",
+        "translation": "建造与经营游戏 玩家负责规划、建设和管理系统或机构。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 51,
+        "word": "console game",
+        "translation": "主机游戏 在游戏主机上运行的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 52,
+        "word": "collectible card game",
+        "translation": "集换式卡牌游戏 玩家收集卡牌并构建卡组对战。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 53,
+        "word": "browser game",
+        "translation": "网页游戏 通过浏览器运行，无需下载客户端的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 54,
+        "word": "beat 'em up game",
+        "translation": "清版格斗游戏 玩家操控角色对抗大量敌人的动作游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 55,
+        "word": "battle royale game",
+        "translation": "大逃杀游戏 多人竞技淘汰制，最后存活者获胜。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 56,
+        "word": "arcade game",
+        "translation": "街机游戏 投币式机器上运行的快速娱乐型游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 57,
+        "word": "adventure game",
+        "translation": "冒险游戏 强调剧情探索与角色成长的游戏类型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 58,
+        "word": "action RPG",
+        "translation": "动作角色扮演游戏 结合动作战斗与RPG元素的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 59,
+        "word": "action game",
+        "translation": "动作游戏 强调反应和操作技巧的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 60,
+        "word": "action adventure game",
+        "translation": "动作冒险游戏 结合战斗与探索的混合型游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 61,
+        "word": "4X game",
+        "translation": "四倍战略游戏 指探索（explore）、扩张（expand）、开发（exploit）和征服（exterminate）的策略类游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 62,
+        "word": "whale",
+        "translation": "大鱼 指在游戏中大量消费金钱的玩家。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 63,
+        "word": "wanting to sell",
+        "translation": "欲出售 玩家希望出售游戏内物品或账号。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 64,
+        "word": "wanting to buy",
+        "translation": "欲购买 玩家希望购买游戏内物品或账号。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 65,
+        "word": "VR headset",
+        "translation": "虚拟现实头盔 用于体验虚拟现实游戏的设备。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 66,
+        "word": "victory",
+        "translation": "胜利 游戏中取得成功或获胜。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 67,
+        "word": "versus",
+        "translation": "对抗 表示两方对战模式。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 68,
+        "word": "ultimate",
+        "translation": "终极技能 角色拥有的强力技能。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 69,
+        "word": "troll",
+        "translation": "恶搞玩家 故意扰乱游戏体验的玩家。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 70,
+        "word": "triple kill",
+        "translation": "三连杀 在短时间内连续击杀三名敌人。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 71,
+        "word": "throw",
+        "translation": "送人头 故意让敌方击杀自己，影响队伍表现。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 72,
+        "word": "third-party software",
+        "translation": "第三方软件 非官方开发的游戏辅助工具。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 73,
+        "word": "tank",
+        "translation": "坦克 在游戏中承担伤害并保护队友的角色。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 74,
+        "word": "Socializers",
+        "translation": "社交型玩家 主要关注与他人互动的玩家类型。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 75,
+        "word": "skin",
+        "translation": "皮肤 改变角色外观的装饰性物品。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 76,
+        "word": "shut down",
+        "translation": "停机 服务器关闭，导致无法游戏。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 77,
+        "word": "secret level",
+        "translation": "隐藏关卡 开发者隐藏的额外游戏关卡。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 78,
+        "word": "second person",
+        "translation": "第二人称 以“你”为主角的叙事视角。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 79,
+        "word": "round",
+        "translation": "回合 游戏中的一个循环单位，通常有明确开始和结束。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 80,
+        "word": "root",
+        "translation": "根目录 游戏文件的主文件夹位置。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 81,
+        "word": "ranked mode",
+        "translation": "排位模式 需要竞争并提升排名的游戏模式。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 82,
+        "word": "rampage",
+        "translation": "狂暴 角色状态，通常提升攻击力和速度。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 83,
+        "word": "raid",
+        "translation": "突袭 团队合作进行的大规模任务或副本。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 84,
+        "word": "quest",
+        "translation": "任务 玩家需完成的目标或挑战。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 85,
+        "word": "QTE (Quick Time Event)",
+        "translation": "快速时间事件 需要玩家在限定时间内进行操作的情节部分。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 86,
+        "word": "puzzle",
+        "translation": "益智游戏 需要解决谜题的游戏类型。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 87,
+        "word": "portal",
+        "translation": "传送门 在游戏中连接不同区域的入口。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 88,
+        "word": "pog",
+        "translation": "好家伙 表示惊讶或赞叹的网络用语。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 89,
+        "word": "please send tell",
+        "translation": "请发送密语 请求通过私聊发送信息。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 90,
+        "word": "playoff",
+        "translation": "季后赛 比赛后的淘汰赛阶段。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 91,
+        "word": "player-controlled character",
+        "translation": "玩家控制角色 由玩家直接操作的游戏角色。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 92,
+        "word": "player vs. player",
+        "translation": "玩家对玩家 玩家之间互相竞争的模式。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 93,
+        "word": "player vs. environment",
+        "translation": "玩家对环境 玩家与游戏环境或AI敌人互动的模式。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 94,
+        "word": "pixel",
+        "translation": "像素 构成图像的最小单位。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 95,
+        "word": "penta kill",
+        "translation": "五连杀 在短时间内连续击杀五名敌人。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 96,
+        "word": "patch",
+        "translation": "补丁 修复游戏问题或添加内容的更新文件。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 97,
+        "word": "password",
+        "translation": "密码 用于保护账户安全的秘密代码。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 98,
+        "word": "out of mana",
+        "translation": "法力不足 无法施放技能，因为法力值耗尽。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 99,
+        "word": "open beta test",
+        "translation": "开放测试 向公众开放的游戏测试阶段。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 100,
+        "word": "OP (Overpowered)",
+        "translation": "过强 角色或武器能力过于强大，影响平衡。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 101,
+        "word": "one-hit delete",
+        "translation": "一击必杀 单次攻击即可击败敌人。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 102,
+        "word": "OMW (On My Way)",
+        "translation": "在路上 表示正在前往指定位置。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 103,
+        "word": "OB (Out of Bounds)",
+        "translation": "越界 超出游戏允许的活动范围。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 104,
+        "word": "noob",
+        "translation": "菜鸟 新手玩家，通常技术水平较低。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 105,
+        "word": "newbie",
+        "translation": "新手 刚开始玩游戏的玩家。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 106,
+        "word": "nerf",
+        "translation": "削弱 降低角色、武器或技能的能力以平衡游戏。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 107,
+        "word": "move",
+        "translation": "移动 角色在游戏中改变位置的动作。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 108,
+        "word": "motion tracker",
+        "translation": "运动追踪器 用于检测和显示周围运动的设备或功能。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 109,
+        "word": "motion capture",
+        "translation": "动作捕捉 记录真人动作用于动画制作的技术。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 110,
+        "word": "mod",
+        "translation": "模组 玩家或第三方开发的游戏修改或扩展内容。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 111,
+        "word": "MOB (Massively Online Battle Arena)",
+        "translation": "大型多人在线战术竞技场 多人在线竞技游戏类型。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 112,
+        "word": "mental",
+        "translation": "心态 指玩家在游戏中的心理状态或情绪表现。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 113,
+        "word": "melee",
+        "translation": "近战 指角色与敌人进行的近距离物理攻击。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 114,
+        "word": "mash",
+        "translation": "狂按按钮 指在游戏中快速连续地按压按钮，通常用于执行特定动作。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 115,
+        "word": "map",
+        "translation": "地图 游戏中的地理区域或关卡布局。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 116,
+        "word": "mana",
+        "translation": "法力 角色用于施放魔法技能的资源。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 117,
+        "word": "maintenance",
+        "translation": "维护 指对游戏服务器进行的检查和修复，通常导致暂时无法游戏。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 118,
+        "word": "low-resolution",
+        "translation": "低分辨率 指图像质量较差，像素较大的显示模式。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 119,
+        "word": "low on mana",
+        "translation": "法力不足 表示角色的法力值接近耗尽，无法施放技能。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 120,
+        "word": "loot",
+        "translation": "战利品 游戏中击败敌人或完成任务后获得的物品或装备。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 121,
+        "word": "looking for more",
+        "translation": "寻找更多 表示玩家希望组队或寻找更多队友。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 122,
+        "word": "looking for a group",
+        "translation": "寻找队伍 表示玩家正在寻找团队合作的机会。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 123,
+        "word": "line of sight",
+        "translation": "视线范围 指玩家或角色能够看到并与之互动的区域。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 124,
+        "word": "legendary",
+        "translation": "传奇 通常用于描述稀有且强大的物品或角色。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 125,
+        "word": "LCL (League Championship League)",
+        "translation": "联赛冠军联赛 指一种电子竞技联赛，通常用于描述顶级比赛。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 126,
+        "word": "laughing out loud",
+        "translation": "大声笑 表示对某事感到非常好笑。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 127,
+        "word": "LAN (Local Area Network)",
+        "translation": "局域网 指在有限区域内连接计算机的网络，用于多人游戏。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 128,
+        "word": "lag",
+        "translation": "延迟 指游戏中由于网络或硬件问题导致的响应缓慢。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 129,
+        "word": "knock out",
+        "translation": "淘汰 指将对手从比赛或游戏中移除。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 130,
+        "word": "killing spree",
+        "translation": "连杀 指在短时间内连续击杀多个敌人。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 131,
+        "word": "killers",
+        "translation": "杀手 指在游戏中专门从事击杀其他玩家的角色。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 132,
+        "word": "killed on sight",
+        "translation": "见人就杀 指在游戏中遇到任何玩家都会主动攻击。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 133,
+        "word": "joystick",
+        "translation": "操纵杆 用于控制游戏中角色或物体的设备。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 134,
+        "word": "joypad",
+        "translation": "游戏手柄 用于控制游戏的输入设备，通常有多个按钮和摇杆。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 135,
+        "word": "item",
+        "translation": "物品 游戏中可供拾取、使用或装备的对象。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 136,
+        "word": "interface",
+        "translation": "界面 玩家与游戏互动的视觉布局和设计。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 137,
+        "word": "instance",
+        "translation": "副本 游戏中的独立区域或关卡，通常用于多人合作。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 138,
+        "word": "hint",
+        "translation": "提示 游戏提供的帮助信息，引导玩家解决难题。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 139,
+        "word": "high-resolution",
+        "translation": "高分辨率 指图像质量高，细节清晰的显示模式。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 140,
+        "word": "hidden level",
+        "translation": "隐藏关卡 游戏中未公开的额外关卡，需要特定条件才能访问。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 141,
+        "word": "hexa kill",
+        "translation": "六连杀 在短时间内连续击杀六名敌人。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 142,
+        "word": "health point",
+        "translation": "生命值 表示角色健康状况的数值，通常以血条形式显示。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 143,
+        "word": "health over time",
+        "translation": "持续回血 角色随着时间逐渐恢复生命值的机制。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 144,
+        "word": "guild",
+        "translation": "公会 玩家组成的组织，通常用于团队合作和社交。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 145,
+        "word": "Graphics Processing Unit",
+        "translation": "图形处理单元 负责处理图像和视频渲染的计算机硬件。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 146,
+        "word": "Graphics Accelerator",
+        "translation": "图形加速器 增强计算机图形处理能力的硬件设备。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 147,
+        "word": "Graphical User Interface",
+        "translation": "图形用户界面 通过图形元素与用户互动的界面设计。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 148,
+        "word": "godlike",
+        "translation": "神一般的 形容玩家表现出色，几乎无敌。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 149,
+        "word": "glitch",
+        "translation": "故障 游戏中的意外错误或异常行为。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 150,
+        "word": "get rolled",
+        "translation": "被碾压 指在游戏中被对手轻松击败。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 151,
+        "word": "genre",
+        "translation": "类型 游戏的类别，如动作、冒险、角色扮演等。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 152,
+        "word": "gateway",
+        "translation": "网关 用于连接不同网络或系统的设备。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 153,
+        "word": "gang",
+        "translation": "团队 玩家组成的小组，通常用于合作游戏。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 154,
+        "word": "gamer",
+        "translation": "玩家 参与电子游戏的人。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 155,
+        "word": "gameplay",
+        "translation": "游戏玩法 玩家在游戏中体验和互动的方式。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 156,
+        "word": "game master",
+        "translation": "游戏主持人 在桌面角色扮演游戏中负责叙事和规则执行的人。​",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 157,
+        "word": "game credit",
+        "translation": "游戏积分 游戏中的虚拟货币，可以用来购买物品或服务。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 158,
+        "word": "full-motion video",
+        "translation": "全动态视频 游戏中的全视频场景，通常为高质量的动画或真人视频。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 159,
+        "word": "full sport",
+        "translation": "全方位运动 涵盖多种运动类型的游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 160,
+        "word": "full mana",
+        "translation": "满法力 角色的法力值达到最大，能够使用所有技能。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 161,
+        "word": "full health",
+        "translation": "满血 角色的生命值处于最大状态。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 162,
+        "word": "frames per second (FPS)",
+        "translation": "每秒帧数 衡量游戏流畅度的单位，帧数越高越流畅。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 163,
+        "word": "forge",
+        "translation": "锻造 在游戏中打造或增强武器、装备的系统。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 164,
+        "word": "first person",
+        "translation": "第一人称 玩家从角色的视角进行游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 165,
+        "word": "first blood",
+        "translation": "首杀 游戏中第一个击杀敌人的行为。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 166,
+        "word": "farm",
+        "translation": "刷怪 通过重复击杀敌人或怪物获取经验和资源。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 167,
+        "word": "F2P (Free-to-Play)",
+        "translation": "免费游戏 玩家无需购买即可玩的游戏，通常通过内购获利。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 168,
+        "word": "Explorers",
+        "translation": "探索型玩家 主要关注游戏世界探索而非竞争的玩家类型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 169,
+        "word": "experience point (XP)",
+        "translation": "经验值 通过游戏中的行为获得的点数，用于角色升级。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 170,
+        "word": "executed",
+        "translation": "执行 通常指被击杀或被处决。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 171,
+        "word": "European Computer Trade Association (ECTA)",
+        "translation": "欧洲计算机贸易协会 支持电子游戏产业的组织，常用于欧洲游戏大会。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 172,
+        "word": "equipment",
+        "translation": "装备 玩家使用的道具，通常提升角色属性。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 173,
+        "word": "engage into",
+        "translation": "参与 指玩家进入战斗或活动的状态。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 174,
+        "word": "Easter egg",
+        "translation": "彩蛋 游戏中的隐藏内容或笑话，通常是开发者添加的隐秘信息。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 175,
+        "word": "double kill",
+        "translation": "双杀 在短时间内连续击杀两名敌人。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 176,
+        "word": "dominate",
+        "translation": "支配 在游戏中占据优势地位，通常是击败对手的过程。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 177,
+        "word": "dive",
+        "translation": "跳水 指在不利的情况下进入敌方区域，冒险的战术。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 178,
+        "word": "direct damage",
+        "translation": "直接伤害 造成的即时伤害，不依赖时间或环境变化。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 179,
+        "word": "demo",
+        "translation": "演示版 游戏的试用版本，通常包含部分功能或内容。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 180,
+        "word": "defense",
+        "translation": "防御 用来保护自己或队友免受敌人攻击的策略。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 181,
+        "word": "defeat",
+        "translation": "失败 游戏中未能达成目标或被对手击败的状态。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 182,
+        "word": "debuff",
+        "translation": "负面状态 降低角色能力的效果，如减速、虚弱等。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 183,
+        "word": "DC (Direct Current)",
+        "translation": "直流电 指直接电流，通常不常用于游戏，但在电气术语中使用。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 184,
+        "word": "damage per second (DPS)",
+        "translation": "每秒伤害 衡量角色或武器造成的持续伤害输出。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 185,
+        "word": "damage per hit",
+        "translation": "每击伤害 每次攻击所造成的伤害量。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 186,
+        "word": "damage over time (DoT)",
+        "translation": "持续伤害 造成的持续性伤害效果，通常随时间逐渐削弱敌人。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 187,
+        "word": "cutscene",
+        "translation": "过场动画 游戏中用于推动剧情的动画或视频段落。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 188,
+        "word": "craft",
+        "translation": "制作 在游戏中收集材料并制作物品的行为。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 189,
+        "word": "cooldown",
+        "translation": "冷却时间 技能或道具使用后的等待时间，期间不能再次使用。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 190,
+        "word": "comp",
+        "translation": "组合 指角色或单位的阵容搭配，通常用于战术规划。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 191,
+        "word": "comps",
+        "translation": "组合 同上，指多个角色或元素的配置。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 192,
+        "word": "combo",
+        "translation": "连击 通过连续输入指令或攻击，产生更强的效果。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 193,
+        "word": "comb",
+        "translation": "连击 指在短时间内执行多个连续动作。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 194,
+        "word": "closed beta test",
+        "translation": "封闭测试 仅邀请特定玩家参与的游戏测试阶段。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 195,
+        "word": "clock speed",
+        "translation": "时钟速度 CPU处理指令的速度，通常以赫兹为单位。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 196,
+        "word": "checkpoint",
+        "translation": "检查点 玩家在游戏中的保存位置，通常用于恢复游戏进度。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 197,
+        "word": "cheat",
+        "translation": "作弊 使用非正常手段改变游戏结果或获得优势。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 198,
+        "word": "character",
+        "translation": "角色 玩家在游戏中控制的虚拟人物。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 199,
+        "word": "caster",
+        "translation": "施法者 主要通过魔法攻击敌人的角色。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 200,
+        "word": "carebear",
+        "translation": "温顺玩家 不喜欢竞争或暴力，专注于合作和友好的玩家。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 201,
+        "word": "build",
+        "translation": "构建 在游戏中创建或发展角色、技能、装备等配置。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 202,
+        "word": "bug",
+        "translation": "错误 程序中的缺陷或未预期的行为，通常导致问题或崩溃。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 203,
+        "word": "buff",
+        "translation": "增益 增强角色或单位能力的效果。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 204,
+        "word": "bot",
+        "translation": "机器人 由AI控制的游戏角色，通常用于代替人类玩家。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 205,
+        "word": "boss",
+        "translation": "BOSS 游戏中强大的敌人，通常是关卡的终极挑战。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 206,
+        "word": "bind",
+        "translation": "绑定 将特定的操作或按键与功能关联。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 207,
+        "word": "beta",
+        "translation": "测试版 游戏的预发布版本，通常用于测试并收集玩家反馈。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 208,
+        "word": "away from keyboard (AFK)",
+        "translation": "离开键盘 玩家暂时离开游戏的状态。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 209,
+        "word": "avatar",
+        "translation": "虚拟形象 代表玩家在游戏中的虚拟角色或形象。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 210,
+        "word": "armor class",
+        "translation": "护甲等级 角色防御能力的衡量标准，通常用来减少所受的伤害。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 211,
+        "word": "area of effect",
+        "translation": "范围效果 指技能或攻击影响的区域，通常会影响该区域内的多个目标。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 212,
+        "word": "arcade mode",
+        "translation": "街机模式 传统街机风格的游戏模式，通常有无限生命或时间限制。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 213,
+        "word": "AOE (Area of Effect)",
+        "translation": "范围攻击 能够影响特定区域内多个目标的攻击或技能。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 214,
+        "word": "add me pls",
+        "translation": "请加我 请求添加对方为好友的短语。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 215,
+        "word": "Achievers",
+        "translation": "成就型玩家 主要关注通过游戏达成各种目标或成就的玩家类型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 216,
+        "word": "ace",
+        "translation": "王牌 游戏中表现最出色的玩家或角色，通常指击杀数最高。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 217,
+        "word": "account",
+        "translation": "账户 用于登录和保存玩家进度的个人账户信息。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 218,
+        "word": "active skill",
+        "translation": "主动技能 玩家需要手动触发的技能，通常有冷却时间。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 219,
+        "word": "adaptive difficulty",
+        "translation": "自适应难度 根据玩家技能水平自动调整游戏难度的系统。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 220,
+        "word": "aimbot",
+        "translation": "自动瞄准软件 一种作弊工具，能自动瞄准并击中敌人。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 221,
+        "word": "alpha",
+        "translation": "前期测试版 游戏的早期版本，通常只有有限的功能和内容。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 222,
+        "word": "alliance",
+        "translation": "联盟 游戏中的组织，多个玩家或公会联合合作。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 223,
+        "word": "ambient sound",
+        "translation": "环境音效 在游戏中模拟真实世界声音的音效，用于增强氛围。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 224,
+        "word": "anomaly",
+        "translation": "异常现象 游戏中的非正常或不规则事件，可能是故障或特殊设计的部分。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 225,
+        "word": "antagonist",
+        "translation": "反派角色 游戏或故事中的敌对角色，通常与主角对立。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 226,
+        "word": "artifact",
+        "translation": "神器 游戏中具有强大力量或特殊效果的物品。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 227,
+        "word": "attack speed",
+        "translation": "攻击速度 角色或单位执行攻击动作的频率。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 228,
+        "word": "aura",
+        "translation": "光环 给附近友方角色或敌人提供正面或负面效果的区域性技能。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 229,
+        "word": "auto attack",
+        "translation": "自动攻击 角色或单位在未进行特殊操作时自动对敌人发动攻击。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 230,
+        "word": "auto-targeting",
+        "translation": "自动瞄准 系统自动选择目标进行攻击或技能释放的功能。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 231,
+        "word": "avatar customization",
+        "translation": "虚拟形象定制 玩家根据自己的喜好调整角色的外观。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 232,
+        "word": "backdoor",
+        "translation": "后门 指通过游戏中的不寻常路径进攻敌人，常用于“偷袭”。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 233,
+        "word": "balancing",
+        "translation": "平衡调整 游戏开发者对角色、武器或技能的调整，以确保公平竞争。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 234,
+        "word": "ban",
+        "translation": "禁赛 玩家因违反游戏规则而被临时或永久禁止游戏的处罚。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 235,
+        "word": "base building",
+        "translation": "基地建设 游戏中玩家需要建设和管理自己的基地或防御工事。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 236,
+        "word": "bounty",
+        "translation": "赏金 游戏中为击败某个玩家或敌人设置的奖励。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 237,
+        "word": "buff stack",
+        "translation": "增益叠加 多个相同增益效果重叠时效果的增强。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 238,
+        "word": "buy-in",
+        "translation": "入场费 玩家参加某项活动或比赛所需支付的费用。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 239,
+        "word": "camera angle",
+        "translation": "视角 玩家在游戏中查看世界或角色的视角。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 240,
+        "word": "camp",
+        "translation": "守点 玩家在某一位置长时间停留，通常是为了防守或等候敌人。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 241,
+        "word": "carry",
+        "translation": "核心角色 在团队中承担主要输出和责任的角色。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 242,
+        "word": "chaser",
+        "translation": "追击者 在游戏中专注于追逐敌人并进行击杀的角色。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 243,
+        "word": "clan",
+        "translation": "战队 多个玩家组成的团队，通常有固定的目标和活动。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 244,
+        "word": "clutch",
+        "translation": "关键时刻 在游戏中，当局势十分危急时，玩家的表现决定胜负。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 245,
+        "word": "combo breaker",
+        "translation": "连击中断 打破敌方连续攻击的动作或防御反击。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 246,
+        "word": "counterpick",
+        "translation": "反选 针对敌方角色或阵容的选择，通常是通过克制对方的策略来取胜。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 247,
+        "word": "critical hit",
+        "translation": "暴击 角色造成的超过正常伤害的攻击。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 248,
+        "word": "crowd control",
+        "translation": "控制技能 限制敌人行动的技能，如眩晕、减速等。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 249,
+        "word": "crush",
+        "translation": "碾压 指以明显的优势击败对手，完全压制对方的战术或角色。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 250,
+        "word": "culling",
+        "translation": "剔除 游戏中去除不必要的物体或敌人的过程，通常用于提高性能。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 251,
+        "word": "customization",
+        "translation": "自定义 玩家根据个人需求修改游戏元素或角色外观的功能。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 252,
+        "word": "cyberattack",
+        "translation": "网络攻击 黑客攻击游戏服务器或玩家账户，通常用于窃取信息或作弊。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 253,
+        "word": "damage reflection",
+        "translation": "伤害反射 玩家或敌人将受到的部分伤害返回给攻击者的技能或效果。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 254,
+        "word": "damage scaling",
+        "translation": "伤害递增 游戏中某些技能或角色随着时间或条件变化而造成的伤害增幅。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 255,
+        "word": "debuff stacking",
+        "translation": "负面状态叠加 多个负面效果叠加到敌人身上的现象，造成更强的削弱效果。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 256,
+        "word": "disconnect (DC)",
+        "translation": "断开连接 玩家与游戏服务器失去连接，导致退出游戏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 257,
+        "word": "dispel",
+        "translation": "驱散 消除敌方或玩家的负面状态或魔法效果。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 258,
+        "word": "double tap",
+        "translation": "双击 连续击打敌人，或者快速两次击中目标。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 259,
+        "word": "drop rate",
+        "translation": "掉落率 游戏中某物品或奖励出现的概率。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 260,
+        "word": "dual wield",
+        "translation": "双持 玩家同时装备并使用两把武器的技能或设定。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 261,
+        "word": "DPS (Damage Per Second)",
+        "translation": "每秒伤害 衡量角色或武器持续输出伤害的单位。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 262,
+        "word": "early access",
+        "translation": "早期访问 游戏开发未完成时，玩家可以购买并体验游戏的阶段。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 263,
+        "word": "evasion",
+        "translation": "闪避 角色避免敌人攻击的能力或技能。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 264,
+        "word": "event",
+        "translation": "事件 游戏中的特殊活动或任务，通常是限时的。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 265,
+        "word": "expansion",
+        "translation": "扩展包 为现有游戏添加新内容、区域或机制的附加包。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 266,
+        "word": "experience farm",
+        "translation": "经验刷怪 专门进行击杀怪物以获得经验的行为。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 267,
+        "word": "explosion damage",
+        "translation": "爆炸伤害 爆炸类攻击造成的伤害，通常影响一定范围内的目标。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 268,
+        "word": "explosive",
+        "translation": "爆炸物 游戏中的爆炸性武器或物品。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 269,
+        "word": "extra life",
+        "translation": "额外生命 游戏中的额外生命数，通常用于增加玩家的存活机会。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 270,
+        "word": "eye candy",
+        "translation": "视觉享受 游戏中的美术效果，通常用于吸引玩家眼球。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 271,
+        "word": "farmville",
+        "translation": "农场类游戏 模拟农场生活的游戏类型，通常包含种植和资源管理。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 272,
+        "word": "feeder",
+        "translation": "送人头玩家 指故意死掉或做出不利于团队的行为的玩家。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 273,
+        "word": "farming",
+        "translation": "刷怪 通过击杀敌人或怪物来获取资源或经验。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 274,
+        "word": "friendly fire",
+        "translation": "友军伤害 游戏中玩家误伤自己队友的现象。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 275,
+        "word": "frag",
+        "translation": "击杀 用枪或其他武器击杀敌人的动作或过程。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 276,
+        "word": "free-to-play (F2P)",
+        "translation": "免费游戏 玩家无需付费即可玩的游戏，通常依靠内购获利。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 277,
+        "word": "freeze",
+        "translation": "冻结 使敌人或角色暂时无法行动的状态。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 278,
+        "word": "frostbite",
+        "translation": "霜冻伤害 指冻结敌人的攻击或技能效果。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 279,
+        "word": "game balance",
+        "translation": "游戏平衡 通过调整角色、武器、技能等元素，确保游戏的公平性和可玩性。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 280,
+        "word": "game mechanics",
+        "translation": "游戏机制 游戏的核心规则和玩法系统。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 281,
+        "word": "gank",
+        "translation": "偷袭 指多个玩家联合起来攻击一个敌人，通常用于打乱敌方节奏。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 282,
+        "word": "gatekeeper",
+        "translation": "守门人 在某个区域或关卡上挡住玩家前进的强大敌人或挑战。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 283,
+        "word": "griefing",
+        "translation": "破坏行为 故意扰乱其他玩家游戏体验的行为。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 284,
+        "word": "grind",
+        "translation": "刷资源 为了提升角色等级或获取物品，重复进行某些任务的过程。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 285,
+        "word": "guild",
+        "translation": "公会 玩家组成的团队或组织，通常用于合作、社交和竞争。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 286,
+        "word": "hack",
+        "translation": "作弊 非正常手段修改游戏或操作，通常是为了获得不公平的优势。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 287,
+        "word": "hardcore",
+        "translation": "硬核玩家 热衷于挑战高难度游戏或目标的玩家。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 288,
+        "word": "health regeneration",
+        "translation": "生命恢复 角色或单位随着时间逐渐恢复生命值的机制。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 289,
+        "word": "health potion",
+        "translation": "生命药水 用于恢复角色生命值的道具。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 290,
+        "word": "healer",
+        "translation": "治疗者 主要负责治疗和恢复队友生命值的角色。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 291,
+        "word": "hitbox",
+        "translation": "碰撞盒 游戏中用于检测碰撞的虚拟区域。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 292,
+        "word": "hit points (HP)",
+        "translation": "生命值 角色或单位的健康状态，达到零时通常死亡或失败。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 293,
+        "word": "horde",
+        "translation": "怪物群 大量敌人同时出现，通常是游戏中的挑战或敌人潮。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 294,
+        "word": "hostile",
+        "translation": "敌对 具有攻击玩家或角色意图的敌人或NPC。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 295,
+        "word": "hunter",
+        "translation": "猎人 主要从事攻击和击杀的角色，通常是远程攻击型。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 296,
+        "word": "hype",
+        "translation": "炒作 对游戏或其内容的高度宣传，通常以吸引玩家注意。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 297,
+        "word": "immortal",
+        "translation": "不死 游戏中的角色或单位在一定条件下不死或不受伤害。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 298,
+        "word": "impact",
+        "translation": "冲击力 角色或武器造成的伤害大小，或在战斗中产生的效果。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 299,
+        "word": "in-game currency",
+        "translation": "游戏内货币 游戏中的虚拟货币，用于购买物品、技能等。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 300,
+        "word": "invisible",
+        "translation": "隐形 游戏角色或单位无法被敌人看到的状态或技能。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 301,
+        "word": "item drop",
+        "translation": "物品掉落 游戏中敌人或事件产生的物品奖励。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 302,
+        "word": "item shop",
+        "translation": "物品商店 玩家可以购买游戏内物品的商店。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 303,
+        "word": "jungle",
+        "translation": "丛林 游戏地图中通常为怪物生成地或玩家之间竞争资源的区域。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 304,
+        "word": "kill streak",
+        "translation": "击杀连杀 在短时间内连续击杀多个敌人，通常会激活某些特殊奖励。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 305,
+        "word": "ladder",
+        "translation": "天梯 游戏中的排名系统，通常与玩家的表现和胜率相关。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 306,
+        "word": "lag",
+        "translation": "延迟 由于网络或硬件问题，导致玩家操作与游戏响应之间的时间差。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 307,
+        "word": "lane",
+        "translation": "路线 游戏中的一条主要通道或战斗区域，通常存在于MOBA类型的游戏中。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 308,
+        "word": "language barrier",
+        "translation": "语言障碍 玩家因语言不同而难以沟通或合作的情况。",
+        "tags": [
+            "游戏词汇"
+        ]
+    },
+    {
+        "id": 309,
+        "word": "leaderboard",
+        "translation": "排行榜 游戏中展示玩家排名和成绩的列表，通常用来展示竞争性成绩。",
+        "tags": [
+            "游戏词汇"
+        ]
+    }
+]

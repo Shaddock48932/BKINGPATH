@@ -1,0 +1,802 @@
+[
+    {
+        "id": 1,
+        "word": "abstract",
+        "translation": "(抽象)：表示类或方法的抽象程度，通常用于定义接口或抽象基类。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 2,
+        "word": "access modifier",
+        "translation": "(访问修饰符)：用于指定类、方法或变量的访问权限，如public、private、protected等。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 3,
+        "word": "algorithm",
+        "translation": "(算法)：解决特定问题的一系列步骤或规则。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 4,
+        "word": "alias",
+        "translation": "(别名)：为数据类型或命名空间创建的替代名称。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 5,
+        "word": "allocate",
+        "translation": "(分配)：为变量或对象在内存中分配空间。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 6,
+        "word": "array",
+        "translation": "(数组)：存储相同类型元素的集合。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 7,
+        "word": "assert",
+        "translation": "(断言)：用于在程序中检查假设条件的宏。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 8,
+        "word": "assignment",
+        "translation": "(赋值)：将值存储到变量中的操作。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 9,
+        "word": "association",
+        "translation": "(关联)：类与类之间的关系，例如成员对象。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 10,
+        "word": "asynchronous",
+        "translation": "(异步)：不需要等待操作完成即可继续执行的操作方式。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 11,
+        "word": "atomic",
+        "translation": "(原子)：不可分割的操作，通常用于多线程编程中的同步。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 12,
+        "word": "attribute",
+        "translation": "(属性)：类或对象的特性或数据成员。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 13,
+        "word": "auto",
+        "translation": "(自动)：C++11引入的关键字，用于自动推导变量类型。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 14,
+        "word": "base class",
+        "translation": "(基类)：被其他类继承的类。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 15,
+        "word": "binary",
+        "translation": "(二进制)：使用0和1表示的数据格式。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 16,
+        "word": "bit",
+        "translation": "(位)：计算机中数据的最小单位，表示0或1。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 17,
+        "word": "bitfield",
+        "translation": "(位域)：在结构体中定义的占用特定位数的成员。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 18,
+        "word": "block",
+        "translation": "(块)：代码的逻辑区域，通常由花括号括起来。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 19,
+        "word": "bool",
+        "translation": "(布尔型)：表示真或假的数据类型。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 20,
+        "word": "break",
+        "translation": "(跳出)：用于终止循环或switch语句的执行。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 21,
+        "word": "buffer",
+        "translation": "(缓冲区)：临时存储数据的内存区域。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 22,
+        "word": "byte",
+        "translation": "(字节)：数据存储的基本单位，通常为8位。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 23,
+        "word": "call by reference",
+        "translation": "(引用传递)：函数参数传递方式，通过引用传递变量的地址。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 24,
+        "word": "call by value",
+        "translation": "(值传递)：函数参数传递方式，将变量的值传递给函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 25,
+        "word": "cast",
+        "translation": "(类型转换)：将一种数据类型转换为另一种类型。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 26,
+        "word": "catch",
+        "translation": "(捕获)：用于捕获异常的关键字。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 27,
+        "word": "class",
+        "translation": "(类)：面向对象编程中的基本构造，用于定义对象的属性和行为。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 28,
+        "word": "clone",
+        "translation": "(克隆)：创建对象的副本。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 29,
+        "word": "closure",
+        "translation": "(闭包)：函数与其引用的外部变量绑定的实体。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 30,
+        "word": "code",
+        "translation": "(代码)：程序的源代码。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 31,
+        "word": "compile",
+        "translation": "(编译)：将源代码转换为可执行文件的过程。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 32,
+        "word": "compiler",
+        "translation": "(编译器)：将源代码转换为机器代码的工具。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 33,
+        "word": "const",
+        "translation": "(常量)：声明不可修改的变量。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 34,
+        "word": "constructor",
+        "translation": "(构造函数)：用于初始化对象的特殊成员函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 35,
+        "word": "continue",
+        "translation": "(继续)：跳过当前循环的剩余部分，开始下一次循环。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 36,
+        "word": "conversion operator",
+        "translation": "(转换运算符)：用于类型转换的特殊成员函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 37,
+        "word": "const_cast",
+        "translation": "(常量转换)：用于去除常量属性的类型转换运算符。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 38,
+        "word": "container",
+        "translation": "(容器)：用于存储数据的模板类，如vector、list等。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 39,
+        "word": "constexpr",
+        "translation": "(常量表达式)：在编译时求值的常量。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 40,
+        "word": "const_pointer",
+        "translation": "(常量指针)：指向常量数据的指针，指针本身可以改变，但指向的数据不能修改。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 41,
+        "word": "const_reference",
+        "translation": "(常量引用)：对常量数据的引用。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 42,
+        "word": "copy constructor",
+        "translation": "(拷贝构造函数)：用于通过现有对象创建新对象的构造函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 43,
+        "word": "copy assignment operator",
+        "translation": "(拷贝赋值运算符)：用于赋值操作的运算符，用于将一个对象的内容赋给另一个对象。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 44,
+        "word": "const_iterator",
+        "translation": "(常量迭代器)：用于只读访问容器元素的迭代器。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 45,
+        "word": "conversion constructor",
+        "translation": "(转换构造函数)：用于类型转换的构造函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 46,
+        "word": "data member",
+        "translation": "(数据成员)：类或结构体中定义的变量，表示对象的状态。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 47,
+        "word": "debugging",
+        "translation": "(调试)：定位和修复代码中的错误或缺陷的过程。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 48,
+        "word": "default",
+        "translation": "(默认)：C++中的默认值或默认行为，通常用于函数或构造函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 49,
+        "word": "default constructor",
+        "translation": "(默认构造函数)：没有参数的构造函数，通常由编译器自动生成。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 50,
+        "word": "delete",
+        "translation": "(删除)：释放动态分配内存的操作。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 51,
+        "word": "dynamic_cast",
+        "translation": "(动态类型转换)：用于运行时类型识别，通常用于处理多态类型转换。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 52,
+        "word": "dynamic memory",
+        "translation": "(动态内存)：通过new或malloc等手动分配的内存。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 53,
+        "word": "enum",
+        "translation": "(枚举)：定义一组相关常量的类型。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 54,
+        "word": "encapsulation",
+        "translation": "(封装)：对象导向编程中的一个原则，通过隐藏内部数据实现数据保护。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 55,
+        "word": "exception",
+        "translation": "(异常)：程序中出现的错误或异常状态，通常通过try、catch进行处理。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 56,
+        "word": "explicit",
+        "translation": "(显式)：用于标记构造函数或转换函数，以防止编译器自动进行类型转换。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 57,
+        "word": "expression",
+        "translation": "(表达式)：由常量、变量、运算符等组成的可求值的代码片段。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 58,
+        "word": "extern",
+        "translation": "(外部)：用于声明外部变量或函数，通常用于跨文件链接。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 59,
+        "word": "field",
+        "translation": "(字段)：类或结构体中的成员变量。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 60,
+        "word": "file scope",
+        "translation": "(文件作用域)：在整个文件范围内可见的变量或函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 61,
+        "word": "friend",
+        "translation": "(朋友函数)：类的非成员函数，但能够访问类的私有和保护成员。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 62,
+        "word": "function",
+        "translation": "(函数)：程序中的一个代码块，用于执行特定的操作或计算。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 63,
+        "word": "function pointer",
+        "translation": "(函数指针)：指向函数的指针，可以动态调用函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 64,
+        "word": "generic",
+        "translation": "(泛型)：指不依赖于特定数据类型的代码或函数，通常使用模板实现。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 65,
+        "word": "get",
+        "translation": "(获取)：通常用于获取对象的属性值。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 66,
+        "word": "global",
+        "translation": "(全局)：在整个程序中都可以访问的变量或函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 67,
+        "word": "goto",
+        "translation": "(跳转)：控制程序流程的语句，跳转到代码中的另一个位置。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 68,
+        "word": "hash table",
+        "translation": "(哈希表)：一种用于存储键值对的容器，通常用于快速查找。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 69,
+        "word": "heap",
+        "translation": "(堆)：内存中的一块区域，通常用于动态内存分配。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 70,
+        "word": "identifier",
+        "translation": "(标识符)：程序中用于命名变量、函数、类等的名称。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 71,
+        "word": "if statement",
+        "translation": "(条件语句)：判断条件并根据结果执行不同代码块的语句。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 72,
+        "word": "include",
+        "translation": "(包含)：用于引入外部文件，通常使用#include指令。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 73,
+        "word": "inline",
+        "translation": "(内联)：提示编译器将函数体插入调用处，以减少函数调用的开销。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 74,
+        "word": "input/output",
+        "translation": "(输入/输出)：程序与外部环境（如文件、键盘、屏幕等）之间的数据交换过程。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 75,
+        "word": "instance",
+        "translation": "(实例)：类的一个具体对象。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 76,
+        "word": "int",
+        "translation": "(整数)：C++中的一种数据类型，用于存储整数值。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 77,
+        "word": "interface",
+        "translation": "(接口)：定义类的行为但不提供实现的抽象类。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 78,
+        "word": "iterator",
+        "translation": "(迭代器)：用于遍历容器元素的对象。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 79,
+        "word": "keyword",
+        "translation": "(关键字)：C++语言中的保留字，具有特定的语法功能。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 80,
+        "word": "lambda",
+        "translation": "(Lambda 表达式)：一种可以定义匿名函数的方式，用于在代码中临时创建可调用对象。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 81,
+        "word": "library",
+        "translation": "(库)：预编写的代码集合，供程序引用使用，通常以文件形式存在。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 82,
+        "word": "linking",
+        "translation": "(链接)：将不同文件中的代码或库组合在一起的过程。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 83,
+        "word": "literal",
+        "translation": "(字面量)：程序中表示常量值的文本，如数字或字符串。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 84,
+        "word": "local variable",
+        "translation": "(局部变量)：只在函数或代码块内有效的变量。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 85,
+        "word": "loop",
+        "translation": "(循环)：重复执行一段代码的结构，通常有for、while、do-while等类型。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 86,
+        "word": "macro",
+        "translation": "(宏)：一种预处理指令，用于文本替换，可以在编译时进行代码的宏展开。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 87,
+        "word": "member function",
+        "translation": "(成员函数)：类中定义的函数，操作类的成员数据。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 88,
+        "word": "memory",
+        "translation": "(内存)：存储数据的计算机资源，可以分为堆内存和栈内存。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 89,
+        "word": "mutex",
+        "translation": "(互斥体)：用于同步访问共享资源的机制，通常用于多线程编程。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 90,
+        "word": "namespace",
+        "translation": "(命名空间)：用于组织代码，防止命名冲突。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 91,
+        "word": "new",
+        "translation": "(新)：C++中用于动态分配内存的运算符。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 92,
+        "word": "NULL",
+        "translation": "(空指针)：指向无效内存地址的指针值。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 93,
+        "word": "object",
+        "translation": "(对象)：由类定义的一个实例。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 94,
+        "word": "operator",
+        "translation": "(运算符)：用于执行特定操作的符号或函数。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 95,
+        "word": "overload",
+        "translation": "(重载)：定义多个同名但参数不同的函数或运算符。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 96,
+        "word": "override",
+        "translation": "(重写)：在派生类中重新定义基类的方法。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 97,
+        "word": "parameter",
+        "translation": "(参数)：传递给函数的数据。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 98,
+        "word": "pointer",
+        "translation": "(指针)：存储地址的变量，指向其他变量或对象。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 99,
+        "word": "polymorphism",
+        "translation": "(多态)：不同对象对同一消息作出不同响应的能力。",
+        "tags": [
+            "C++词汇"
+        ]
+    },
+    {
+        "id": 100,
+        "word": "private",
+        "translation": "(私有)：类中不可被外部访问的成员。",
+        "tags": [
+            "C++词汇"
+        ]
+    }
+]

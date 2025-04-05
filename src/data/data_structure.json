@@ -1,0 +1,1346 @@
+[
+    {
+        "id": 1,
+        "word": "atomic",
+        "translation": "基本",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 2,
+        "word": "abstract data type",
+        "translation": "抽象数据类型",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 3,
+        "word": "fixed",
+        "translation": "固定聚合数据类型",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 4,
+        "word": "variable",
+        "translation": "可变聚合数据类型",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 5,
+        "word": "logical structure",
+        "translation": "逻辑结构",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 6,
+        "word": "phyical structure",
+        "translation": "物理结构",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 7,
+        "word": "linear structure",
+        "translation": "线性结构",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 8,
+        "word": "nonlinear structure",
+        "translation": "非线性结构",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 9,
+        "word": "linked list",
+        "translation": "链表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 10,
+        "word": "linear linked list",
+        "translation": "线性链表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 11,
+        "word": "single linked list",
+        "translation": "单链表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 12,
+        "word": "multilinked list",
+        "translation": "多重链表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 13,
+        "word": "circular linked list",
+        "translation": "循环链表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 14,
+        "word": "doubly linked list",
+        "translation": "双向链表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 15,
+        "word": "orthogonal list",
+        "translation": "十字链表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 16,
+        "word": "generalized list",
+        "translation": "广义表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 17,
+        "word": "link",
+        "translation": "链",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 18,
+        "word": "pointer field",
+        "translation": "指针域",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 19,
+        "word": "link field",
+        "translation": "链域",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 20,
+        "word": "head node",
+        "translation": "头结点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 21,
+        "word": "head pointer",
+        "translation": "头指针",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 22,
+        "word": "tail pointer",
+        "translation": "尾指针",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 23,
+        "word": "string",
+        "translation": "串",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 24,
+        "word": "blank string",
+        "translation": "空白（空格）串",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 25,
+        "word": "substring",
+        "translation": "子串",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 26,
+        "word": "array",
+        "translation": "数组",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 27,
+        "word": "matrix",
+        "translation": "矩阵",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 28,
+        "word": "multi",
+        "translation": "多维数组",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 29,
+        "word": "row major order",
+        "translation": "以行为主的顺序分配",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 30,
+        "word": "column major order",
+        "translation": "以列为主的顺序分配",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 31,
+        "word": "truangular matrix",
+        "translation": "三角矩阵",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 32,
+        "word": "symmetric matrix",
+        "translation": "对称矩阵",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 33,
+        "word": "sparse matrix",
+        "translation": "稀疏矩阵",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 34,
+        "word": "transposed matrix",
+        "translation": "转置矩阵",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 35,
+        "word": "tree",
+        "translation": "树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 36,
+        "word": "subtree",
+        "translation": "子树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 37,
+        "word": "forest",
+        "translation": "森林",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 38,
+        "word": "root",
+        "translation": "根",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 39,
+        "word": "leaf",
+        "translation": "叶子",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 40,
+        "word": "node",
+        "translation": "结点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 41,
+        "word": "depth",
+        "translation": "深度",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 42,
+        "word": "level",
+        "translation": "层次",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 43,
+        "word": "parents",
+        "translation": "双亲",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 44,
+        "word": "children",
+        "translation": "孩子",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 45,
+        "word": "brother",
+        "translation": "兄弟",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 46,
+        "word": "ancestor",
+        "translation": "祖先",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 47,
+        "word": "descentdant",
+        "translation": "子孙",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 48,
+        "word": "binary tree",
+        "translation": "二叉树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 49,
+        "word": "banlanced binary tree",
+        "translation": "平衡二叉树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 50,
+        "word": "full binary tree",
+        "translation": "满二叉树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 51,
+        "word": "complete binary tree",
+        "translation": "完全二叉树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 52,
+        "word": "traversing binary tree",
+        "translation": "遍历二叉树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 53,
+        "word": "binary sort tree",
+        "translation": "二叉排序树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 54,
+        "word": "binary search tree",
+        "translation": "二叉查找树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 55,
+        "word": "threaded binary tree",
+        "translation": "线索二叉树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 56,
+        "word": "Huffman tree",
+        "translation": "哈夫曼树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 57,
+        "word": "ordered tree",
+        "translation": "有序数",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 58,
+        "word": "decision tree",
+        "translation": "判定树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 59,
+        "word": "doubly linked tree",
+        "translation": "双链树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 60,
+        "word": "digital search tree",
+        "translation": "数字查找树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 61,
+        "word": "spanning tree",
+        "translation": "生成树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 62,
+        "word": "minimum",
+        "translation": "最小（代价）生成树",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 63,
+        "word": "spanning forest",
+        "translation": "生成森林",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 64,
+        "word": "traversal of tree",
+        "translation": "树的遍历",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 65,
+        "word": "preorder",
+        "translation": "先序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 66,
+        "word": "inorder",
+        "translation": "中序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 67,
+        "word": "postorder",
+        "translation": "后序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 68,
+        "word": "stack",
+        "translation": "栈",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 69,
+        "word": "bottom",
+        "translation": "栈底",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 70,
+        "word": "top",
+        "translation": "栈顶",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 71,
+        "word": "push",
+        "translation": "压入",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 72,
+        "word": "pop",
+        "translation": "弹出",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 73,
+        "word": "queue",
+        "translation": "队列",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 74,
+        "word": "front",
+        "translation": "队头",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 75,
+        "word": "rear",
+        "translation": "队尾",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 76,
+        "word": "overflow",
+        "translation": "上溢",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 77,
+        "word": "underflow",
+        "translation": "下溢",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 78,
+        "word": "deque",
+        "translation": "双端列表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 79,
+        "word": "cirular queue",
+        "translation": "循环队列",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 80,
+        "word": "gragh",
+        "translation": "图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 81,
+        "word": "subgraph",
+        "translation": "子图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 82,
+        "word": "digraph",
+        "translation": "有向图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 83,
+        "word": "undigraph",
+        "translation": "无向图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 84,
+        "word": "complete graph",
+        "translation": "完全图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 85,
+        "word": "connected graph",
+        "translation": "连通图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 86,
+        "word": "unconnected graph",
+        "translation": "非连通图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 87,
+        "word": "strongly connected graph",
+        "translation": "强连通图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 88,
+        "word": "weakly connected graph",
+        "translation": "弱连通图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 89,
+        "word": "weighted graph",
+        "translation": "加权图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 90,
+        "word": "directed acyclic graph",
+        "translation": "有向无环图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 91,
+        "word": "spares graph",
+        "translation": "稀疏图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 92,
+        "word": "dense graph",
+        "translation": "稠密图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 93,
+        "word": "biconnected graph",
+        "translation": "重连通图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 94,
+        "word": "bipartite graph",
+        "translation": "二部图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 95,
+        "word": "traversing graph",
+        "translation": "遍历图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 96,
+        "word": "edge",
+        "translation": "边",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 97,
+        "word": "vertex",
+        "translation": "顶点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 98,
+        "word": "arc",
+        "translation": "弧",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 99,
+        "word": "path",
+        "translation": "路径",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 100,
+        "word": "head",
+        "translation": "弧头",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 101,
+        "word": "tail",
+        "translation": "弧尾",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 102,
+        "word": "source",
+        "translation": "源点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 103,
+        "word": "destination",
+        "translation": "终点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 104,
+        "word": "sink",
+        "translation": "汇点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 105,
+        "word": "weight",
+        "translation": "权",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 106,
+        "word": "articulation point",
+        "translation": "连接点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 107,
+        "word": "initial node",
+        "translation": "初始结点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 108,
+        "word": "terminal node",
+        "translation": "终端结点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 109,
+        "word": "adjacent edge",
+        "translation": "相邻边",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 110,
+        "word": "adjacent",
+        "translation": "相邻",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 111,
+        "word": "vertex",
+        "translation": "顶点",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 112,
+        "word": "searching",
+        "translation": "查找",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 113,
+        "word": "binary search",
+        "translation": "二分查找",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 114,
+        "word": "block search",
+        "translation": "分块查找",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 115,
+        "word": "hash search",
+        "translation": "散列查找",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 116,
+        "word": "updating",
+        "translation": "更新",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 117,
+        "word": "internal sort",
+        "translation": "内部排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 118,
+        "word": "external sort",
+        "translation": "外部排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 119,
+        "word": "insertion sort",
+        "translation": "插入排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 120,
+        "word": "selection sort",
+        "translation": "选择排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 121,
+        "word": "heap sort",
+        "translation": "堆排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 122,
+        "word": "quick sort",
+        "translation": "快速排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 123,
+        "word": "merge sort",
+        "translation": "归并排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 124,
+        "word": "radix sort",
+        "translation": "基数排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 125,
+        "word": "balance merging sort",
+        "translation": "平衡归并排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 126,
+        "word": "balance two",
+        "translation": "二路平衡归并排序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 127,
+        "word": "ployphase",
+        "translation": "多步",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 128,
+        "word": "merging",
+        "translation": "归并",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 129,
+        "word": "topological",
+        "translation": "拓扑",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 130,
+        "word": "insertion",
+        "translation": "插入",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 131,
+        "word": "deletion",
+        "translation": "删除",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 132,
+        "word": "predecessor",
+        "translation": "前驱",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 133,
+        "word": "successor",
+        "translation": "后继",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 134,
+        "word": "predecessor",
+        "translation": "前驱",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 135,
+        "word": "immediate",
+        "translation": "直接",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 136,
+        "word": "successor",
+        "translation": "后继",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 137,
+        "word": "indegree",
+        "translation": "入度",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 138,
+        "word": "out degree",
+        "translation": "出度",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 139,
+        "word": "shortest path",
+        "translation": "最短路径",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 140,
+        "word": "simple path",
+        "translation": "简单路径",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 141,
+        "word": "simple cycle",
+        "translation": "简单回路",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 142,
+        "word": "connected component",
+        "translation": "连通分量",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 143,
+        "word": "adjacency matrix",
+        "translation": "邻接矩阵",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 144,
+        "word": "adjacency list",
+        "translation": "邻接表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 145,
+        "word": "adjacency",
+        "translation": "邻接",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 146,
+        "word": "multilist",
+        "translation": "多重表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 147,
+        "word": "partical order",
+        "translation": "偏序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 148,
+        "word": "topological order",
+        "translation": "拓扑有序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 149,
+        "word": "critical path",
+        "translation": "关键路径",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 150,
+        "word": "matching",
+        "translation": "匹配",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 151,
+        "word": "maximum matching",
+        "translation": "最大匹配",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 152,
+        "word": "augmenting",
+        "translation": "augmenting path 增广路径",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 153,
+        "word": "augmenting path graph",
+        "translation": "增广路径图",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 154,
+        "word": "hash table",
+        "translation": "散列表",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 155,
+        "word": "hash funticion",
+        "translation": "散列函数",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 156,
+        "word": "digital analysis method",
+        "translation": "数字分析法",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 157,
+        "word": "mid",
+        "translation": "平方取中法",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 158,
+        "word": "folding method",
+        "translation": "折叠法",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 159,
+        "word": "division method",
+        "translation": "除法",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 160,
+        "word": "random number method t replacement selection sort",
+        "translation": "随机数法",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 161,
+        "word": "master file",
+        "translation": "主文件",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 162,
+        "word": "sequential file",
+        "translation": "顺序文件",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 163,
+        "word": "sequential",
+        "translation": "顺序",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 164,
+        "word": "direct access file",
+        "translation": "直接存取文件",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 165,
+        "word": "multilist file",
+        "translation": "多重链表文件",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 166,
+        "word": "inverted file",
+        "translation": "倒排文件",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 167,
+        "word": "directory structure",
+        "translation": "目录结构",
+        "tags": [
+            "数据结构词汇"
+        ]
+    },
+    {
+        "id": 168,
+        "word": "tree index",
+        "translation": "树型索引",
+        "tags": [
+            "数据结构词汇"
+        ]
+    }
+]

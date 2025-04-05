@@ -1,0 +1,1042 @@
+[
+    {
+        "id": 1,
+        "word": "access",
+        "translation": "访问",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 2,
+        "word": "Adobe",
+        "translation": "Adobe",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 3,
+        "word": "admin",
+        "translation": "管理员",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 4,
+        "word": "adversarial",
+        "translation": "对抗的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 5,
+        "word": "agile",
+        "translation": "敏捷的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 6,
+        "word": "amazon",
+        "translation": "亚马逊",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 7,
+        "word": "analogy",
+        "translation": "类比",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 8,
+        "word": "Angular",
+        "translation": "角度的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 9,
+        "word": "AJAX",
+        "translation": "异步JavaScript和XML",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 10,
+        "word": "alias",
+        "translation": "别名",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 11,
+        "word": "align",
+        "translation": "对齐",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 12,
+        "word": "Apache",
+        "translation": "阿帕奇",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 13,
+        "word": "app",
+        "translation": "应用程序",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 14,
+        "word": "archive",
+        "translation": "档案",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 15,
+        "word": "array",
+        "translation": "数组",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 16,
+        "word": "ASCII",
+        "translation": "美国信息交换标准代码",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 17,
+        "word": "aspect",
+        "translation": "方面",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 18,
+        "word": "async",
+        "translation": "异步的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 19,
+        "word": "avatar",
+        "translation": "化身",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 20,
+        "word": "Azure",
+        "translation": "微软Azure",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 21,
+        "word": "Bazel",
+        "translation": "（软件构建工具）Bazel",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 22,
+        "word": "bind",
+        "translation": "绑定",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 23,
+        "word": "BIOS",
+        "translation": "基本输入输出系统",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 24,
+        "word": "cache",
+        "translation": "缓存",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 25,
+        "word": "canal",
+        "translation": "运河",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 26,
+        "word": "chaos",
+        "translation": "混乱",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 27,
+        "word": "Chrome",
+        "translation": "谷歌Chrome",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 28,
+        "word": "clang",
+        "translation": "叮当声",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 29,
+        "word": "context",
+        "translation": "上下文",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 30,
+        "word": "Coq",
+        "translation": "法国的Coq",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 31,
+        "word": "daemon",
+        "translation": "守护进程",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 32,
+        "word": "debt",
+        "translation": "债务",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 33,
+        "word": "deny",
+        "translation": "否认",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 34,
+        "word": "deprecate",
+        "translation": "弃用",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 35,
+        "word": "deque",
+        "translation": "双端队列",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 36,
+        "word": "digest",
+        "translation": "消化",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 37,
+        "word": "Dijkstra",
+        "translation": "迪克斯特拉",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 38,
+        "word": "Django",
+        "translation": "简洁优雅的Python框架",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 39,
+        "word": "doc",
+        "translation": "文档",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 40,
+        "word": "dotnet",
+        "translation": "点NET",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 41,
+        "word": "edition",
+        "translation": "版本",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 42,
+        "word": "ephemeral",
+        "translation": "短暂的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 43,
+        "word": "epoch",
+        "translation": "纪元",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 44,
+        "word": "execute",
+        "translation": "执行",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 45,
+        "word": "executor",
+        "translation": "执行者",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 46,
+        "word": "event",
+        "translation": "事件",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 47,
+        "word": "exit",
+        "translation": "退出",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 48,
+        "word": "facade",
+        "translation": "外观",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 49,
+        "word": "fedora",
+        "translation": "费多拉（帽子）",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 50,
+        "word": "format",
+        "translation": "格式",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 51,
+        "word": "gauge",
+        "translation": "测量",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 52,
+        "word": "Git",
+        "translation": "版本控制工具Git",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 53,
+        "word": "GNU",
+        "translation": "自由软件基金会GNU",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 54,
+        "word": "Grafana",
+        "translation": "监控平台Grafana",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 55,
+        "word": "GraphQL",
+        "translation": "GraphQL",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 56,
+        "word": "GUI",
+        "translation": "图形用户界面",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 57,
+        "word": "Haskell",
+        "translation": "函数式编程语言Haskell",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 58,
+        "word": "height",
+        "translation": "高度",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 59,
+        "word": "hidden",
+        "translation": "隐藏的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 60,
+        "word": "IEEE",
+        "translation": "电气和电子工程师协会",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 61,
+        "word": "image",
+        "translation": "图像",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 62,
+        "word": "implement",
+        "translation": "实施",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 63,
+        "word": "integer",
+        "translation": "整数",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 64,
+        "word": "issue",
+        "translation": "问题",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 65,
+        "word": "Java",
+        "translation": "Java编程语言",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 66,
+        "word": "jpg",
+        "translation": "JPEG图像格式",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 67,
+        "word": "key",
+        "translation": "钥匙",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 68,
+        "word": "kubernetes",
+        "translation": "容器管理工具Kubernetes",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 69,
+        "word": "lambda",
+        "translation": "匿名函数",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 70,
+        "word": "Ldap",
+        "translation": "轻量目录访问协议",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 71,
+        "word": "legacy",
+        "translation": "遗留的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 72,
+        "word": "linear",
+        "translation": "线性的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 73,
+        "word": "LINQ",
+        "translation": "语言集成查询",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 74,
+        "word": "Linux",
+        "translation": "开源操作系统Linux",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 75,
+        "word": "locale",
+        "translation": "地区设置",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 76,
+        "word": "Lucene",
+        "translation": "开源搜索引擎Lucene",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 77,
+        "word": "macro",
+        "translation": "宏",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 78,
+        "word": "main",
+        "translation": "主要的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 79,
+        "word": "margin",
+        "translation": "边距",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 80,
+        "word": "matrix",
+        "translation": "矩阵",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 81,
+        "word": "maven",
+        "translation": "专家",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 82,
+        "word": "max",
+        "translation": "最大",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 83,
+        "word": "Microsoft",
+        "translation": "微软公司",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 84,
+        "word": "migrate",
+        "translation": "迁移",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 85,
+        "word": "miscellaneous",
+        "translation": "杂项的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 86,
+        "word": "module",
+        "translation": "模块",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 87,
+        "word": "native",
+        "translation": "本地的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 88,
+        "word": "nginx",
+        "translation": "高性能Web服务器nginx",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 89,
+        "word": "null",
+        "translation": "空值",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 90,
+        "word": "obsolete",
+        "translation": "废弃的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 91,
+        "word": "OS X",
+        "translation": "苹果操作系统OS X",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 92,
+        "word": "phantom",
+        "translation": "幽灵",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 93,
+        "word": "parameter",
+        "translation": "参数",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 94,
+        "word": "premise",
+        "translation": "前提",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 95,
+        "word": "privilege",
+        "translation": "特权",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 96,
+        "word": "probe",
+        "translation": "探测",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 97,
+        "word": "Prometheus",
+        "translation": "普罗米修斯",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 98,
+        "word": "putty",
+        "translation": "油灰",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 99,
+        "word": "Qt",
+        "translation": "跨平台应用程序框架Qt",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 100,
+        "word": "query",
+        "translation": "查询",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 101,
+        "word": "Realm",
+        "translation": "领域",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 102,
+        "word": "reconcile",
+        "translation": "和解",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 103,
+        "word": "Redux",
+        "translation": "Redux（一种JavaScript状态管理工具）",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 104,
+        "word": "resume",
+        "translation": "简历",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 105,
+        "word": "résumé",
+        "translation": "简历",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 106,
+        "word": "resolved",
+        "translation": "解决的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 107,
+        "word": "resort",
+        "translation": "度假胜地",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 108,
+        "word": "retina",
+        "translation": "视网膜",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 110,
+        "word": "route",
+        "translation": "路线",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 111,
+        "word": "San Jose",
+        "translation": "圣何塞",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 112,
+        "word": "safari",
+        "translation": "远足旅行",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 113,
+        "word": "scheme",
+        "translation": "计划",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 114,
+        "word": "scala",
+        "translation": "Scala（编程语言）",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 115,
+        "word": "segue",
+        "translation": "无缝过渡",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 116,
+        "word": "SQL",
+        "translation": "结构化查询语言",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 117,
+        "word": "sudo",
+        "translation": "超级用户权限命令",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 118,
+        "word": "suite",
+        "translation": "套件",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 119,
+        "word": "telemetry",
+        "translation": "遥测",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 120,
+        "word": "thymeleaf",
+        "translation": "一个Java模板引擎",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 121,
+        "word": "tuple",
+        "translation": "元组",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 122,
+        "word": "typical",
+        "translation": "典型的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 123,
+        "word": "Ubuntu",
+        "translation": "开源操作系统Ubuntu",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 124,
+        "word": "UEFI",
+        "translation": "统一可扩展固件接口",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 125,
+        "word": "Vagrant",
+        "translation": "开源虚拟化工具Vagrant",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 126,
+        "word": "variable",
+        "translation": "变量",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 127,
+        "word": "verbose",
+        "translation": "冗长的",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 128,
+        "word": "vue",
+        "translation": "一个JavaScript框架",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 129,
+        "word": "width",
+        "translation": "宽度",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 130,
+        "word": "YouTube",
+        "translation": "视频网站YouTube",
+        "tags": [
+            "易错词汇"
+        ]
+    },
+    {
+        "id": 131,
+        "word": "Vite",
+        "translation": "构建工具Vite",
+        "tags": [
+            "易错词汇"
+        ]
+    }
+]
