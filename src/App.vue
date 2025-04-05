@@ -84,8 +84,8 @@ const loadWordsList = async (listFile) => {
     wordsList.value = Array.isArray(data) ? data : []
     
     if (wordsList.value.length > 0) {
-      currentIndex.value = 0
-      currentWord.value = wordsList.value[0]
+      currentIndex.value = Math.floor(Math.random() * wordsList.value.length)
+      currentWord.value = wordsList.value[currentIndex.value]
     } else {
       errorMessage.value = '单词列表为空'
     }

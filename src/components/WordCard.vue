@@ -5,6 +5,7 @@
  */
 
 import { ref, watch, onBeforeUnmount } from 'vue'
+import { showError } from '../utils/errorNotification'
 
 // 组件属性定义
 const props = defineProps({
@@ -36,22 +37,20 @@ const isPlaying = ref(false)
 // 控制翻译显示状态
 const showTranslation = ref(false)
 // 音频实例
-const audio = new Audio()
+const currentAudio = ref(null)
 // 标记是否正在使用Web Speech
 const isUsingSpeech = ref(false)
 // 标记是否已经开始尝试播放有道音频
 const isYoudaoAttempted = ref(false)
-// 设置初始音量
-audio.volume = props.volume
-
 // 语音合成实例
-const synth = window.speechSynthesis
+const currentSynth = ref(window.speechSynthesis)
+
 // 可用的语音列表
 const voices = ref([])
 
 // 获取可用的语音列表
 const loadVoices = () => {
-  voices.value = synth.getVoices().filter(voice => voice.lang.startsWith('en'))
+  voices.value = currentSynth.value.getVoices().filter(voice => voice.lang.startsWith('en'))
 }
 
 // 初始化语音列表
@@ -61,110 +60,127 @@ if (speechSynthesis.onvoiceschanged !== undefined) {
 }
 
 /**
+ * 停止所有当前正在播放的音频
+ */
+const stopAllAudio = () => {
+  // 停止有道音频
+  if (currentAudio.value) {
+    currentAudio.value.pause();
+    currentAudio.value.currentTime = 0;
+    currentAudio.value = null;
+  }
+  
+  // 停止Web Speech
+  if (currentSynth.value) {
+    currentSynth.value.cancel();
+  }
+  
+  // 重置状态
+  isPlaying.value = false;
+  isUsingSpeech.value = false;
+  isYoudaoAttempted.value = false;
+}
+
+/**
  * 使用Web Speech API播放发音
  */
 const playWebSpeech = async (text) => {
-  // 创建语音合成话语
-  const utterance = new SpeechSynthesisUtterance(text)
+  if (isUsingSpeech.value) return;
   
-  // 设置语音参数
-  utterance.lang = props.lang
-  utterance.rate = 1.0  // 语速
-  utterance.pitch = 1.0 // 音调
-  
-  // 如果有可用的英语语音，使用第一个
-  if (voices.value.length > 0) {
-    utterance.voice = voices.value[0]
-  }
+  try {
+    isUsingSpeech.value = true;
+    const utterance = new SpeechSynthesisUtterance(text);
+    
+    // 设置语音参数
+    utterance.lang = props.lang;
+    utterance.rate = 1.0;  // 语速
+    utterance.pitch = 1.0; // 音调
+    
+    // 如果有可用的英语语音，使用第一个
+    if (voices.value.length > 0) {
+      utterance.voice = voices.value[0];
+    }
 
-  // 播放语音
-  synth.speak(utterance)
-  isPlaying.value = true
-
-  // 监听播放结束
-  return new Promise((resolve) => {
+    // 确保停止之前的语音合成
+    currentSynth.value.cancel();
+    
+    // 监听播放结束和错误
     utterance.onend = () => {
-      isPlaying.value = false
-      resolve()
-    }
+      isPlaying.value = false;
+      isUsingSpeech.value = false;
+      isYoudaoAttempted.value = false;
+    };
+    
     utterance.onerror = () => {
-      isPlaying.value = false
-      resolve()
+      showError('Web Speech播放失败。');
+      isPlaying.value = false;
+      isUsingSpeech.value = false;
+      isYoudaoAttempted.value = false;
+    };
+    
+    currentSynth.value.speak(utterance);
+    isPlaying.value = true;
+  } catch (error) {
+    showError('播放失败，正在尝试Web Speech API音源。');
+    if (!isUsingSpeech.value) {
+      await playWebSpeech(props.word);
     }
-  })
-}
+  }
+};
 
 /**
  * 播放单词发音
  */
 const playPronunciation = async () => {
+  // 如果正在播放，停止所有音频
   if (isPlaying.value) {
-    audio.pause()
-    synth.cancel() // 停止语音合成
-    audio.currentTime = 0
-    isPlaying.value = false
-    isUsingSpeech.value = false
-    isYoudaoAttempted.value = false
-    return
+    stopAllAudio();
+    return;
   }
 
   try {
     // 标记开始尝试播放有道音频
-    isYoudaoAttempted.value = true
-    // 首先尝试使用有道词典API
-    audio.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(props.word)}&type=2`
-    await audio.play()
-  } catch (error) {
-    // 只有在没有使用Web Speech的情况下才尝试使用它
-    if (!isUsingSpeech.value) {
-      console.error('有道API播放失败，尝试使用Web Speech:', error)
-      try {
-        isUsingSpeech.value = true
-        // 使用Web Speech API作为备用
-        await playWebSpeech(props.word)
-      } catch (speechError) {
-        console.error('Web Speech播放失败:', speechError)
-        isPlaying.value = false
-        isUsingSpeech.value = false
+    isYoudaoAttempted.value = true;
+    
+    // 创建新的音频实例
+    const audio = new Audio();
+    audio.volume = props.volume;
+    
+    // 设置音频事件
+    audio.onplay = () => {
+      isPlaying.value = true;
+      isUsingSpeech.value = false;
+    };
+    
+    audio.onended = () => {
+      isPlaying.value = false;
+      isUsingSpeech.value = false;
+      if (audio === currentAudio.value) {
+        currentAudio.value = null;
       }
+    };
+    
+    audio.onerror = async () => {
+      if (isYoudaoAttempted.value && !isUsingSpeech.value) {
+        showError('有道发音获取失败，正在尝试使用Web Speech');
+        await playWebSpeech(props.word);
+      }
+    };
+    
+    // 设置音频源并播放
+    audio.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(props.word)}&type=2`;
+    currentAudio.value = audio;
+    await audio.play();
+    
+  } catch (error) {
+    showError('播放失败，正在尝试备用发音源');
+    if (!isUsingSpeech.value) {
+      await playWebSpeech(props.word);
     }
   } finally {
-    isYoudaoAttempted.value = false
+    isYoudaoAttempted.value = false;
   }
-}
-
-// 设置音频事件监听
-audio.onplay = () => {
-  isPlaying.value = true
-  isUsingSpeech.value = false // 确保使用有道API时不会触发Web Speech
-}
-
-audio.onended = () => {
-  isPlaying.value = false
-  isUsingSpeech.value = false
-  audio.currentTime = 0
-}
-
-audio.onerror = async (error) => {
-  // 只有在已经尝试过有道API且没有使用Web Speech的情况下才尝试使用Web Speech
-  if (isYoudaoAttempted.value && !isUsingSpeech.value) {
-    console.error('有道获取失败，尝试使用Web Speech:', {
-      error,
-      src: audio.src,
-      errorCode: audio.error?.code,
-      errorMessage: audio.error?.message
-    })
-    
-    try {
-      isUsingSpeech.value = true
-      await playWebSpeech(props.word)
-    } catch (speechError) {
-      console.error('Web Speech播放失败:', speechError)
-      isPlaying.value = false
-      isUsingSpeech.value = false
-    }
-  }
-}
+};
 
 /**
  * 切换翻译显示状态
@@ -176,7 +192,9 @@ const toggleTranslation = () => {
 // 设置音量的方法
 const setVolume = (value) => {
   const vol = Math.max(0, Math.min(1, value)) // 确保音量在 0-1 之间
-  audio.volume = vol
+  if (currentAudio.value) {
+    currentAudio.value.volume = vol;
+  }
 }
 
 // 暴露方法给父组件
@@ -186,18 +204,17 @@ defineExpose({
   playPronunciation
 })
 
-// 监听单词变化，自动播放新单词的语音
+// 监听单词变化
 watch(() => props.word, (newWord, oldWord) => {
   if (newWord && newWord !== oldWord) {
-    // 重置所有状态
-    audio.pause()
-    audio.currentTime = 0
-    isPlaying.value = false
-    // // showTranslation.value = false
-    // 短暂延迟后播放，让视觉变化先完成
-    playPronunciation()
+    // 停止所有当前播放的音频
+    stopAllAudio();
+    // 短暂延迟后播放新单词，让视觉变化先完成
+    setTimeout(() => {
+      playPronunciation();
+    }, 100);
   }
-}, { immediate: true })
+}, { immediate: true });
 
 // 监听音量属性变化
 watch(() => props.volume, (newVolume) => {
@@ -206,13 +223,8 @@ watch(() => props.volume, (newVolume) => {
 
 // 组件卸载时清理
 onBeforeUnmount(() => {
-  audio.pause()
-  synth.cancel() // 停止所有语音合成
-  audio.src = ''
-  isPlaying.value = false
-  isUsingSpeech.value = false
-  isYoudaoAttempted.value = false
-})
+  stopAllAudio();
+});
 </script>
 
 <template>
