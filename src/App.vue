@@ -1,10 +1,10 @@
 <script setup>
 import { ref, onMounted, watch, onBeforeUnmount, provide } from 'vue'
 import WordCard from './components/WordCard.vue'
-import BackgroundUploader from './components/BackgroundUploader.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 import NoteBook from './components/NoteBook.vue'
 import TodoList from './components/TodoList.vue'
+import NavBar from './components/NavBar.vue'
 
 // 导入音效
 import nextSound from './assets/sound/next.mp3'
@@ -96,15 +96,14 @@ const loadCoinsFromServer = async () => {
 
 // 可用的单词列表文件
 const wordLists = [
-{ name: '游戏词汇', file: '../src/data/gamebase.json' },
-  { name: '计算机专业词汇', file: '../src/data/cs.json' },
-  { name: '前端', file: '../src/data/web.json' },
-  { name: 'Java', file: '../src/data/javause.json' },
-  { name: '数据结构', file: '../src/data/data_structure.json' },
-  { name: '日常易错词', file: '../src/data/dailyuse.json' },
-  { name: 'UE常用词汇', file: '../src/data/uebase.json' },
-  { name: 'C++', file: '../src/data/cplusplus.json' },
-
+  { name: '游戏词汇', file: './src/data/gamebase.json' },
+  { name: '计算机专业词汇', file: './src/data/cs.json' },
+  { name: '前端', file: './src/data/web.json' },
+  { name: 'Java', file: './src/data/javause.json' },
+  { name: '数据结构', file: './src/data/data_structure.json' },
+  { name: '日常易错词', file: './src/data/dailyuse.json' },
+  { name: 'UE常用词汇', file: './src/data/uebase.json' },
+  { name: 'C++', file: './src/data/cplusplus.json' },
 ]
 
 // 当前选择的单词列表
@@ -158,18 +157,21 @@ const setSoundVolume = (volume) => {
 
 // 播放音效函数
 const playNextSound = () => {
-  nextAudio.currentTime = 0
-  nextAudio.play()
+  const audio = new Audio(nextSound)
+  audio.volume = soundVolume.value
+  audio.play()
 }
 
 const playButtonSound = () => {
-  buttonAudio.currentTime = 0
-  buttonAudio.play()
+  const audio = new Audio(buttonSound)
+  audio.volume = soundVolume.value
+  audio.play()
 }
 
 const playTouchSound = () => {
-  touchAudio.currentTime = 0
-  touchAudio.play()
+  const audio = new Audio(touchSound)
+  audio.volume = soundVolume.value
+  audio.play()
 }
 
 // 将音效函数提供给子组件
@@ -196,7 +198,6 @@ const showRandomWord = () => {
   currentIndex.value = newIndex
   currentWord.value = wordsList.value[newIndex]
   userInput.value = '' // 清除输入框内容
-  playNextSound() // 播放下一个音效
 }
 
 /**
@@ -272,70 +273,21 @@ onMounted(() => {
   // 从服务器加载金币数据
   loadCoinsFromServer();
   
-  loadWordsList(currentList.value.file)
+  // 添加音乐播放器切换事件监听
+  window.addEventListener('toggle-music-player', toggleMusicPlayer)
   
-  // 添加键盘事件监听
-  window.addEventListener('keydown', handleKeyPress)
+  loadWordsList(currentList.value.file)
 })
 
 // 组件卸载时移除事件监听
 onBeforeUnmount(() => {
-  window.removeEventListener('keydown', handleKeyPress)
+  window.removeEventListener('toggle-music-player', toggleMusicPlayer)
 })
 
-// 处理键盘事件
-const handleKeyPress = (event) => {
-  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-    // showRandomWord()
-  } else if (event.key === 'Enter') {
-    showRandomWord()
-  } else if (event.key === 'Shift') {
-    const now = Date.now()
-    if (now - lastShiftTime.value < 300) { // 300毫秒内的双击
-      // 触发WordCard组件的toggleTranslation方法
-      wordCardRef.value?.toggleTranslation()
-    }
-    lastShiftTime.value = now
-  } else if (event.key === 'Control') {
-    const now = Date.now()
-    if (now - lastCtrlTime.value < 300) { // 300毫秒内的双击
-      // 触发WordCard组件的播放发音方法
-      wordCardRef.value?.playPronunciation()
-    }
-    lastCtrlTime.value = now
-  }
-}
+// 控制音乐播放器的显示状态
+const showMusicPlayer = ref(true)
 
-// 处理音乐上传
-const handleMusicUpload = (event) => {
-  const file = event.target.files[0]
-  if (!file) return
-
-  // 检查文件类型
-  if (!file.type.startsWith('audio/')) {
-    alert('请上传音频文件')
-    return
-  }
-
-  // 创建文件URL
-  const url = URL.createObjectURL(file)
-  // 获取文件名（去除扩展名）
-  const name = file.name.replace(/\.[^/.]+$/, "")
-  
-  // 添加到音乐列表
-  if (musicPlayerRef.value) {
-    const added = musicPlayerRef.value.addMusic(name, url)
-    if (!added) {
-      alert('已存在同名音乐')
-      URL.revokeObjectURL(url)
-    }
-  }
-
-  // 清空input，允许重复上传同一文件
-  event.target.value = ''
-}
-
-// todolist点击处理
+// todolist相关状态
 const todoClickTimer = ref(null)
 const showTodoList = ref(false)
 const isTodoRotating = ref(false)
@@ -353,105 +305,51 @@ const handleTodoDoubleClick = (e) => {
   isTodoRotating.value = !isTodoRotating.value
   playTouchSound()
 }
+
+// 切换音乐播放器显示/隐藏
+const toggleMusicPlayer = () => {
+  showMusicPlayer.value = !showMusicPlayer.value
+}
 </script>
 
 <template>
-  <div class="ceil-bar">
-    <div class="money-box">
-      <span class="coin-icon">💸</span>
-      <span class="coin-count" :class="{ 'coin-animate': coinAnimating }">
-        {{ coins }}
-        <small v-if="isSaving" class="saving-indicator">
-          <i class="saving-dot"></i>
-        </small>
-        <small v-if="serverError" class="error-indicator">!</small>
-      </span>
-    </div>
-    <div class="todolist">
-      <span 
-        class="todolist-icon" 
-        :class="{ 'rotating': isTodoRotating }"
-        @mouseenter="playTouchSound" 
-        @click="handleTodoClick"
-        @dblclick="handleTodoDoubleClick($event)"
-        title="待办事项"
-      >📋</span>
-    </div>
-  </div>
-  
-  <TodoList v-model:showTodoList="showTodoList" ref="todoListRef" />
-  <NoteBook />
-  <MusicPlayer ref="musicPlayerRef" />
-  
-  <div class="container">
-    <Transition name="fade" mode="out-in">
-      <template v-if="isLoading">
-        <div class="loading" key="loading">
-          <i class="fas fa-spinner fa-spin"></i> 加载中...
-        </div>
-      </template>
-      <template v-else-if="errorMessage">
-        <div class="error" key="error">
-          <i class="fas fa-exclamation-circle"></i> {{ errorMessage }}
-        </div>
-      </template>
-      <template v-else>
-        <transition name="content-fade" mode="out-in">
-          <div class="content" key="content" :class="{ 'visible': isContentVisible }">
-            <div class="userRepeat">
-              <button class="circle-btn" @click="showRandomWord" title="单击Enter"></button>
-              <input 
-                type="text" 
-                v-model="userInput"
-                placeholder="自由的代价是永远的警惕。——《C Primer Plus》" 
-              />
-              <button class="circle-btn" @click="showRandomWord" title="单击Enter"></button>
-            </div>
-            <div class="navigation">
-              <WordCard 
-                ref="wordCardRef"
-                :word="currentWord.word"
-                :translation="currentWord.translation"
-                lang="en-US"
-              />
-            </div>
-            <div class="progress">
-              <span class="tag" v-if="currentWord.tags && currentWord.tags.length > 0">
-                {{ currentWord.tags[0] }}
+  <div class="app">
+    <nav-bar />
+    
+    <div class="ceil-bar">
+      <div class="money-box">
+        <span class="coin-icon">💸</span>
+        <span class="coin-count" :class="{ 'coin-animate': coinAnimating }">
+          {{ coins }}
+          <small v-if="isSaving" class="saving-indicator">
+            <i class="saving-dot"></i>
+          </small>
+          <small v-if="serverError" class="error-indicator">!</small>
               </span>
-              <span class="count">{{ currentIndex + 1 }} / {{ wordsList.length }}</span>
             </div>
+      <div class="todolist">
+        <span 
+          class="todolist-icon" 
+          :class="{ 'rotating': isTodoRotating }"
+          @mouseenter="playTouchSound" 
+          @click="handleTodoClick"
+          @dblclick="handleTodoDoubleClick($event)"
+          title="待办事项"
+        >📋</span>
           </div>
-        </transition>
-      </template>
-    </Transition>
-    <!-- 单词列表选择器 -->
-    <div class="list-selector">
-      <button 
-        v-for="list in wordLists" 
-        :key="list.file"
-        class="list-btn"
-        :class="{ 'active': currentList === list }"
-        @click="currentList = list; playButtonSound()"
-      >
-        {{ list.name }}
-      </button>
     </div>
 
-    <!-- 按钮组 -->
-    <div class="button-group">
-      <!-- 音乐上传按钮 -->
-      <label class="upload-btn upload-btn-music">
-        <input 
-          type="file" 
-          accept="audio/*" 
-          @change="handleMusicUpload"
-          style="display: none;"
-        />
-        <i class="fas fa-music" style="color: rgba(255, 255, 255, 0.6);"></i> 添加小曲
-      </label>
-      <!-- 背景上传器 -->
-      <BackgroundUploader />
+    <TodoList v-model:showTodoList="showTodoList" ref="todoListRef" />
+    <NoteBook />
+    
+    <main class="main-content">
+      <router-view v-slot="{ Component }">
+        <component :is="Component" />
+      </router-view>
+    </main>
+    
+    <div class="background-music">
+      <music-player v-if="showMusicPlayer" ref="musicPlayerRef" />
     </div>
   </div>
 </template>
@@ -487,6 +385,38 @@ input:-ms-input-placeholder {
 </style>
 
 <style scoped>
+.app {
+  min-height: 100vh;
+}
+
+.main-content {
+  padding-left: 60px; /* 与导航栏宽度相同 */
+  min-height: 80vh;
+  width: 100%;
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+
+/* 页面切换动画 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 0;
+    padding-bottom: 50px; /* 为底部导航留空间 */
+    padding-top: 50px; /* 为顶部栏留出空间 */
+  }
+}
+
 .ceil-bar{
   position: fixed;
   top: 20px;
@@ -688,8 +618,8 @@ input:-ms-input-placeholder {
 
   .userRepeat input {
     max-width: 450px;
-    padding: 15px 20px;
-    font-size: 20px;
+    padding: 12px 20px;
+    font-size: 18px;
     border-radius: 25px;
   }
 
@@ -700,7 +630,7 @@ input:-ms-input-placeholder {
   }
 
   .list-selector {
-    margin: 40px 0 30px;
+    margin: 10px 0 30px;
     gap: 16px;
   }
 
@@ -720,6 +650,7 @@ input:-ms-input-placeholder {
   .progress {
     margin-top: 10px;
     font-size: 16px;
+    opacity: 0.7;
   }
 
   
@@ -736,7 +667,7 @@ input:-ms-input-placeholder {
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin: 32px 0 24px;
+  margin: 10px 0 24px;
   width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
@@ -744,17 +675,17 @@ input:-ms-input-placeholder {
 
 .list-btn {
   font-family: serif;
-  padding: 8px 16px;
+  padding: 8px 17px;
   border: none;
-  border-radius: 20px;
+  border-radius: 19px;
   background: rgba(255, 255, 255, 0.1);
   color: white;
   cursor: pointer;
   transition: all 0.2s;
-  font-size: 14px;
+  font-size: 17px;
   width: calc((100% - 24px) / 3);
-  min-width: 100px;
-  max-width: 200px;
+  min-width: 96px;
+  max-width: 193px;
   backdrop-filter: blur(4px);
   text-align: center;
   white-space: nowrap;
@@ -835,6 +766,7 @@ input:-ms-input-placeholder {
   align-items: center;
   justify-content: center;
   gap: 12px;
+  opacity: 0.7;
 }
 
 .tag {
@@ -850,6 +782,7 @@ input:-ms-input-placeholder {
 .count {
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* 过渡动画 */
@@ -957,7 +890,7 @@ input:-ms-input-placeholder {
 
   .userRepeat input {
     max-width: 220px;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .circle-btn {
@@ -979,54 +912,126 @@ input:-ms-input-placeholder {
   right: 20px;
   bottom: 20px;
   display: flex;
+  flex-direction: row;
   gap: 10px;
   z-index: 100;
 }
 
 .upload-btn {
+  font-family: serif;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 8px 16px;
   background: rgba(255, 255, 255, 0.05);
-  color: white;
+  border: none;
   border-radius: 20px;
+  color: rgba(255, 255, 255, 0.6);
   cursor: pointer;
   font-size: 14px;
-  backdrop-filter: blur(4px);
-  transition: all 0.2s;
-  width: fit-content;
-  text-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
-  transform: translateY(0px);
-  /* min-width: 120px; */
-}
-.upload-btn-music{
-  margin-bottom: 50px;
-  font-family: serif;
-  height: 20px;
-  opacity: 0.7;
   backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.7;
+  height: 20px;
 }
+
+.upload-btn::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  animation: btn-breath 4s ease-in-out infinite;
+  z-index: -1;
+  filter: blur(2px);
+}
+
+.upload-btn::after {
+  content: '';
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 60%);
+  animation: btn-breath-outer 4s ease-in-out infinite 0.5s;
+  z-index: -2;
+  filter: blur(4px);
+}
+
 .upload-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   transform: translateY(-1px);
+  opacity: 1;
+}
+
+.upload-btn:active {
+  transform: scale(0.95);
 }
 
 .upload-btn i {
   font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
 }
 
-@media (min-width: 1245px) {
+.upload-btn:hover i {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+@keyframes btn-breath {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+    filter: brightness(0.8) blur(2px);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+    filter: brightness(1.2) blur(2px);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+    filter: brightness(0.8) blur(2px);
+  }
+}
+
+@keyframes btn-breath-outer {
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+    filter: brightness(0.8) blur(4px);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+    filter: brightness(1.1) blur(4px);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+    filter: brightness(0.8) blur(4px);
+  }
+}
+
+/* Media queries for button group */
+@media (min-width: 1025px) and (max-width: 1440px) {
   .button-group {
-    right: 30px;
-    bottom: 30px;
-    gap: 15px;
+    right: 35px;
+    bottom: 35px;
+    gap: 12px;
   }
 
   .upload-btn {
-    padding: 12px 24px;
+    padding: 10px 20px;
     font-size: 16px;
+    border-radius: 22px;
   }
 
   .upload-btn i {
@@ -1034,30 +1039,40 @@ input:-ms-input-placeholder {
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1441px) and (max-width: 1920px) {
   .button-group {
-    right: 15px;
-    bottom: 15px;
+    right: 50px;
+    bottom: 50px;
+    gap: 15px;
+  }
+
+  .upload-btn {
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 25px;
+  }
+
+  .upload-btn i {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1999px) {
+  .button-group {
+    right: 14px;
+    bottom: 14px;
     gap: 8px;
   }
 
   .upload-btn {
-    padding: 8px 16px;
+    padding: 7px 14px;
+    font-size: 12px;
+    border-radius: 14px;
+  }
+
+  .upload-btn i {
     font-size: 14px;
-    min-width: 100px;
   }
-}
-
-@media (max-width: 480px) {
-  .button-group {
-    right: 10px;
-    bottom: 10px;
-  }
-}
-
-@keyframes blink {
-  0% { opacity: 0.2; }
-  100% { opacity: 1; }
 }
 
 .todolist {
@@ -1150,6 +1165,531 @@ input:-ms-input-placeholder {
     width: 36px;
     height: 36px;
     font-size: 18px;
+  }
+}
+
+/* 响应式布局 */
+/* 超小屏幕（手机） */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .list-btn {
+    width: 100%;
+    max-width: none;
+  }
+
+  .userRepeat {
+    gap: 5px;
+  }
+
+  .userRepeat input {
+    max-width: 220px;
+    font-size: 12px;
+  }
+
+  .circle-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .todolist {
+    left: 55px;
+    top: 10px;
+  }
+  
+  .todolist-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  
+  .button-group {
+    right: 10px;
+    bottom: 10px;
+  }
+}
+
+/* 小屏幕（平板） */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .list-btn {
+    width: calc((100% - 12px) / 2);
+  }
+
+  .userRepeat input {
+    max-width: 320px;
+  }
+  
+  .todolist {
+    left: 70px;
+    top: 15px;
+  }
+  
+  .button-group {
+    right: 15px;
+    bottom: 15px;
+    gap: 8px;
+  }
+
+  .upload-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+}
+
+/* 中等屏幕（笔记本电脑） */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .userRepeat input {
+    max-width: 380px;
+  }
+  
+  .list-selector {
+    margin: 10px 0 20px;
+  }
+  
+  .list-btn {
+    padding: 7px 13px;
+    font-size: 10px;
+  }
+}
+
+/* 大屏幕（桌面） */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .container {
+    max-width: 1100px;
+    padding: 35px;
+  }
+
+  .userRepeat {
+    margin-bottom: 45px;
+  }
+
+  .userRepeat input {
+    max-width: 600px;
+    padding: 17px 30px;
+    font-size: 20px;
+    border-radius: 28px;
+  }
+
+  .circle-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 26px;
+    border-radius: 30px;
+  }
+  
+  .list-selector {
+    margin: 10px 0 40px;
+    gap: 20px;
+  }
+  
+  .list-btn {
+    padding: 11px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    min-width: 107px;
+  }
+  
+  .progress {
+    margin-top: 20px;
+    font-size: 16px;
+    opacity: 0.7;
+  }
+
+  .tag, .count {
+    font-size: 18px;
+  }
+  
+  .money-box {
+    width: 150px;
+    height: 60px;
+    font-size: 28px;
+    border-radius: 30px;
+  }
+  
+  .coin-icon {
+    font-size: 28px;
+  }
+  
+  .todolist-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+  
+  .button-group {
+    right: 35px;
+    bottom: 35px;
+    gap: 18px;
+  }
+
+  .upload-btn {
+    padding: 16px 28px;
+    font-size: 14px;
+  }
+}
+
+/* 超大屏幕（大型桌面） */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .container {
+    max-width: 1400px;
+    padding: 50px;
+  }
+
+  .userRepeat {
+    margin-bottom: 50px;
+  }
+
+  .userRepeat input {
+    max-width: 720px;
+    padding: 21px 36px;
+    font-size: 26px;
+    border-radius: 36px;
+  }
+
+  .circle-btn {
+    width: 72px;
+    height: 72px;
+    font-size: 30px;
+    border-radius: 36px;
+  }
+
+  .list-selector {
+    margin: 10px 0 50px;
+    gap: 25px;
+  }
+
+  .list-btn {
+    padding: 14px 25px;
+    font-size: 17px;
+    border-radius: 28px;
+    min-width: 125px;
+    opacity: 0.4;
+  }
+  
+  .list-btn:hover {
+    opacity: 1;
+  }
+
+  .progress {
+    margin-top: 22px;
+    font-size: 16px;
+    opacity: 0.7;
+  }
+
+  .tag, .count {
+    font-size: 18px;
+  }
+  
+  .money-box {
+    width: 180px;
+    height: 70px;
+    font-size: 34px;
+    border-radius: 35px;
+  }
+  
+  .coin-icon {
+    font-size: 34px;
+  }
+  
+  .todolist-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 34px;
+  }
+  
+  .button-group {
+    right: 50px;
+    bottom: 50px;
+    gap: 22px;
+  }
+
+  .upload-btn {
+    padding: 20px 40px;
+    font-size: 14px;
+    border-radius: 30px;
+  }
+
+  .upload-btn i {
+    font-size: 14px;
+  }
+}
+
+/* 超大屏幕 4K */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  .container {
+    max-width: 1800px;
+    padding: 60px;
+  }
+
+  .userRepeat {
+    margin-bottom: 65px;
+  }
+
+  .userRepeat input {
+    max-width: 900px;
+    padding: 27px 45px;
+    font-size: 30px;
+    border-radius: 45px;
+  }
+
+  .circle-btn {
+    width: 90px;
+    height: 90px;
+    font-size: 38px;
+    border-radius: 45px;
+  }
+
+  .list-selector {
+    margin: 10px 0 65px;
+    gap: 30px;
+  }
+
+  .list-btn {
+    padding: 16px 30px;
+    font-size: 18px;
+    border-radius: 31px;
+    min-width: 145px;
+    opacity: 0.4;
+  }
+  
+  .list-btn:hover {
+    opacity: 1;
+  }
+
+  .progress {
+    margin-top: 28px;
+    font-size: 16px;
+    opacity: 0.7;
+  }
+
+  .tag, .count {
+    font-size: 18px;
+  }
+  
+  .money-box {
+    width: 200px;
+    height: 80px;
+    font-size: 38px;
+    border-radius: 40px;
+  }
+  
+  .coin-icon {
+    font-size: 38px;
+  }
+  
+  .todolist-icon {
+    width: 85px;
+    height: 85px;
+    font-size: 42px;
+  }
+  
+  .button-group {
+    right: 65px;
+    bottom: 65px;
+    gap: 32px;
+  }
+
+  .upload-btn {
+    padding: 24px 48px;
+    font-size: 16px;
+    border-radius: 40px;
+  }
+
+  .upload-btn i {
+    font-size: 16px;
+  }
+}
+
+/* 超出2K */
+@media (min-width: 2561px) {
+  .container {
+    max-width: 1400px;
+    padding: 50px;
+  }
+
+  .userRepeat {
+    margin-bottom: 50px;
+  }
+
+  .userRepeat input {
+    max-width: 650px;
+    padding: 19px 30px;
+    font-size: 22px;
+    border-radius: 35px;
+  }
+
+  .circle-btn {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+    border-radius: 32px;
+  }
+
+  .list-selector {
+    margin: 10px 0 50px;
+    gap: 25px;
+  }
+
+  .list-btn {
+    padding: 25px 49px;
+    font-size: 28px;
+    border-radius: 48px;
+    min-width: 193px;
+  }
+
+  .progress {
+    margin-top: 20px;
+    font-size: 16px;
+    opacity: 0.7;
+  }
+
+  .tag, .count {
+    font-size: 20px;
+  }
+  
+  .money-box {
+    width: 150px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 30px;
+  }
+  
+  .coin-icon {
+    font-size: 30px;
+  }
+  
+  .todolist-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 32px;
+  }
+  
+  .button-group {
+    right: 50px;
+    bottom: 50px;
+    gap: 25px;
+  }
+
+  .upload-btn {
+    padding: 18px 36px;
+    font-size: 16px;
+    border-radius: 30px;
+  }
+
+  .upload-btn i {
+    font-size: 17px;
+  }
+}
+
+/* 添加userRepeat和navigation高度减少的媒体查询 */
+@media (max-width: 1999px) {
+  .userRepeat {
+    margin-bottom: 14px;
+  }
+  
+  .userRepeat input {
+    padding: 7px 10px;
+  }
+  
+  .userRepeat .circle-btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 13px;
+  }
+  
+  .navigation {
+    gap: 14px;
+  }
+  
+  /* 大屏幕（桌面） */
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .userRepeat {
+      margin-bottom: 32px;
+    }
+
+    .userRepeat input {
+      padding: 14px 21px;
+      font-size: 16px;
+    }
+
+    .circle-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 21px;
+      font-size: 18px;
+    }
+  }
+  
+  /* 超大屏幕（大型桌面） */
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    .userRepeat {
+      margin-bottom: 35px;
+    }
+
+    .userRepeat input {
+      padding: 13px 25px;
+      font-size: 18px;
+    }
+
+    .circle-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      font-size: 21px;
+    }
+  }
+
+  @media (min-width: 1910px) and (max-width: 2560px) {
+    .main-content {
+      margin-top: 80px;
+    }
+  }
+
+  /* 添加按钮大小减少的媒体查询 */
+  .ceil-bar {
+    padding: 7px;
+  }
+
+  .ceil-bar .button-group button {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .button-group {
+    gap: 7px;
+  }
+
+  .button-group button {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+    padding: 4px;
+  }
+
+  .circle-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .list-btn {
+    padding: 6px 11px;
+    font-size: 16px;
+    min-width: 67px;
+    max-width: 136px;
   }
 }
 </style>

@@ -25,13 +25,13 @@
       "completedAt": 1743868544671
     },
     {
-      "id": 1743868583438,
-      "text": "呼吸一次",
+      "id": 1743914639620,
+      "text": "喝一口水",
       "completed": true,
-      "timestamp": 1743868583438,
+      "timestamp": 1743914639620,
       "reward": 1,
-      "completedAt": 1743868584942
+      "completedAt": 1743914641840
     }
   ],
-  "lastUpdated": "2025-04-05T16:00:25.345Z"
+  "lastUpdated": "2025-04-06T04:44:01.845Z"
 }

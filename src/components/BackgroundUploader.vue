@@ -59,7 +59,7 @@ onMounted(() => {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.05);
   border: none;
   border-radius: 20px;
   color: rgba(255, 255, 255, 0.6);
@@ -70,6 +70,7 @@ onMounted(() => {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+  opacity: 0.7;
 }
 
 .upload-btn::before {
@@ -100,6 +101,7 @@ onMounted(() => {
   color: rgba(255, 255, 255, 0.95);
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   transform: translateY(-1px);
+  opacity: 1;
 }
 
 .upload-btn:active {
@@ -176,17 +178,92 @@ onMounted(() => {
   }
 }
 
-@media (min-width: 1245px) {
+/* 中等屏幕（笔记本电脑） */
+@media (min-width: 769px) and (max-width: 1024px) {
   .background-uploader {
-    bottom: 30px;
-    right: 30px;
+    bottom: 25px;
+    right: 25px;
   }
 
   .upload-btn {
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 16px;
     gap: 10px;
     border-radius: 22px;
+  }
+}
+
+/* 大屏幕（桌面） */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .background-uploader {
+    bottom: 35px;
+    right: 35px;
+  }
+
+  .upload-btn {
+    padding: 14px 28px;
+    font-size: 18px;
+    gap: 14px;
+    border-radius: 25px;
+  }
+}
+
+/* 超大屏幕（大型桌面） */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .background-uploader {
+    bottom: 50px;
+    right: 50px;
+  }
+
+  .upload-btn {
+    padding: 16px 32px;
+    font-size: 22px;
+    gap: 16px;
+    border-radius: 30px;
+  }
+}
+
+/* 超大屏幕 4K */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  .background-uploader {
+    bottom: 65px;
+    right: 65px;
+  }
+
+  .upload-btn {
+    padding: 20px 40px;
+    font-size: 26px;
+    gap: 20px;
+    border-radius: 35px;
+  }
+}
+
+@media (min-width: 2561px) {
+  .background-uploader {
+    bottom: 80px;
+    right: 80px;
+  }
+
+  .upload-btn {
+    padding: 24px 48px;
+    font-size: 30px;
+    gap: 24px;
+    border-radius: 40px;
+  }
+}
+
+/* 添加按钮大小减少的媒体查询 */
+@media (max-width: 1999px) {
+  .background-uploader {
+    bottom: 14px;
+    right: 14px;
+  }
+
+  .upload-btn {
+    padding: 7px 14px;
+    font-size: 12px;
+    gap: 6px;
+    border-radius: 14px;
   }
 }
 </style> 

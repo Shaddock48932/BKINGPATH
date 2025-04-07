@@ -193,8 +193,8 @@ onUnmounted(() => {
 <style scoped>
 .music-player {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 100px;
+  left: 100px;
   z-index: 1000;
 }
 
@@ -405,21 +405,156 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
   .music-player {
-    top: 15px;
-    left: 15px;
+    top: 100px;
+    left: 100px;
   }
 }
 
 @media (max-width: 480px) {
   .music-player {
-    top: 10px;
-    left: 10px;
+    top: 100px;
+    left: 100px;
   }
   
   .music-btn {
     width: 36px;
     height: 36px;
     font-size: 18px;
+  }
+}
+
+/* 中等屏幕（笔记本电脑） */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .music-player {
+    top: 100px;
+    left: 100px;
+  }
+  
+  .music-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+  
+  .music-list {
+    min-width: 180px;
+    top: 55px;
+  }
+  
+  .music-item {
+    padding: 10px 18px;
+    font-size: 15px;
+  }
+}
+
+/* 大屏幕（桌面） */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .music-player {
+    top: 100px;
+    left: 100px;
+  }
+  
+  .music-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+  }
+  
+  .music-list {
+    min-width: 220px;
+    top: 70px;
+    padding: 12px;
+    gap: 10px;
+    border-radius: 15px;
+  }
+  
+  .music-item {
+    padding: 12px 22px;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+  
+  .music-item.active::before {
+    font-size: 14px;
+    left: 8px;
+  }
+  
+  .music-item.active {
+    padding-left: 30px;
+  }
+}
+
+/* 超大屏幕（大型桌面） */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .music-player {
+    top: 100px;
+    left: 100px;
+  }
+  
+  .music-btn {
+    width: 70px;
+    height: 70px;
+    font-size: 34px;
+  }
+  
+  .music-list {
+    min-width: 260px;
+    top: 85px;
+    padding: 15px;
+    gap: 12px;
+    border-radius: 18px;
+  }
+  
+  .music-item {
+    padding: 15px 26px;
+    font-size: 22px;
+    border-radius: 12px;
+  }
+  
+  .music-item.active::before {
+    font-size: 16px;
+    left: 10px;
+  }
+  
+  .music-item.active {
+    padding-left: 36px;
+  }
+}
+
+/* 超大屏幕 4K */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  .music-player {
+    top: 100px;
+    left: 100px;
+  }
+  
+  .music-btn {
+    width: 85px;
+    height: 85px;
+    font-size: 42px;
+  }
+  
+  .music-list {
+    min-width: 320px;
+    top: 100px;
+    padding: 18px;
+    gap: 15px;
+    border-radius: 22px;
+  }
+  
+  .music-item {
+    padding: 18px 32px;
+    font-size: 26px;
+    border-radius: 15px;
+  }
+  
+  .music-item.active::before {
+    font-size: 18px;
+    left: 12px;
+  }
+  
+  .music-item.active {
+    padding-left: 42px;
   }
 }
 </style> 

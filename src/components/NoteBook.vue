@@ -634,8 +634,8 @@ onUnmounted(() => {
     position: absolute;
     top: 50px;
     right: 0;
-    width: 300px;
-    height: 400px;
+    width: 210px;
+    height: 280px;
     background: rgba(40, 25, 35, 0.92);
     backdrop-filter: blur(10px);
     border-radius: 8px;
@@ -826,10 +826,22 @@ onUnmounted(() => {
 .input-group {
     display: flex;
     gap: 6px;
+    width: 100%;
 }
 
 .user-id-input {
-    width: 40px;
+    flex: 3;
+    min-width: 0; /* 防止flex item溢出 */
+}
+
+.message-input {
+    flex: 6;
+    min-width: 0; /* 防止flex item溢出 */
+}
+
+.send-btn {
+    flex: 1;
+    min-width: 0; /* 防止flex item溢出 */
 }
 
 .user-id-input,
@@ -859,11 +871,8 @@ onUnmounted(() => {
 
 .send-btn {
     background: linear-gradient(45deg, rgb(198 164 179 / 90%), rgba(140, 70, 110, 0.9));
-    ;
     border: 1px solid #3a2a35;
     border-radius: 4px;
-    width: 30px;
-    height: 30px;
     color: #f9d5e5;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -915,13 +924,396 @@ onUnmounted(() => {
 
 @media (max-width: 768px) {
     .notebook-panel {
-        width: 280px;
+        width: 196px;
     }
 }
 
 @media (max-width: 480px) {
     .notebook-panel {
-        width: 260px;
+        width: 182px;
+    }
+}
+
+/* 中等屏幕（笔记本电脑） */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .notebook-container {
+        top: 25px;
+        right: 25px;
+    }
+    
+    .notebook-button {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .notebook-button .icon {
+        font-size: 22px;
+    }
+    
+    .notebook-panel {
+        width: 350px;
+        height: 315px;
+        top: 55px;
+        border-radius: 10px;
+        border-width: 2px;
+    }
+    
+    .notebook-header {
+        padding: 10px 15px;
+    }
+    
+    .notebook-header h3 {
+        font-size: 16px;
+    }
+    
+    .close-btn {
+        width: 22px;
+        height: 22px;
+        font-size: 15px;
+    }
+    
+    .notes-list {
+        padding: 14px;
+    }
+    
+    .note-item {
+        padding: 10px;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    
+    .note-content {
+        font-size: 14px;
+    }
+    
+    .note-time {
+        font-size: 12px;
+    }
+    
+    .input-area {
+        padding: 10px;
+    }
+    
+    .input-group {
+        gap: 8px;
+    }
+    
+    .user-id-input, .message-input {
+        padding: 9px 12px;
+        font-size: 15px;
+    }
+    
+    .send-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+}
+
+/* 大屏幕（桌面） */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .notebook-container {
+        top: 35px;
+        right: 35px;
+    }
+    
+    .notebook-button {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .notebook-button .icon {
+        font-size: 28px;
+    }
+    
+    .notebook-panel {
+        width: 375px;
+        height: 385px;
+        top: 70px;
+        border-radius: 12px;
+        border-width: 2.5px;
+    }
+    
+    .notebook-header {
+        padding: 12px 18px;
+    }
+    
+    .notebook-header h3 {
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+    
+    .close-btn {
+        width: 26px;
+        height: 26px;
+        font-size: 16px;
+    }
+    
+    .notes-list {
+        padding: 18px;
+    }
+    
+    .note-item {
+        padding: 12px;
+        font-size: 16px;
+        margin-bottom: 12px;
+        border-radius: 6px;
+    }
+    
+    .note-content {
+        font-size: 14px;
+    }
+    
+    .note-time {
+        font-size: 13px;
+        margin-top: 6px;
+    }
+    
+    .input-area {
+        padding: 12px;
+    }
+    
+    .input-group {
+        gap: 10px;
+    }
+    
+    .user-id-input, .message-input {
+        padding: 10px 14px;
+        font-size: 16px;
+        border-radius: 6px;
+    }
+    
+    .send-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+        border-radius: 6px;
+    }
+    
+    .date-divider {
+        margin: 16px 0;
+        gap: 12px;
+    }
+    
+    .divider-date {
+        font-size: 13px;
+        padding: 3px 10px;
+    }
+    
+    .notes-list::-webkit-scrollbar {
+        width: 7px;
+    }
+}
+
+/* 超大屏幕（大型桌面） */
+@media (min-width: 1441px) and (max-width: 1920px) {
+    .notebook-container {
+        top: 45px;
+        right: 45px;
+    }
+    
+    .notebook-button {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .notebook-button .icon {
+        font-size: 34px;
+    }
+    
+    .notebook-panel {
+        width: 405px;
+        height: 455px;
+        top: 85px;
+        border-radius: 15px;
+        border-width: 3px;
+    }
+    
+    .notebook-header {
+        padding: 15px 22px;
+        border-bottom-width: 3px;
+    }
+    
+    .notebook-header h3 {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+    
+    .close-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+    
+    .notes-list {
+        padding: 22px;
+    }
+    
+    .note-item {
+        padding: 14px;
+        font-size: 18px;
+        margin-bottom: 14px;
+        border-radius: 8px;
+        border-width: 2px;
+    }
+    
+    .note-content {
+        font-size: 14px;
+    }
+    
+    .note-time {
+        font-size: 15px;
+        margin-top: 8px;
+    }
+    
+    .input-area {
+        padding: 15px;
+        border-top-width: 3px;
+    }
+    
+    .input-group {
+        gap: 12px;
+    }
+    
+    .user-id-input, .message-input {
+        padding: 12px 16px;
+        font-size: 18px;
+        border-radius: 8px;
+        border-width: 2px;
+    }
+    
+    .user-id-input {
+        width: 80px;
+    }
+    
+    .send-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+        border-radius: 8px;
+        border-width: 2px;
+    }
+    
+    .date-divider {
+        margin: 20px 0;
+        gap: 15px;
+    }
+    
+    .divider-date {
+        font-size: 15px;
+        padding: 4px 12px;
+        border-radius: 12px;
+    }
+    
+    .notes-list::-webkit-scrollbar {
+        width: 8px;
+    }
+}
+
+/* 超大屏幕 4K */
+@media (min-width: 1921px) and (max-width: 2560px) {
+    .notebook-container {
+        top: 60px;
+        right: 60px;
+    }
+    
+    .notebook-button {
+        width: 85px;
+        height: 85px;
+    }
+    
+    .notebook-button .icon {
+        font-size: 42px;
+    }
+    
+    .notebook-panel {
+        width: 520px;
+        height: 560px;
+        top: 100px;
+        border-radius: 18px;
+        border-width: 4px;
+    }
+    
+    .notebook-header {
+        padding: 18px 25px;
+        border-bottom-width: 4px;
+    }
+    
+    .notebook-header h3 {
+        font-size: 26px;
+        letter-spacing: 2.5px;
+    }
+    
+    .close-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 22px;
+        border-radius: 6px;
+    }
+    
+    .notes-list {
+        padding: 28px;
+    }
+    
+    .note-item {
+        padding: 18px;
+        font-size: 22px;
+        margin-bottom: 18px;
+        border-radius: 10px;
+        border-width: 2.5px;
+    }
+    
+    .note-content {
+        font-size: 19px;
+    }
+    
+    .note-time {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    
+    .input-area {
+        padding: 18px;
+        border-top-width: 4px;
+    }
+    
+    .input-group {
+        gap: 15px;
+    }
+    
+    .user-id-input, .message-input {
+        padding: 15px 20px;
+        font-size: 22px;
+        border-radius: 10px;
+        border-width: 2.5px;
+    }
+    
+    .user-id-input {
+        width: 100px;
+    }
+    
+    .send-btn {
+        width: 54px;
+        height: 54px;
+        font-size: 22px;
+        border-radius: 10px;
+        border-width: 2.5px;
+    }
+    
+    .date-divider {
+        margin: 24px 0;
+        gap: 18px;
+    }
+    
+    .divider-date {
+        font-size: 18px;
+        padding: 5px 15px;
+        border-radius: 15px;
+    }
+    
+    .notes-list::-webkit-scrollbar {
+        width: 10px;
     }
 }
 
@@ -989,5 +1381,191 @@ onUnmounted(() => {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* 添加notebook-panel高度减少的媒体查询 */
+@media (max-width: 1999px) {
+  .notebook-button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .notebook-button .icon {
+    font-size: 14px;
+  }
+
+  .notebook-panel {
+    height: 196px;
+  }
+
+  .notebook-header {
+    padding: 6px 9px;
+  }
+
+  .notebook-header h3 {
+    font-size: 10px;
+  }
+
+  .notes-list {
+    padding: 8px;
+  }
+
+  .note-item {
+    padding: 6px;
+    margin-bottom: 6px;
+    font-size: 10px;
+  }
+
+  .note-time {
+    font-size: 8px;
+    margin-top: 3px;
+  }
+
+  .input-area {
+    padding: 6px;
+  }
+
+  .input-group {
+    gap: 4px;
+  }
+
+  .user-id-input, .message-input {
+    padding: 4px 6px;
+    font-size: 8px;
+  }
+
+  .user-id-input {
+    width: 28px;
+  }
+
+  .send-btn {
+    width: 21px;
+    height: 21px;
+    font-size: 8px;
+  }
+
+  /* 大屏幕（桌面） */
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .notebook-button {
+      width: 42px;
+      height: 42px;
+    }
+
+    .notebook-button .icon {
+      font-size: 20px;
+    }
+
+    .notebook-panel {
+      width: 280px;
+      height: 270px;
+      top: 49px;
+    }
+
+    .notebook-header {
+      padding: 8px 13px;
+    }
+
+    .notebook-header h3 {
+      font-size: 13px;
+    }
+
+    .notes-list {
+      padding: 13px;
+    }
+
+    .note-item {
+      padding: 8px;
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+
+    .note-time {
+      font-size: 9px;
+      margin-top: 4px;
+    }
+
+    .input-area {
+      padding: 8px;
+    }
+
+    .input-group {
+      gap: 7px;
+    }
+
+    .user-id-input, .message-input {
+      padding: 7px 10px;
+      font-size: 11px;
+    }
+
+    .send-btn {
+      width: 27px;
+      height: 27px;
+      font-size: 11px;
+    }
+  }
+
+  /* 超大屏幕（大型桌面） */
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    .notebook-button {
+      width: 49px;
+      height: 49px;
+    }
+
+    .notebook-button .icon {
+      font-size: 24px;
+    }
+
+    .notebook-panel {
+      width: 570px;
+      height: 318px;
+      top: 60px;
+    }
+
+    .notebook-header {
+      padding: 10px 15px;
+    }
+
+    .notebook-header h3 {
+      font-size: 15px;
+    }
+
+    .notes-list {
+      padding: 15px;
+    }
+
+    .note-item {
+      padding: 10px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .note-time {
+      font-size: 11px;
+      margin-top: 6px;
+    }
+
+    .input-area {
+      padding: 10px;
+    }
+
+    .input-group {
+      gap: 8px;
+    }
+
+    .user-id-input, .message-input {
+      padding: 8px 11px;
+      font-size: 13px;
+    }
+
+    .user-id-input {
+      width: 56px;
+    }
+
+    .send-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 13px;
+    }
+  }
 }
 </style>

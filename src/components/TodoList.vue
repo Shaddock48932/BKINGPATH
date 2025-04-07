@@ -397,15 +397,15 @@ defineExpose({
   position: fixed;
   top: 70px;
   left: 90px;
-  width: 320px;
-  height: 400px;
+  width: 225px;
+  height: 280px;
   background: rgba(20, 20, 22, 0.88);
   backdrop-filter: blur(10px);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 3px solid #3c3c44;
+  border: 2.5px solid #3c3c44;
   box-shadow:
     5px 5px 0 rgba(0, 0, 0, 0.2),
     inset 0 0 20px rgba(80, 80, 90, 0.2);
@@ -660,7 +660,7 @@ defineExpose({
 }
 
 .reward-input-container {
-  width: 60px;
+  width: 50px;
   position: relative;
   display: flex;
   align-items: center;
@@ -668,8 +668,8 @@ defineExpose({
 
 .reward-icon {
   position: absolute;
-  left: 10px;
-  font-size: 14px;
+  left: 8px;
+  font-size: 12px;
   pointer-events: none;
   z-index: 1;
   animation: float 3s ease-in-out infinite;
@@ -684,24 +684,23 @@ defineExpose({
   background: rgba(50, 50, 55, 0.8);
   border: 2px solid rgba(90, 90, 100, 0.4);
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 6px 10px;
   color: #e9e9ef;
-  font-size: 14px;
+  font-size: 13px;
   transition: all 0.3s ease;
-  width: 160px;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   transform: rotate(-0.3deg);
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
-  width: 115px;
+  width: 80px;
 }
 
 .todo-reward-input {
   background: rgba(50, 50, 55, 0.8);
   border: 2px solid rgba(90, 90, 100, 0.4);
   border-radius: 8px;
-  padding: 8px 8px 8px 30px;
+  padding: 6px 6px 6px 25px;
   color: #FFD700;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-weight: bold;
   transition: all 0.3s ease;
@@ -710,7 +709,7 @@ defineExpose({
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
-  width: 40px;
+  width: 30px;
   transform: rotate(0.5deg);
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -744,7 +743,7 @@ defineExpose({
   background: linear-gradient(45deg, rgba(70, 70, 80, 0.9), rgba(50, 50, 60, 0.9));
   border: 2px solid #3a3a45;
   border-radius: 8px;
-  height: 36px;
+  height: 30px;
   color: #e9e9ef;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -755,8 +754,8 @@ defineExpose({
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
   transform: rotate(1deg);
   font-weight: bold;
-  margin-left: 15px;
-  width: 20px;
+  margin-left: 50px;
+  width: 15px;
 }
 
 .send-btn:hover {
@@ -858,19 +857,19 @@ defineExpose({
 
 @keyframes clipSectorIn {
   0% {
-    transform: translateY(-20px);
+    /* transform: translateY(-20px); */
     opacity: 0;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
   
   50% {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     opacity: 0.6;
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   }
 
   100% {
-    transform: translateY(0);
+    /* transform: translateY(0); */
     opacity: 1;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
@@ -898,13 +897,456 @@ defineExpose({
 
 @media (max-width: 768px) {
   .todolist-panel {
-    width: 290px;
+    width: 480px;
   }
 }
 
 @media (max-width: 480px) {
   .todolist-panel {
-    width: 270px;
+    width: 550px;
+  }
+}
+
+/* 中等屏幕（笔记本电脑） */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .todolist-panel {
+    width: 580px;
+    height: 315px;
+    top: 75px;
+    left: 95px;
+  }
+  
+  .todolist-header h3 {
+    font-size: 20px;
+  }
+  
+  .close-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+  }
+  
+  .todo-item {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+  
+  .todo-checkbox {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .todo-text {
+    font-size: 16px;
+  }
+  
+  .todo-input, .todo-reward-input {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+  
+  .reward-icon {
+    font-size: 15px;
+  }
+  
+  .send-btn {
+    height: 38px;
+    width: 22px;
+    font-size: 16px;
+  }
+  
+  .empty-list {
+    font-size: 17px;
+  }
+  
+  .empty-list::before {
+    font-size: 32px;
+  }
+}
+
+/* 大屏幕（桌面） */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .todolist-panel {
+    width: 600px;
+    height: 385px;
+    top: 90px;
+    left: 120px;
+    border-radius: 12px;
+    border-width: 3px;
+    transform: rotate(-0.8deg);
+  }
+  
+  .todolist-header {
+    padding: 14px 20px;
+  }
+  
+  .todolist-header h3 {
+    font-size: 24px;
+    letter-spacing: 1.5px;
+  }
+  
+  .close-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    border-width: 2.5px;
+    border-radius: 7px;
+  }
+  
+  .todos-list {
+    padding: 20px;
+    background-size: 25px 25px;
+  }
+  
+  .todo-item {
+    font-size: 16px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border-width: 2.5px;
+  }
+  
+  .todo-checkbox {
+    width: 28px;
+    height: 28px;
+    margin-right: 16px;
+    border-width: 2.5px;
+  }
+  
+  .todo-text {
+    font-size: 18px;
+  }
+  
+  .todo-reward {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  
+  .todo-complete-date {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+  
+  .todo-delete {
+    font-size: 16px;
+    padding: 0 7px;
+  }
+  
+  .todo-input-area {
+    padding: 16px 20px;
+    border-top-width: 4px;
+    gap: 12px;
+  }
+  
+  .todo-input {
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    width: 160px;
+    border-width: 2.5px;
+  }
+  
+  .todo-reward-input {
+    font-size: 18px;
+    padding: 10px 10px 10px 36px;
+    border-radius: 10px;
+    width: 45px;
+    border-width: 2.5px;
+  }
+  
+  .reward-icon {
+    font-size: 18px;
+    left: 12px;
+  }
+  
+  .send-btn {
+    height: 45px;
+    width: 26px;
+    font-size: 18px;
+    border-radius: 10px;
+    border-width: 2.5px;
+  }
+  
+  .empty-list {
+    font-size: 18px;
+    padding: 40px 0;
+  }
+  
+  .empty-list::before {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+  
+  .sync-status {
+    right: 50px;
+    font-size: 12px;
+  }
+  
+  .sync-message {
+    padding: 3px 10px;
+    border-radius: 12px;
+  }
+  
+  .todos-list::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+
+/* 超大屏幕（大型桌面） */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .todolist-panel {
+    width: 620px;
+    height: 455px;
+    top: 110px;
+    left: 150px;
+    border-radius: 15px;
+    border-width: 3.5px;
+    transform: rotate(-1deg);
+  }
+  
+  .todolist-header {
+    padding: 18px 25px;
+  }
+  
+  .todolist-header h3 {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+  
+  .close-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    border-width: 3px;
+    border-radius: 8px;
+  }
+  
+  .todos-list {
+    padding: 25px;
+    background-size: 30px 30px;
+  }
+  
+  .todo-item {
+    font-size: 18px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border-width: 3px;
+  }
+  
+  .todo-checkbox {
+    width: 32px;
+    height: 32px;
+    margin-right: 20px;
+    border-width: 3px;
+    border-radius: 8px;
+  }
+  
+  .todo-text {
+    font-size: 22px;
+  }
+  
+  .todo-reward {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  
+  .todo-complete-date {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  
+  .todo-delete {
+    font-size: 20px;
+    padding: 0 8px;
+  }
+  
+  .todo-input-area {
+    padding: 20px 25px;
+    border-top-width: 5px;
+    gap: 15px;
+  }
+  
+  .todo-input {
+    font-size: 20px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    width: 220px;
+    border-width: 3px;
+  }
+  
+  .todo-reward-input {
+    font-size: 22px;
+    padding: 12px 12px 12px 42px;
+    border-radius: 12px;
+    width: 55px;
+    border-width: 3px;
+  }
+  
+  .reward-icon {
+    font-size: 22px;
+    left: 14px;
+  }
+  
+  .send-btn {
+    height: 52px;
+    width: 30px;
+    font-size: 22px;
+    border-radius: 12px;
+    border-width: 3px;
+  }
+  
+  .empty-list {
+    font-size: 22px;
+    padding: 50px 0;
+  }
+  
+  .empty-list::before {
+    font-size: 50px;
+    margin-bottom: 18px;
+  }
+  
+  .sync-status {
+    right: 60px;
+    font-size: 14px;
+  }
+  
+  .sync-message {
+    padding: 4px 12px;
+    border-radius: 14px;
+  }
+  
+  .todos-list::-webkit-scrollbar {
+    width: 12px;
+  }
+}
+
+/* 超大屏幕 4K */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  .todolist-panel {
+    width: 660px;
+    height: 560px;
+    top: 140px;
+    left: 180px;
+    border-radius: 18px;
+    border-width: 4.5px;
+    transform: rotate(-1.2deg);
+  }
+  
+  .todolist-header {
+    padding: 22px 30px;
+  }
+  
+  .todolist-header h3 {
+    font-size: 34px;
+    letter-spacing: 2.5px;
+  }
+  
+  .close-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 26px;
+    border-width: 3.5px;
+    border-radius: 10px;
+  }
+  
+  .todos-list {
+    padding: 30px;
+    background-size: 35px 35px;
+  }
+  
+  .todo-item {
+    font-size: 22px;
+    padding: 22px 24px;
+    margin-bottom: 24px;
+    border-radius: 15px;
+    border-width: 3.5px;
+  }
+  
+  .todo-checkbox {
+    width: 38px;
+    height: 38px;
+    margin-right: 24px;
+    border-width: 3.5px;
+    border-radius: 10px;
+  }
+  
+  .todo-text {
+    font-size: 26px;
+  }
+  
+  .todo-reward {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .todo-complete-date {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .todo-delete {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+  
+  .todo-input-area {
+    padding: 24px 30px;
+    border-top-width: 6px;
+    gap: 18px;
+  }
+  
+  .todo-input {
+    font-size: 24px;
+    padding: 15px 22px;
+    border-radius: 15px;
+    width: 280px;
+    border-width: 3.5px;
+  }
+  
+  .todo-reward-input {
+    font-size: 26px;
+    padding: 15px 15px 15px 48px;
+    border-radius: 15px;
+    width: 65px;
+    border-width: 3.5px;
+  }
+  
+  .reward-icon {
+    font-size: 26px;
+    left: 16px;
+  }
+  
+  .send-btn {
+    height: 60px;
+    width: 36px;
+    font-size: 26px;
+    border-radius: 15px;
+    border-width: 3.5px;
+  }
+  
+  .empty-list {
+    font-size: 26px;
+    padding: 60px 0;
+  }
+  
+  .empty-list::before {
+    font-size: 60px;
+    margin-bottom: 22px;
+  }
+  
+  .sync-status {
+    right: 70px;
+    font-size: 16px;
+  }
+  
+  .sync-message {
+    padding: 5px 14px;
+    border-radius: 16px;
+  }
+  
+  .todos-list::-webkit-scrollbar {
+    width: 14px;
   }
 }
 </style> 

@@ -175,6 +175,96 @@ app.get('/api/get-todos', (req, res) => {
   }
 });
 
+// API 路由：保存阅读书签
+app.post('/api/save-bookmark', (req, res) => {
+  try {
+    const { bookId, page, title, timestamp } = req.body;
+    
+    if (!bookId || page === undefined) {
+      return res.status(400).json({
+        success: false,
+        message: '无效的书签数据，必须包含bookId和page'
+      });
+    }
+    
+    const filePath = path.join(dataDir, 'reading-bookmarks.json');
+    let bookmarks = [];
+    
+    // 读取现有书签
+    if (fs.existsSync(filePath)) {
+      const fileData = fs.readFileSync(filePath, 'utf8');
+      bookmarks = JSON.parse(fileData);
+    }
+    
+    // 更新特定书籍的书签
+    const existingIndex = bookmarks.findIndex(b => b.bookId === bookId);
+    const newBookmark = {
+      bookId,
+      page: parseInt(page),
+      title: title || `未命名书签 ${page}`,
+      lastRead: timestamp || new Date().toISOString()
+    };
+    
+    if (existingIndex >= 0) {
+      bookmarks[existingIndex] = newBookmark;
+    } else {
+      bookmarks.push(newBookmark);
+    }
+    
+    const jsonData = JSON.stringify(bookmarks, null, 2);
+    fs.writeFileSync(filePath, jsonData, 'utf8');
+    
+    console.log(`书签已保存: ${title || bookId} - 第${page}页`);
+    return handleResponse(res, newBookmark, '书签已成功保存');
+  } catch (error) {
+    return handleError(res, error, '服务器错误，无法保存书签');
+  }
+});
+
+// API 路由：获取阅读书签
+app.get('/api/get-bookmark/:bookId', (req, res) => {
+  try {
+    const { bookId } = req.params;
+    const filePath = path.join(dataDir, 'reading-bookmarks.json');
+    
+    if (!fs.existsSync(filePath)) {
+      return handleResponse(res, null, '书签文件不存在，没有书签信息');
+    }
+    
+    const fileData = fs.readFileSync(filePath, 'utf8');
+    const bookmarks = JSON.parse(fileData);
+    
+    // 查找特定书籍的书签
+    const bookmark = bookmarks.find(b => b.bookId === bookId);
+    
+    if (!bookmark) {
+      return handleResponse(res, null, `未找到书籍ID为 ${bookId} 的书签`);
+    }
+    
+    return handleResponse(res, bookmark, '成功获取书签信息');
+  } catch (error) {
+    return handleError(res, error, '服务器错误，无法获取书签信息');
+  }
+});
+
+// API 路由：获取所有书签
+app.get('/api/get-all-bookmarks', (req, res) => {
+  try {
+    const filePath = path.join(dataDir, 'reading-bookmarks.json');
+    
+    if (!fs.existsSync(filePath)) {
+      return handleResponse(res, [], '书签文件不存在，返回空列表');
+    }
+    
+    const fileData = fs.readFileSync(filePath, 'utf8');
+    const bookmarks = JSON.parse(fileData);
+    
+    return handleResponse(res, bookmarks, '成功获取所有书签');
+  } catch (error) {
+    return handleError(res, error, '服务器错误，无法获取书签列表');
+  }
+});
+
 // 启动服务器
 app.listen(PORT, () => {
   console.log('\x1b[36m情思同步服务器正在运行，端口:', PORT, '\x1b[0m');
@@ -185,4 +275,7 @@ app.listen(PORT, () => {
   console.log('\x1b[35m- GET /api/get-coins - 获取金币数据\x1b[0m');
   console.log('\x1b[35m- POST /api/save-todos - 保存待办事项数据\x1b[0m');
   console.log('\x1b[35m- GET /api/get-todos - 获取待办事项数据\x1b[0m');
+  console.log('\x1b[35m- POST /api/save-bookmark - 保存阅读书签\x1b[0m');
+  console.log('\x1b[35m- GET /api/get-bookmark/:bookId - 获取特定书籍书签\x1b[0m');
+  console.log('\x1b[35m- GET /api/get-all-bookmarks - 获取所有书签\x1b[0m');
 }); 

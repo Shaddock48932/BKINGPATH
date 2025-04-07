@@ -300,8 +300,6 @@ button::-moz-focus-inner {
   min-height: 100px;
 }
 
-
-
 /* 单词文本样式 */
 .word {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -413,37 +411,273 @@ button::-moz-focus-inner {
   }
 }
 
-@media (min-width: 1245px) {
+/* 中等屏幕（笔记本电脑） */
+@media (min-width: 769px) and (max-width: 1024px) {
   .word-card {
-    max-width: 600px;
-    padding: 25px;
-    gap: 20px;
+    max-width: 500px;
+    padding: 22px;
+    gap: 18px;
   }
 
   .content-wrapper {
-    gap: 12px;
-    padding: 12px;
-    min-height: 130px;
+    gap: 11px;
+    padding: 11px;
+    min-height: 115px;
   }
 
   .word {
-    font-size: 42px;
+    font-size: 38px;
   }
 
   .translation {
-    font-size: 22px;
+    font-size: 19px;
     margin-top: 8px;
   }
 
   .buttons-wrapper {
-    gap: 20px;
+    gap: 18px;
   }
 
   .btn {
-    width: 44px;
-    height: 44px;
-    font-size: 18px;
-    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
+    border-radius: 9px;
+  }
+}
+
+/* 大屏幕（桌面） */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .word-card {
+    max-width: 720px;
+    padding: 30px;
+    gap: 24px;
+    border-radius: 16px;
+  }
+
+  .content-wrapper {
+    gap: 15px;
+    padding: 15px;
+    min-height: 150px;
+    border-radius: 12px;
+  }
+
+  .word {
+    font-size: 50px;
+  }
+
+  .translation {
+    font-size: 24px;
+    margin-top: 12px;
+  }
+
+  .buttons-wrapper {
+    gap: 24px;
+  }
+
+  .btn {
+    width: 54px;
+    height: 54px;
+    font-size: 24px;
+    border-radius: 12px;
+    border-width: 2px;
+  }
+}
+
+/* 超大屏幕（大型桌面） */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .word-card {
+    max-width: 900px;
+    padding: 36px;
+    gap: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
+
+  .content-wrapper {
+    gap: 18px;
+    padding: 18px;
+    min-height: 180px;
+    border-radius: 15px;
+  }
+
+  .word {
+    font-size: 60px;
+  }
+
+  .translation {
+    font-size: 28px;
+    margin-top: 15px;
+  }
+
+  .buttons-wrapper {
+    gap: 30px;
+  }
+
+  .btn {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+    border-radius: 15px;
+    border-width: 2px;
+  }
+}
+
+/* 超大屏幕 4K */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  .word-card {
+    max-width: 1200px;
+    padding: 45px;
+    gap: 36px;
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .content-wrapper {
+    gap: 22px;
+    padding: 22px;
+    min-height: 220px;
+    border-radius: 18px;
+  }
+
+  .word {
+    font-size: 72px;
+  }
+
+  .translation {
+    font-size: 34px;
+    margin-top: 18px;
+  }
+
+  .buttons-wrapper {
+    gap: 36px;
+  }
+
+  .btn {
+    width: 80px;
+    height: 80px;
+    font-size: 34px;
+    border-radius: 18px;
+    border-width: 2.5px;
+  }
+}
+
+/* 添加word-card高度减少的媒体查询 */
+@media (max-width: 1999px) {
+  .word-card {
+    padding: 14px;
+    gap: 10px;
+  }
+
+  .content-wrapper {
+    gap: 7px;
+    padding: 7px;
+    min-height: 70px;
+  }
+
+  .word {
+    font-size: 22px;
+  }
+
+  .translation {
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .buttons-wrapper {
+    gap: 11px;
+  }
+
+  .btn {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+  
+  /* 大屏幕（桌面） */
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .word-card {
+      max-width: 504px;
+      padding: 21px;
+      gap: 17px;
+    }
+
+    .content-wrapper {
+      gap: 10px;
+      padding: 10px;
+      min-height: 105px;
+    }
+
+    .word {
+      font-size: 35px;
+    }
+
+    .translation {
+      font-size: 17px;
+      margin-top: 8px;
+    }
+
+    .buttons-wrapper {
+      gap: 17px;
+    }
+
+    .btn {
+      width: 38px;
+      height: 38px;
+      font-size: 17px;
+    }
+  }
+
+  /* 超大屏幕（大型桌面） */
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    .word-card {
+      max-width: 630px;
+      padding: 25px;
+      gap: 21px;
+    }
+
+    .content-wrapper {
+      gap: 13px;
+      padding: 13px;
+      min-height: 126px;
+    }
+
+    .word {
+      font-size: 42px;
+    }
+
+    .translation {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .buttons-wrapper {
+      gap: 21px;
+    }
+
+    .btn {
+      width: 45px;
+      height: 45px;
+      font-size: 20px;
+    }
+  }
+
+  /* 添加按钮大小减少的媒体查询 */
+  .word-card .button-group button {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+    padding: 4px;
+  }
+
+  .word-card .button-group {
+    gap: 7px;
+  }
+
+  .word-card .circle-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
   }
 }
 </style>
