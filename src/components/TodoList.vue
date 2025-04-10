@@ -142,6 +142,14 @@ const repeatableTasks = [
     repeatable: true,
     executionCount: 0,
     lastExecuted: null
+  },
+  {
+    id: 'repeat_5',
+    text: '吸收一个算法小视频',
+    reward: 20,
+    repeatable: true,
+    executionCount: 0,
+    lastExecuted: null
   }
 ]
 
@@ -233,6 +241,14 @@ const addTodo = () => {
     };
     
     todos.value.push(newTodoItem);
+    
+    // 重新排序，确保可重复任务在顶部
+    todos.value.sort((a, b) => {
+      if (a.repeatable && !b.repeatable) return -1;
+      if (!a.repeatable && b.repeatable) return 1;
+      return 0;
+    });
+    
     newTodo.value = '';
     
     // 保存到服务器
@@ -366,6 +382,16 @@ const loadTodosFromServer = async () => {
         }
       });
       
+      // 对合并后的任务进行排序，使可重复任务始终置顶
+      mergedTodos.sort((a, b) => {
+        // 如果a是可重复任务而b不是，a排在前面
+        if (a.repeatable && !b.repeatable) return -1;
+        // 如果b是可重复任务而a不是，b排在前面
+        if (!a.repeatable && b.repeatable) return 1;
+        // 如果两者都是可重复任务或都不是，维持原有顺序
+        return 0;
+      });
+      
       todos.value = mergedTodos;
       console.log('从服务器加载了待办事项数据:', todos.value.length);
       syncStatus.value = 'success';
@@ -396,6 +422,16 @@ const loadTodosFromServer = async () => {
         }
       });
       
+      // 对合并后的任务进行排序，使可重复任务始终置顶
+      mergedTodos.sort((a, b) => {
+        // 如果a是可重复任务而b不是，a排在前面
+        if (a.repeatable && !b.repeatable) return -1;
+        // 如果b是可重复任务而a不是，b排在前面
+        if (!a.repeatable && b.repeatable) return 1;
+        // 如果两者都是可重复任务或都不是，维持原有顺序
+        return 0;
+      });
+      
       todos.value = mergedTodos;
       console.log('从服务器加载了待办事项数据:', todos.value.length);
       syncStatus.value = 'success';
@@ -411,6 +447,13 @@ const loadTodosFromServer = async () => {
         try {
           const backupTodos = JSON.parse(backupData);
           if (Array.isArray(backupTodos) && backupTodos.length > 0) {
+            // 对备份的任务进行排序，使可重复任务始终置顶
+            backupTodos.sort((a, b) => {
+              if (a.repeatable && !b.repeatable) return -1;
+              if (!a.repeatable && b.repeatable) return 1;
+              return 0;
+            });
+            
             todos.value = backupTodos;
             console.log('从本地备份恢复了待办事项数据:', backupTodos.length);
             
@@ -438,6 +481,13 @@ const loadTodosFromServer = async () => {
       try {
         const backupTodos = JSON.parse(backupData);
         if (Array.isArray(backupTodos)) {
+          // 对备份的任务进行排序，使可重复任务始终置顶
+          backupTodos.sort((a, b) => {
+            if (a.repeatable && !b.repeatable) return -1;
+            if (!a.repeatable && b.repeatable) return 1;
+            return 0;
+          });
+          
           todos.value = backupTodos;
           console.log('从本地备份恢复了待办事项数据');
         }
@@ -691,10 +741,10 @@ const executeRepeatableTask = (task) => {
 .todo-content {
   flex: 1;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   overflow: hidden;
-  gap: 10px;
+  gap: 4px;
 }
 
 .todo-text {
@@ -704,7 +754,7 @@ const executeRepeatableTask = (task) => {
   text-overflow: ellipsis;
   white-space: nowrap;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-  flex: 1;
+  width: 100%;
 }
 
 .todo-repeat-info {
@@ -714,23 +764,16 @@ const executeRepeatableTask = (task) => {
   gap: 8px;
   font-size: 11px;
   color: rgba(88, 166, 255, 0.8);
-  flex-shrink: 0;
-}
-
-.todo-item.repeatable .todo-text {
-  font-size: 14px;
-  margin-bottom: 0;
-  max-width: 60%;
+  width: 100%;
+  justify-content: center;
 }
 
 .todo-reward {
   font-size: 12px;
   color: #58a6ff;
-  margin-top: 0;
   font-weight: bold;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  display: inline-block;
-  margin-left: 8px;
+  width: 100%;
 }
 
 .todo-complete-date {
@@ -1196,7 +1239,7 @@ const executeRepeatableTask = (task) => {
   
   .todo-reward {
     font-size: 14px;
-    margin-top: 6px;
+    /* margin-top: 6px; */
   }
   
   .todo-complete-date {
@@ -1316,7 +1359,7 @@ const executeRepeatableTask = (task) => {
   
   .todo-reward {
     font-size: 16px;
-    margin-top: 8px;
+    /* margin-top: 8px; */
   }
   
   .todo-complete-date {
@@ -1436,7 +1479,7 @@ const executeRepeatableTask = (task) => {
   
   .todo-reward {
     font-size: 18px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
   
   .todo-complete-date {
@@ -1509,7 +1552,7 @@ const executeRepeatableTask = (task) => {
   background: rgba(22, 27, 34, 0.8);
   border: 1px solid rgba(88, 166, 255, 0.3);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
-  padding: 6px 10px;
+  padding: 8px 12px;
   margin-bottom: 6px;
   height: auto;
   min-height: 36px;
@@ -1525,17 +1568,7 @@ const executeRepeatableTask = (task) => {
 .todo-item.repeatable .todo-text {
   font-size: 14px;
   margin-bottom: 0;
-  max-width: 60%;
-}
-
-.todo-repeat-info {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  color: rgba(88, 166, 255, 0.8);
-  flex-shrink: 0;
+  width: 100%;
 }
 
 .execution-count {
