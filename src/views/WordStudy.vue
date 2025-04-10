@@ -73,13 +73,14 @@ const addCoins = inject('addCoins')
 
 // 可用的单词列表文件
 const wordLists = [
+{ name: 'UE常用词汇', file: './src/data/uebase.json' },
   { name: '游戏词汇', file: './src/data/gamebase.json' },
   { name: '计算机专业词汇', file: './src/data/cs.json' },
   { name: '前端', file: './src/data/web.json' },
   { name: 'Java', file: './src/data/javause.json' },
   { name: '数据结构', file: './src/data/data_structure.json' },
   { name: '日常易错词', file: './src/data/dailyuse.json' },
-  { name: 'UE常用词汇', file: './src/data/uebase.json' },
+
   { name: 'C++', file: './src/data/cplusplus.json' },
 ]
 

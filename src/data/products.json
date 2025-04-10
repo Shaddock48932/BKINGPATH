@@ -1,0 +1,21 @@
+[
+  {
+    "id": 1,
+    "name": "amuse SUNDAY",
+    "description": "星期天",
+    "price": 4490
+  },
+  {
+    "id": 2,
+    "name": "迈从X75",
+    "description": "鲸海",
+    "price": 35900
+  },
+  {
+    "id": 1744118594995,
+    "name": "一杯水",
+    "description": "喝喝",
+    "price": 1,
+    "createdAt": "2025-04-08T13:23:15.002Z"
+  }
+]

@@ -1,37 +1,55 @@
 {
   "todos": [
     {
-      "id": 1743868385943,
+      "id": "repeat_1",
+      "text": "六级阅读",
+      "reward": 50,
+      "repeatable": true,
+      "executionCount": 0,
+      "lastExecuted": null
+    },
+    {
+      "id": "repeat_2",
+      "text": "leetcode简单难度题目",
+      "reward": 30,
+      "repeatable": true,
+      "executionCount": 0,
+      "lastExecuted": null
+    },
+    {
+      "id": "repeat_3",
+      "text": "leetcode中等难度题目",
+      "reward": 50,
+      "repeatable": true,
+      "executionCount": 0,
+      "lastExecuted": null
+    },
+    {
+      "id": "repeat_4",
+      "text": "leetcode困难难度题目",
+      "reward": 100,
+      "repeatable": true,
+      "executionCount": 0,
+      "lastExecuted": null
+    },
+    {
+      "id": 1744208609510,
       "text": "喝一口水",
       "completed": true,
-      "timestamp": 1743868385943,
+      "timestamp": 1744208609510,
       "reward": 1,
-      "completedAt": 1743868401904
+      "completedAt": 1744208611129,
+      "repeatable": false
     },
     {
-      "id": 1743868521024,
-      "text": "再喝一口水",
+      "id": 1744209810709,
+      "text": "安装visual studio",
       "completed": true,
-      "timestamp": 1743868521024,
-      "reward": 1,
-      "completedAt": 1743868523654
-    },
-    {
-      "id": 1743868543589,
-      "text": "再喝一口水",
-      "completed": true,
-      "timestamp": 1743868543589,
-      "reward": 1,
-      "completedAt": 1743868544671
-    },
-    {
-      "id": 1743914639620,
-      "text": "喝一口水",
-      "completed": true,
-      "timestamp": 1743914639620,
-      "reward": 1,
-      "completedAt": 1743914641840
+      "timestamp": 1744209810709,
+      "reward": 10,
+      "completedAt": 1744209812367,
+      "repeatable": false
     }
   ],
-  "lastUpdated": "2025-04-06T04:44:01.845Z"
+  "lastUpdated": "2025-04-09T14:43:32.377Z"
 }

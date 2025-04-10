@@ -169,7 +169,22 @@ const decryptBaseNotes = () => {
 
 // 合并基础情思和用户添加的情思
 const mergeNotes = () => {
-    notes.value = [...baseNotes.value, ...additionalNotes.value].sort((a, b) => a.timestamp - b.timestamp)
+    // 使用Map来去重，key为id
+    const uniqueMap = new Map();
+    
+    // 先添加基础情思
+    baseNotes.value.forEach(note => {
+        uniqueMap.set(note.id, note);
+    });
+    
+    // 再添加用户情思，如果有相同id会覆盖
+    additionalNotes.value.forEach(note => {
+        uniqueMap.set(note.id, note);
+    });
+    
+    // 转为数组并排序
+    notes.value = Array.from(uniqueMap.values())
+        .sort((a, b) => a.timestamp - b.timestamp);
 }
 
 const toggleExpand = () => {
@@ -348,8 +363,17 @@ const syncFeelingsToServer = async () => {
         // 设置同步状态
         syncStatus.value = 'syncing';
         
-        // 准备数据
-        const allFeelings = [...baseNotes.value, ...additionalNotes.value]
+        // 准备数据 - 去重处理
+        let allFeelings = [...baseNotes.value, ...additionalNotes.value];
+        
+        // 根据id去重
+        const uniqueMap = new Map();
+        allFeelings.forEach(feeling => {
+            uniqueMap.set(feeling.id, feeling);
+        });
+        
+        // 转回数组并排序
+        allFeelings = Array.from(uniqueMap.values())
             .sort((a, b) => a.timestamp - b.timestamp);
             
         // 发送到服务器 - 更新端口为3031
@@ -465,6 +489,9 @@ const isComposing = ref(false)
 onMounted(() => {
     // 解密基础情思数据
     decryptBaseNotes()
+    
+    // 添加从服务器获取情思数据的功能
+    fetchFeelingsFromServer()
 
     // 从localStorage加载用户添加的情思
     try {
@@ -551,6 +578,58 @@ onUnmounted(() => {
         });
     }
 })
+
+// 从服务器获取情思数据
+const fetchFeelingsFromServer = async () => {
+    try {
+        // 设置同步状态
+        syncStatus.value = 'syncing';
+        
+        // 从服务器获取情思数据
+        const response = await fetch('http://localhost:3031/api/get-feelings');
+        
+        if (!response.ok) {
+            throw new Error('服务器响应异常');
+        }
+        
+        const feelings = await response.json();
+        
+        if (Array.isArray(feelings) && feelings.length > 0) {
+            // 去重处理
+            const uniqueMap = new Map();
+            
+            // 先添加基础数据
+            baseNotes.value.forEach(note => {
+                uniqueMap.set(note.id, note);
+            });
+            
+            // 再添加服务器数据，如果id相同则覆盖
+            feelings.forEach(note => {
+                uniqueMap.set(note.id, note);
+            });
+            
+            // 更新笔记数据
+            baseNotes.value = Array.from(uniqueMap.values());
+            
+            // 重新合并笔记
+            mergeNotes();
+            
+            console.log(`成功从服务器获取 ${feelings.length} 条情思数据，去重后总共 ${baseNotes.value.length} 条`);
+            syncStatus.value = 'success';
+        }
+    } catch (error) {
+        console.error('从服务器获取情思数据失败:', error);
+        syncStatus.value = 'error';
+    } finally {
+        // 3秒后清除状态
+        if (syncTimeout.value) {
+            clearTimeout(syncTimeout.value);
+        }
+        syncTimeout.value = setTimeout(() => {
+            syncStatus.value = 'idle';
+        }, 3000);
+    }
+};
 </script>
 
 <style scoped>
@@ -635,7 +714,7 @@ onUnmounted(() => {
     top: 50px;
     right: 0;
     width: 210px;
-    height: 280px;
+    height: 480px;
     background: rgba(40, 25, 35, 0.92);
     backdrop-filter: blur(10px);
     border-radius: 8px;
@@ -952,7 +1031,7 @@ onUnmounted(() => {
     
     .notebook-panel {
         width: 350px;
-        height: 315px;
+        height: 495px;
         top: 55px;
         border-radius: 10px;
         border-width: 2px;
@@ -1028,7 +1107,7 @@ onUnmounted(() => {
     
     .notebook-panel {
         width: 375px;
-        height: 385px;
+        height: 485px;
         top: 70px;
         border-radius: 12px;
         border-width: 2.5px;
@@ -1395,7 +1474,7 @@ onUnmounted(() => {
   }
 
   .notebook-panel {
-    height: 196px;
+    height: 396px;
   }
 
   .notebook-header {
@@ -1457,7 +1536,7 @@ onUnmounted(() => {
 
     .notebook-panel {
       width: 280px;
-      height: 270px;
+      height: 370px;
       top: 49px;
     }
 
@@ -1517,7 +1596,7 @@ onUnmounted(() => {
 
     .notebook-panel {
       width: 570px;
-      height: 318px;
+      height: 418px;
       top: 60px;
     }
 

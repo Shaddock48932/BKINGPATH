@@ -17,17 +17,33 @@
           v-for="(todo, index) in todos" 
           :key="todo.id || index"
           class="todo-item"
-          :class="{ 'completed': todo.completed }"
+          :class="{ 
+            'completed': todo.completed && !todo.repeatable,
+            'repeatable': todo.repeatable 
+          }"
         >
-          <div class="todo-checkbox" @click="toggleTodo(index)">
-            <span v-if="todo.completed">✓</span>
-          </div>
           <div class="todo-content">
             <div class="todo-text">{{ todo.text }}</div>
-            <div v-if="todo.completed" class="todo-complete-date">{{ formatDate(todo.completedAt) }}</div>
-            <div v-if="!todo.completed" class="todo-reward">奖励: {{ todo.reward }}币</div>
+            <div v-if="todo.completed && !todo.repeatable" class="todo-complete-date">
+              {{ formatDate(todo.completedAt) }}
+            </div>
+            <div v-else-if="todo.repeatable" class="todo-repeat-info">
+              <span class="execution-count">已执行: {{ todo.executionCount }}次</span>
+              <span v-if="todo.lastExecuted" class="last-executed">
+                最后执行: {{ formatDate(todo.lastExecuted) }}
+              </span>
+            </div>
+            <div v-if="!todo.completed || todo.repeatable" class="todo-reward">奖励: {{ todo.reward }}币</div>
           </div>
-          <div class="todo-delete" @click="deleteTodo(index)">✖</div>
+          <div class="todo-actions">
+            <button v-if="todo.repeatable" class="execute-btn" @click="executeRepeatableTask(todo)">
+              <span class="execute-icon">▶</span>
+            </button>
+            <div v-else class="todo-checkbox" @click="toggleTodo(index)">
+              <span v-if="todo.completed">✓</span>
+            </div>
+            <div v-if="!todo.repeatable" class="todo-delete" @click="deleteTodo(index)">✖</div>
+          </div>
         </div>
         <div v-if="todos.length === 0" class="empty-list">
           暂无待办事项
@@ -92,6 +108,42 @@ const props = defineProps({
 
 // 定义emit用于向父组件发送事件
 const emit = defineEmits(['update:showTodoList'])
+
+// 预定义的可重复任务
+const repeatableTasks = [
+  {
+    id: 'repeat_1',
+    text: '六级阅读',
+    reward: 50,
+    repeatable: true,
+    executionCount: 0,
+    lastExecuted: null
+  },
+  {
+    id: 'repeat_2',
+    text: 'leetcode简单难度题目',
+    reward: 30,
+    repeatable: true,
+    executionCount: 0,
+    lastExecuted: null
+  },
+  {
+    id: 'repeat_3',
+    text: 'leetcode中等难度题目',
+    reward: 50,
+    repeatable: true,
+    executionCount: 0,
+    lastExecuted: null
+  },
+  {
+    id: 'repeat_4',
+    text: 'leetcode困难难度题目',
+    reward: 100,
+    repeatable: true,
+    executionCount: 0,
+    lastExecuted: null
+  }
+]
 
 // 待办事项列表
 const todos = ref([])
@@ -176,12 +228,12 @@ const addTodo = () => {
       completed: false,
       timestamp: Date.now(),
       reward: reward,
-      completedAt: null
+      completedAt: null,
+      repeatable: false
     };
     
     todos.value.push(newTodoItem);
     newTodo.value = '';
-
     
     // 保存到服务器
     saveTodosToServer();
@@ -198,22 +250,31 @@ const addTodo = () => {
 // 切换待办事项状态
 const toggleTodo = (index) => {
   const todo = todos.value[index];
-  const wasCompleted = todo.completed;
   
-  // 切换完成状态
-  todo.completed = !wasCompleted;
-  
-  // 如果从未完成变为完成
-  if (!wasCompleted && todo.completed) {
-    todo.completedAt = Date.now();
+  if (todo.repeatable) {
+    // 如果是可重复任务，只增加执行次数和奖励金币，不标记为完成
+    todo.executionCount++;
+    todo.lastExecuted = Date.now();
     
     // 增加金币奖励
     if (addCoins) {
       addCoins(todo.reward);
     }
-  } else if (wasCompleted && !todo.completed) {
-    // 如果从完成变为未完成，清除完成时间
-    todo.completedAt = null;
+  } else {
+    // 普通任务的处理逻辑
+    const wasCompleted = todo.completed;
+    todo.completed = !wasCompleted;
+    
+    if (!wasCompleted && todo.completed) {
+      todo.completedAt = Date.now();
+      
+      // 增加金币奖励
+      if (addCoins) {
+        addCoins(todo.reward);
+      }
+    } else if (wasCompleted && !todo.completed) {
+      todo.completedAt = null;
+    }
   }
   
   saveTodosToServer();
@@ -282,16 +343,22 @@ const loadTodosFromServer = async () => {
     const result = await response.json();
     
     if (result.success && result.data && Array.isArray(result.data.todos)) {
-      todos.value = result.data.todos;
+      // 过滤掉服务器返回的可重复任务，只保留普通任务
+      const regularTodos = result.data.todos.filter(todo => !todo.repeatable);
+      // 合并预定义的可重复任务和普通任务
+      todos.value = [...repeatableTasks, ...regularTodos];
       console.log('从服务器加载了待办事项数据:', todos.value.length);
       syncStatus.value = 'success';
     } else if (Array.isArray(result)) {
-      todos.value = result;
+      // 过滤掉服务器返回的可重复任务，只保留普通任务
+      const regularTodos = result.filter(todo => !todo.repeatable);
+      // 合并预定义的可重复任务和普通任务
+      todos.value = [...repeatableTasks, ...regularTodos];
       console.log('从服务器加载了待办事项数据:', todos.value.length);
       syncStatus.value = 'success';
     } else {
       console.log('服务器中没有找到待办事项数据，初始化为空列表');
-      todos.value = [];
+      todos.value = [...repeatableTasks];
       syncStatus.value = 'error';
       
       // 尝试从本地备份恢复
@@ -300,8 +367,11 @@ const loadTodosFromServer = async () => {
         try {
           const backupTodos = JSON.parse(backupData);
           if (Array.isArray(backupTodos) && backupTodos.length > 0) {
-            todos.value = backupTodos;
-            console.log('从本地备份恢复了待办事项数据:', backupTodos.length);
+            // 过滤掉备份中的可重复任务，只保留普通任务
+            const regularBackupTodos = backupTodos.filter(todo => !todo.repeatable);
+            // 合并预定义的可重复任务和备份的普通任务
+            todos.value = [...repeatableTasks, ...regularBackupTodos];
+            console.log('从本地备份恢复了待办事项数据:', regularBackupTodos.length);
           }
         } catch (error) {
           console.error('解析本地备份数据失败', error);
@@ -318,30 +388,18 @@ const loadTodosFromServer = async () => {
       try {
         const backupTodos = JSON.parse(backupData);
         if (Array.isArray(backupTodos)) {
-          todos.value = backupTodos;
+          // 过滤掉备份中的可重复任务，只保留普通任务
+          const regularBackupTodos = backupTodos.filter(todo => !todo.repeatable);
+          // 合并预定义的可重复任务和备份的普通任务
+          todos.value = [...repeatableTasks, ...regularBackupTodos];
           console.log('从本地备份恢复了待办事项数据');
         }
       } catch (error) {
         console.error('解析本地备份数据失败', error);
-        todos.value = [];
+        todos.value = [...repeatableTasks];
       }
     } else {
-      // 如果没有本地备份，尝试从旧的localStorage加载
-      try {
-        const oldData = localStorage.getItem('todos');
-        if (oldData) {
-          const oldTodos = JSON.parse(oldData);
-          if (Array.isArray(oldTodos)) {
-            todos.value = oldTodos;
-            console.log('从旧的localStorage恢复了待办事项数据');
-            // 立即保存到服务器
-            saveTodosToServer();
-          }
-        }
-      } catch (error) {
-        console.error('解析旧的localStorage数据失败', error);
-        todos.value = [];
-      }
+      todos.value = [...repeatableTasks];
     }
   } finally {
     if (syncTimeout.value) {
@@ -390,6 +448,20 @@ watch(() => props.showTodoList, (newValue) => {
 defineExpose({
   closeTodoList
 })
+
+const executeRepeatableTask = (task) => {
+  if (!task.repeatable) return;
+  
+  // Update execution count and last executed time
+  task.executionCount = (task.executionCount || 0) + 1;
+  task.lastExecuted = new Date().toISOString();
+  
+  // Save to localStorage
+  saveTodos();
+  
+  // Show success notification
+  showNotification('Task executed successfully!');
+};
 </script>
 
 <style scoped>
@@ -397,20 +469,21 @@ defineExpose({
   position: fixed;
   top: 70px;
   left: 90px;
-  width: 225px;
-  height: 280px;
-  background: rgba(20, 20, 22, 0.88);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
+  width: 340px;
+  height: 420px;
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(22, 27, 34, 0.95) 100%);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: 2.5px solid #3c3c44;
-  box-shadow:
-    5px 5px 0 rgba(0, 0, 0, 0.2),
-    inset 0 0 20px rgba(80, 80, 90, 0.2);
+  border: 1px solid rgba(88, 166, 255, 0.2);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    0 1px 8px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(88, 166, 255, 0.1);
   font-family: 'Comic Sans MS', cursive, sans-serif;
-  opacity: 0.95;
+  opacity: 0.98;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -418,7 +491,16 @@ defineExpose({
   -webkit-touch-callout: none;
   touch-callout: none;
   z-index: 1000;
-  transform: rotate(-0.5deg);
+  /* transform: rotate(-0.5deg); */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.todolist-panel:hover {
+  /* transform: rotate(0deg) translateY(-5px); */
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.45),
+    0 1px 10px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(88, 166, 255, 0.2);
 }
 
 .todolist-panel-enter-active {
@@ -430,38 +512,35 @@ defineExpose({
 }
 
 .todolist-header {
-  padding: 10px 15px;
+  padding: 16px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, rgba(50, 50, 60, 0.9) 0%, rgba(40, 40, 45, 0.9) 100%);
-  border-bottom: 3px solid #1a1a1e;
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-bottom: 1px solid rgba(88, 166, 255, 0.2);
   position: relative;
 }
 
 .todolist-header::after {
   content: '';
   position: absolute;
-  bottom: -3px;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 5px,
-    rgba(255, 255, 255, 0.1) 5px,
-    rgba(255, 255, 255, 0.1) 10px
-  );
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(88, 166, 255, 0) 0%, 
+    rgba(88, 166, 255, 0.3) 50%, 
+    rgba(88, 166, 255, 0) 100%);
 }
 
 .todolist-header h3 {
   margin: 0;
-  color: #e9e9ef;
+  color: #58a6ff;
   font-size: 18px;
   letter-spacing: 1px;
   font-weight: bold;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -469,50 +548,66 @@ defineExpose({
 }
 
 .close-btn {
-  width: 24px;
-  height: 24px;
-  background: #484855;
-  border: 2px solid #5a5a65;
-  color: #e0e0e5;
+  width: 28px;
+  height: 28px;
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  color: #58a6ff;
   font-size: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
   transition: all 0.2s ease;
   transform: rotate(2deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn:hover {
-  background: #5a5a65;
+  background: rgba(88, 166, 255, 0.3);
   transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
 }
 
 .todos-list {
   flex: 1;
   overflow-y: auto;
-  padding: 15px;
-  background: rgba(25, 25, 30, 0.7);
+  padding: 16px;
+  background: rgba(13, 17, 23, 0.7);
   background-image: 
-    linear-gradient(rgba(50, 50, 60, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(50, 50, 60, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(88, 166, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88, 166, 255, 0.05) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
 .todo-item {
   cursor: pointer;
-  margin-bottom: 12px;
-  background: rgba(35, 35, 40, 0.8);
-  border-radius: 8px;
-  padding: 10px 12px;
-  border: 2px solid rgba(80, 80, 90, 0.4);
+  margin-bottom: 8px;
+  background: rgba(22, 27, 34, 0.7);
+  border-radius: 10px;
+  padding: 8px 12px;
+  border: 1px solid rgba(88, 166, 255, 0.2);
   transition: all 0.3s ease;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   font-size: 14px;
   display: flex;
   align-items: center;
   transform: rotate(0.5deg);
+  position: relative;
+  overflow: hidden;
+  min-height: 36px;
+}
+
+.todo-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #58a6ff, #1f6feb);
+  opacity: 0.7;
 }
 
 .todo-item:nth-child(odd) {
@@ -520,124 +615,130 @@ defineExpose({
 }
 
 .todo-item:hover {
-  background: rgba(45, 45, 50, 0.95);
-  border-color: rgba(100, 100, 110, 0.5);
+  background: rgba(22, 27, 34, 0.9);
+  border-color: rgba(88, 166, 255, 0.4);
   transform: translateX(3px) rotate(0.8deg);
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
 }
 
 .todo-item:nth-child(odd):hover {
   transform: translateX(3px) rotate(-0.8deg);
 }
 
-.todo-checkbox {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  border: 2px solid rgba(120, 120, 130, 0.5);
-  margin-right: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  cursor: pointer;
-  transition: all 0.2s;
-  flex-shrink: 0;
-  transform: rotate(-2deg);
-  background: rgba(40, 40, 45, 0.6);
-}
-
-.todo-checkbox:hover {
-  background: rgba(60, 60, 65, 0.6);
-  transform: scale(1.1) rotate(2deg);
-}
-
 .todo-content {
   flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   overflow: hidden;
+  gap: 10px;
 }
 
 .todo-text {
-  color: rgba(240, 240, 245, 0.9);
-  font-size: 15px;
+  color: #c9d1d9;
+  font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  flex: 1;
+}
+
+.todo-repeat-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: rgba(88, 166, 255, 0.8);
+  flex-shrink: 0;
+}
+
+.todo-item.repeatable .todo-text {
+  font-size: 14px;
+  margin-bottom: 0;
+  max-width: 60%;
 }
 
 .todo-reward {
   font-size: 12px;
-  color: rgba(255, 215, 0, 0.8);
-  margin-top: 4px;
+  color: #58a6ff;
+  margin-top: 0;
   font-weight: bold;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  margin-left: 8px;
 }
 
 .todo-complete-date {
   font-size: 12px;
-  color: rgba(100, 200, 140, 0.8);
-  margin-top: 4px;
+  color: #7ee787;
+  margin-top: 0;
   font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  display: inline-block;
+  margin-left: 8px;
 }
 
 .todo-delete {
-  color: rgba(200, 200, 210, 0.5);
+  color: rgba(200, 200, 210, 0.6);
   cursor: pointer;
-  font-size: 14px;
-  padding: 0 5px;
+  font-size: 12px;
+  padding: 0 3px;
   transition: all 0.2s;
   flex-shrink: 0;
 }
 
 .todo-delete:hover {
-  color: rgba(255, 100, 100, 0.9);
-  transform: scale(1.2) rotate(15deg);
+  color: #f85149;
+  transform: scale(1.2);
 }
 
 .todo-item.completed {
-  background: rgba(30, 30, 35, 0.7);
-  border: 2px dashed rgba(80, 80, 90, 0.3);
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  background: rgba(13, 17, 23, 0.7);
+  border: 1px dashed rgba(88, 166, 255, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .todo-item.completed .todo-checkbox {
-  background: rgba(80, 130, 120, 0.6);
-  border-color: rgba(80, 130, 120, 0.8);
+  background: rgba(88, 166, 255, 0.2);
+  border-color: rgba(88, 166, 255, 0.4);
+}
+
+.todo-item.completed .todo-checkbox::after {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.4), rgba(31, 111, 235, 0.4));
 }
 
 .todo-item.completed .todo-text {
   text-decoration: line-through;
-  color: rgba(150, 150, 160, 0.5);
+  color: rgba(139, 148, 158, 0.6);
 }
 
 .empty-list {
   text-align: center;
-  color: rgba(180, 180, 190, 0.5);
-  padding: 30px 0;
+  color: rgba(139, 148, 158, 0.6);
+  padding: 40px 0;
   font-style: italic;
   font-size: 16px;
   line-height: 1.5;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .empty-list::before {
   content: '📝';
   display: block;
-  font-size: 30px;
-  margin-bottom: 10px;
+  font-size: 36px;
+  margin-bottom: 12px;
   opacity: 0.7;
 }
 
 .todo-input-area {
-  padding: 12px 15px;
-  background: rgba(25, 25, 30, 0.9);
-  border-top: 3px solid #1a1a1e;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.95) 0%, rgba(22, 27, 34, 0.95) 100%);
+  border-top: 1px solid rgba(88, 166, 255, 0.2);
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
   justify-content: space-around;
   position: relative;
@@ -646,21 +747,18 @@ defineExpose({
 .todo-input-area::before {
   content: '';
   position: absolute;
-  top: -3px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 5px,
-    rgba(255, 255, 255, 0.1) 5px,
-    rgba(255, 255, 255, 0.1) 10px
-  );
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(88, 166, 255, 0) 0%, 
+    rgba(88, 166, 255, 0.3) 50%, 
+    rgba(88, 166, 255, 0) 100%);
 }
 
 .reward-input-container {
-  width: 50px;
+  width: 60px;
   position: relative;
   display: flex;
   align-items: center;
@@ -668,8 +766,8 @@ defineExpose({
 
 .reward-icon {
   position: absolute;
-  left: 8px;
-  font-size: 12px;
+  left: 10px;
+  font-size: 14px;
   pointer-events: none;
   z-index: 1;
   animation: float 3s ease-in-out infinite;
@@ -681,25 +779,25 @@ defineExpose({
 }
 
 .todo-input {
-  background: rgba(50, 50, 55, 0.8);
-  border: 2px solid rgba(90, 90, 100, 0.4);
-  border-radius: 8px;
-  padding: 6px 10px;
-  color: #e9e9ef;
-  font-size: 13px;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: #c9d1d9;
+  font-size: 14px;
   transition: all 0.3s ease;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   transform: rotate(-0.3deg);
-  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
-  width: 80px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+  width: 120px;
 }
 
 .todo-reward-input {
-  background: rgba(50, 50, 55, 0.8);
-  border: 2px solid rgba(90, 90, 100, 0.4);
-  border-radius: 8px;
-  padding: 6px 6px 6px 25px;
-  color: #FFD700;
+  background: rgba(13, 17, 23, 0.8);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 10px;
+  padding: 8px 8px 8px 30px;
+  color: #58a6ff;
   font-size: 14px;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-weight: bold;
@@ -709,9 +807,9 @@ defineExpose({
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
   appearance: textfield;
-  width: 30px;
+  width: 40px;
   transform: rotate(0.5deg);
-  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* 隐藏上下调节按钮 - Firefox */
@@ -724,49 +822,66 @@ defineExpose({
 .todo-input:focus,
 .todo-reward-input:focus {
   outline: none;
-  border-color: rgba(130, 130, 150, 0.6);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1), inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-color: rgba(88, 166, 255, 0.5);
+  box-shadow: 0 0 10px rgba(88, 166, 255, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.2);
   transform: rotate(0deg);
 }
 
 .todo-input::placeholder {
-  color: rgba(170, 170, 180, 0.5);
+  color: rgba(139, 148, 158, 0.6);
   font-style: italic;
 }
 
 .todo-reward-input::placeholder {
-  color: rgba(255, 215, 0, 0.5);
+  color: rgba(88, 166, 255, 0.6);
   font-style: italic;
 }
 
 .send-btn {
-  background: linear-gradient(45deg, rgba(70, 70, 80, 0.9), rgba(50, 50, 60, 0.9));
-  border: 2px solid #3a3a45;
-  border-radius: 8px;
-  height: 30px;
-  color: #e9e9ef;
+  background: linear-gradient(135deg, #58a6ff, #1f6feb);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  border-radius: 10px;
+  height: 36px;
+  color: white;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* font-size: 24px; */
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   transform: rotate(1deg);
   font-weight: bold;
-  margin-left: 50px;
-  width: 15px;
+  margin-left: 10px;
+  width: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.send-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .send-btn:hover {
   transform: translateY(-3px) rotate(3deg);
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
-  background: linear-gradient(45deg, rgba(80, 80, 90, 0.9), rgba(60, 60, 70, 0.9));
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #79b8ff, #2188ff);
+}
+
+.send-btn:hover::after {
+  opacity: 1;
 }
 
 .send-btn:active {
   transform: translateY(1px) rotate(0deg);
-  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .todos-list::-webkit-scrollbar {
@@ -774,29 +889,29 @@ defineExpose({
 }
 
 .todos-list::-webkit-scrollbar-track {
-  background: rgba(30, 30, 35, 0.2);
+  background: rgba(13, 17, 23, 0.2);
   border-radius: 10px;
   margin: 4px 0;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .todos-list::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(80, 80, 90, 0.6), rgba(60, 60, 70, 0.7));
+  background: linear-gradient(180deg, rgba(88, 166, 255, 0.6), rgba(31, 111, 235, 0.7));
   border-radius: 10px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  border: 2px solid rgba(30, 30, 35, 0.2);
+  border: 2px solid rgba(13, 17, 23, 0.2);
 }
 
 .todos-list::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(90, 90, 100, 0.8), rgba(70, 70, 80, 0.9));
-  box-shadow: 0 0 5px rgba(80, 80, 90, 0.5);
+  background: linear-gradient(180deg, rgba(88, 166, 255, 0.8), rgba(31, 111, 235, 0.9));
+  box-shadow: 0 0 5px rgba(88, 166, 255, 0.5);
 }
 
 /* Firefox滚动条样式 */
 .todos-list {
   scrollbar-width: thin;
-  scrollbar-color: rgba(80, 80, 90, 0.7) rgba(30, 30, 35, 0.3);
+  scrollbar-color: rgba(88, 166, 255, 0.7) rgba(13, 17, 23, 0.3);
 }
 
 .sync-status {
@@ -807,8 +922,8 @@ defineExpose({
 }
 
 .sync-message {
-  padding: 2px 8px;
-  border-radius: 10px;
+  padding: 3px 10px;
+  border-radius: 12px;
   animation: fadeIn 0.3s ease;
   font-style: italic;
   display: inline-block;
@@ -816,33 +931,33 @@ defineExpose({
 
 .sync-message.syncing::before {
   content: '同步中...';
-  color: #add8e6;
+  color: #58a6ff;
 }
 
 .sync-message.success::before {
   content: '已保存';
-  color: #90ee90;
+  color: #7ee787;
 }
 
 .sync-message.error::before {
   content: '同步失败';
-  color: #ffb6c1;
+  color: #f85149;
 }
 
 .sync-message.syncing {
-  background: rgba(100, 149, 237, 0.2);
-  border: 1px dashed rgba(100, 149, 237, 0.4);
+  background: rgba(88, 166, 255, 0.1);
+  border: 1px dashed rgba(88, 166, 255, 0.4);
   animation: pulse 1.5s infinite;
 }
 
 .sync-message.success {
-  background: rgba(50, 205, 50, 0.2);
-  border: 1px dashed rgba(50, 205, 50, 0.4);
+  background: rgba(126, 231, 135, 0.1);
+  border: 1px dashed rgba(126, 231, 135, 0.4);
 }
 
 .sync-message.error {
-  background: rgba(220, 20, 60, 0.2);
-  border: 1px dashed rgba(220, 20, 60, 0.4);
+  background: rgba(248, 81, 73, 0.1);
+  border: 1px dashed rgba(248, 81, 73, 0.4);
 }
 
 @keyframes pulse {
@@ -857,19 +972,16 @@ defineExpose({
 
 @keyframes clipSectorIn {
   0% {
-    /* transform: translateY(-20px); */
     opacity: 0;
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   }
   
   50% {
-    /* transform: translateY(-10px); */
     opacity: 0.6;
     clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
   }
 
   100% {
-    /* transform: translateY(0); */
     opacity: 1;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
@@ -897,21 +1009,27 @@ defineExpose({
 
 @media (max-width: 768px) {
   .todolist-panel {
-    width: 480px;
+    width: 90%;
+    max-width: 400px;
+    left: 5%;
+    top: 80px;
   }
 }
 
 @media (max-width: 480px) {
   .todolist-panel {
-    width: 550px;
+    width: 95%;
+    max-width: 350px;
+    left: 2.5%;
+    top: 70px;
   }
 }
 
 /* 中等屏幕（笔记本电脑） */
 @media (min-width: 769px) and (max-width: 1024px) {
   .todolist-panel {
-    width: 580px;
-    height: 315px;
+    width: 380px;
+    height: 420px;
     top: 75px;
     left: 95px;
   }
@@ -921,19 +1039,19 @@ defineExpose({
   }
   
   .close-btn {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     font-size: 15px;
   }
   
   .todo-item {
     font-size: 15px;
-    padding: 12px 14px;
+    padding: 14px 16px;
   }
   
   .todo-checkbox {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
   }
   
   .todo-text {
@@ -950,8 +1068,8 @@ defineExpose({
   }
   
   .send-btn {
-    height: 38px;
-    width: 22px;
+    height: 40px;
+    width: 40px;
     font-size: 16px;
   }
   
@@ -960,37 +1078,34 @@ defineExpose({
   }
   
   .empty-list::before {
-    font-size: 32px;
+    font-size: 36px;
   }
 }
 
 /* 大屏幕（桌面） */
 @media (min-width: 1025px) and (max-width: 1440px) {
   .todolist-panel {
-    width: 600px;
-    height: 385px;
+    width: 400px;
+    height: 450px;
     top: 90px;
     left: 120px;
-    border-radius: 12px;
-    border-width: 3px;
-    transform: rotate(-0.8deg);
+    border-radius: 18px;
   }
   
   .todolist-header {
-    padding: 14px 20px;
+    padding: 18px 22px;
   }
   
   .todolist-header h3 {
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: 1.5px;
   }
   
   .close-btn {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     font-size: 18px;
-    border-width: 2.5px;
-    border-radius: 7px;
+    border-radius: 10px;
   }
   
   .todos-list {
@@ -1000,17 +1115,16 @@ defineExpose({
   
   .todo-item {
     font-size: 16px;
-    padding: 14px 16px;
+    padding: 16px 18px;
     margin-bottom: 16px;
-    border-radius: 10px;
-    border-width: 2.5px;
+    border-radius: 14px;
   }
   
   .todo-checkbox {
     width: 28px;
     height: 28px;
     margin-right: 16px;
-    border-width: 2.5px;
+    border-radius: 10px;
   }
   
   .todo-text {
@@ -1033,25 +1147,22 @@ defineExpose({
   }
   
   .todo-input-area {
-    padding: 16px 20px;
-    border-top-width: 4px;
+    padding: 18px 22px;
     gap: 12px;
   }
   
   .todo-input {
     font-size: 16px;
     padding: 10px 15px;
-    border-radius: 10px;
+    border-radius: 12px;
     width: 160px;
-    border-width: 2.5px;
   }
   
   .todo-reward-input {
     font-size: 18px;
     padding: 10px 10px 10px 36px;
-    border-radius: 10px;
+    border-radius: 12px;
     width: 45px;
-    border-width: 2.5px;
   }
   
   .reward-icon {
@@ -1061,19 +1172,18 @@ defineExpose({
   
   .send-btn {
     height: 45px;
-    width: 26px;
+    width: 45px;
     font-size: 18px;
-    border-radius: 10px;
-    border-width: 2.5px;
+    border-radius: 12px;
   }
   
   .empty-list {
     font-size: 18px;
-    padding: 40px 0;
+    padding: 50px 0;
   }
   
   .empty-list::before {
-    font-size: 40px;
+    font-size: 42px;
     margin-bottom: 15px;
   }
   
@@ -1083,8 +1193,8 @@ defineExpose({
   }
   
   .sync-message {
-    padding: 3px 10px;
-    border-radius: 12px;
+    padding: 3px 12px;
+    border-radius: 14px;
   }
   
   .todos-list::-webkit-scrollbar {
@@ -1095,30 +1205,27 @@ defineExpose({
 /* 超大屏幕（大型桌面） */
 @media (min-width: 1441px) and (max-width: 1920px) {
   .todolist-panel {
-    width: 620px;
-    height: 455px;
+    width: 420px;
+    height: 500px;
     top: 110px;
     left: 150px;
-    border-radius: 15px;
-    border-width: 3.5px;
-    transform: rotate(-1deg);
+    border-radius: 20px;
   }
   
   .todolist-header {
-    padding: 18px 25px;
+    padding: 20px 25px;
   }
   
   .todolist-header h3 {
-    font-size: 28px;
+    font-size: 24px;
     letter-spacing: 2px;
   }
   
   .close-btn {
     width: 36px;
     height: 36px;
-    font-size: 22px;
-    border-width: 3px;
-    border-radius: 8px;
+    font-size: 20px;
+    border-radius: 12px;
   }
   
   .todos-list {
@@ -1130,20 +1237,18 @@ defineExpose({
     font-size: 18px;
     padding: 18px 20px;
     margin-bottom: 20px;
-    border-radius: 12px;
-    border-width: 3px;
+    border-radius: 16px;
   }
   
   .todo-checkbox {
     width: 32px;
     height: 32px;
     margin-right: 20px;
-    border-width: 3px;
-    border-radius: 8px;
+    border-radius: 12px;
   }
   
   .todo-text {
-    font-size: 22px;
+    font-size: 20px;
   }
   
   .todo-reward {
@@ -1157,52 +1262,48 @@ defineExpose({
   }
   
   .todo-delete {
-    font-size: 20px;
+    font-size: 18px;
     padding: 0 8px;
   }
   
   .todo-input-area {
     padding: 20px 25px;
-    border-top-width: 5px;
     gap: 15px;
   }
   
   .todo-input {
-    font-size: 20px;
+    font-size: 18px;
     padding: 12px 18px;
-    border-radius: 12px;
-    width: 220px;
-    border-width: 3px;
+    border-radius: 14px;
+    width: 180px;
   }
   
   .todo-reward-input {
-    font-size: 22px;
+    font-size: 20px;
     padding: 12px 12px 12px 42px;
-    border-radius: 12px;
-    width: 55px;
-    border-width: 3px;
+    border-radius: 14px;
+    width: 50px;
   }
   
   .reward-icon {
-    font-size: 22px;
+    font-size: 20px;
     left: 14px;
   }
   
   .send-btn {
-    height: 52px;
-    width: 30px;
-    font-size: 22px;
-    border-radius: 12px;
-    border-width: 3px;
+    height: 50px;
+    width: 50px;
+    font-size: 20px;
+    border-radius: 14px;
   }
   
   .empty-list {
-    font-size: 22px;
-    padding: 50px 0;
+    font-size: 20px;
+    padding: 60px 0;
   }
   
   .empty-list::before {
-    font-size: 50px;
+    font-size: 48px;
     margin-bottom: 18px;
   }
   
@@ -1212,8 +1313,8 @@ defineExpose({
   }
   
   .sync-message {
-    padding: 4px 12px;
-    border-radius: 14px;
+    padding: 4px 14px;
+    border-radius: 16px;
   }
   
   .todos-list::-webkit-scrollbar {
@@ -1224,30 +1325,27 @@ defineExpose({
 /* 超大屏幕 4K */
 @media (min-width: 1921px) and (max-width: 2560px) {
   .todolist-panel {
-    width: 660px;
-    height: 560px;
+    width: 460px;
+    height: 600px;
     top: 140px;
     left: 180px;
-    border-radius: 18px;
-    border-width: 4.5px;
-    transform: rotate(-1.2deg);
+    border-radius: 24px;
   }
   
   .todolist-header {
-    padding: 22px 30px;
+    padding: 24px 30px;
   }
   
   .todolist-header h3 {
-    font-size: 34px;
+    font-size: 28px;
     letter-spacing: 2.5px;
   }
   
   .close-btn {
     width: 42px;
     height: 42px;
-    font-size: 26px;
-    border-width: 3.5px;
-    border-radius: 10px;
+    font-size: 24px;
+    border-radius: 14px;
   }
   
   .todos-list {
@@ -1256,23 +1354,21 @@ defineExpose({
   }
   
   .todo-item {
-    font-size: 22px;
+    font-size: 20px;
     padding: 22px 24px;
     margin-bottom: 24px;
-    border-radius: 15px;
-    border-width: 3.5px;
+    border-radius: 18px;
   }
   
   .todo-checkbox {
     width: 38px;
     height: 38px;
     margin-right: 24px;
-    border-width: 3.5px;
-    border-radius: 10px;
+    border-radius: 14px;
   }
   
   .todo-text {
-    font-size: 26px;
+    font-size: 24px;
   }
   
   .todo-reward {
@@ -1286,52 +1382,48 @@ defineExpose({
   }
   
   .todo-delete {
-    font-size: 24px;
+    font-size: 20px;
     padding: 0 10px;
   }
   
   .todo-input-area {
     padding: 24px 30px;
-    border-top-width: 6px;
     gap: 18px;
   }
   
   .todo-input {
-    font-size: 24px;
+    font-size: 20px;
     padding: 15px 22px;
-    border-radius: 15px;
-    width: 280px;
-    border-width: 3.5px;
+    border-radius: 16px;
+    width: 220px;
   }
   
   .todo-reward-input {
-    font-size: 26px;
+    font-size: 22px;
     padding: 15px 15px 15px 48px;
-    border-radius: 15px;
-    width: 65px;
-    border-width: 3.5px;
+    border-radius: 16px;
+    width: 60px;
   }
   
   .reward-icon {
-    font-size: 26px;
+    font-size: 22px;
     left: 16px;
   }
   
   .send-btn {
     height: 60px;
-    width: 36px;
-    font-size: 26px;
-    border-radius: 15px;
-    border-width: 3.5px;
+    width: 60px;
+    font-size: 24px;
+    border-radius: 16px;
   }
   
   .empty-list {
-    font-size: 26px;
-    padding: 60px 0;
+    font-size: 24px;
+    padding: 70px 0;
   }
   
   .empty-list::before {
-    font-size: 60px;
+    font-size: 54px;
     margin-bottom: 22px;
   }
   
@@ -1341,12 +1433,126 @@ defineExpose({
   }
   
   .sync-message {
-    padding: 5px 14px;
-    border-radius: 16px;
+    padding: 5px 16px;
+    border-radius: 18px;
   }
   
   .todos-list::-webkit-scrollbar {
     width: 14px;
   }
+}
+
+.todo-item.repeatable {
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid rgba(88, 166, 255, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  height: auto;
+  min-height: 36px;
+}
+
+.todo-item.repeatable:hover {
+  background: rgba(22, 27, 34, 0.9);
+  border-color: rgba(88, 166, 255, 0.5);
+  transform: translateX(3px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.todo-item.repeatable .todo-text {
+  font-size: 14px;
+  margin-bottom: 0;
+  max-width: 60%;
+}
+
+.todo-repeat-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: rgba(88, 166, 255, 0.8);
+  flex-shrink: 0;
+}
+
+.execution-count {
+  font-weight: bold;
+  color: #58a6ff;
+}
+
+.last-executed {
+  color: rgba(88, 166, 255, 0.6);
+  font-style: italic;
+}
+
+.todo-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.execute-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(88, 166, 255, 0.4);
+  background: rgba(88, 166, 255, 0.1);
+  color: #58a6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.execute-btn:hover {
+  background: rgba(88, 166, 255, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(88, 166, 255, 0.3);
+}
+
+.execute-icon {
+  font-size: 10px;
+  line-height: 1;
+}
+
+.todo-checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid rgba(88, 166, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  background: rgba(22, 27, 34, 0.8);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: 10px;
+}
+
+.todo-checkbox:hover {
+  background: rgba(22, 27, 34, 0.9);
+  transform: scale(1.1);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 5px rgba(88, 166, 255, 0.3);
+}
+
+.todo-delete {
+  color: rgba(200, 200, 210, 0.6);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0 3px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.todo-delete:hover {
+  color: #f85149;
+  transform: scale(1.2);
 }
 </style> 

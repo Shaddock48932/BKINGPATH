@@ -105,12 +105,19 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed, watch, inject } from 'vue';
 import * as pdfjsLib from 'pdfjs-dist';
 import axios from 'axios';
+import { useRoute } from 'vue-router';
+
+// 注入 alert 服务
+const alert = inject('alert');
 
 // 服务器API基本URL
 const API_BASE_URL = 'http://localhost:3031/api';
+
+// 获取当前路由
+const route = useRoute();
 
 // 可用书籍列表
 const availableBooks = ref([
@@ -330,6 +337,14 @@ const renderPage = async (pageNumber, canvasElement) => {
 
 // 键盘快捷键处理
 const handleKeyDown = (event) => {
+  // 确保只在PDF阅读器页面处理键盘事件
+  if (route.path !== '/reader') {
+    return;
+  }
+  
+  // 阻止事件冒泡，避免触发App.vue中的全局事件监听
+  event.stopPropagation();
+  
   // 如果用户正在输入框内，不处理快捷键
   if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
     // 但如果是页码输入框，仍处理Enter键
@@ -351,6 +366,7 @@ const handleKeyDown = (event) => {
       break;
     case 'Enter':
       // Enter键翻到下一页，但不绑定音效
+      event.preventDefault(); // 阻止默认行为
       nextPage();
       break;
     case '+':
@@ -533,11 +549,11 @@ const saveBookmark = async () => {
       console.warn('保存到API失败，仅使用本地存储:', apiError);
     }
     
-    alert('书签已保存!');
+    alert.showSuccess('书签已保存!');
     
   } catch (error) {
     console.error('保存书签出错:', error);
-    alert('保存书签时出错');
+    alert.showError('保存书签时出错');
   }
 };
 
@@ -597,6 +613,7 @@ onBeforeUnmount(() => {
   position: relative;
   overflow: hidden;
   width: 80vw;
+  opacity: 0.85;
 }
 
 .reader-header {

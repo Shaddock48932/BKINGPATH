@@ -1,10 +1,16 @@
 <script setup>
 import { ref, onMounted, watch, onBeforeUnmount, provide } from 'vue'
+import { useRoute } from 'vue-router'
 import WordCard from './components/WordCard.vue'
 import MusicPlayer from './components/MusicPlayer.vue'
 import NoteBook from './components/NoteBook.vue'
 import TodoList from './components/TodoList.vue'
 import NavBar from './components/NavBar.vue'
+import AlertContainer from './components/AlertContainer.vue'
+import ShoppingMall from './components/ShoppingMall.vue'
+
+// 引入当前路由
+const route = useRoute()
 
 // 导入音效
 import nextSound from './assets/sound/next.mp3'
@@ -181,8 +187,9 @@ provide('playTouchSound', playTouchSound)
 provide('setSoundVolume', setSoundVolume)
 provide('soundVolume', soundVolume)
 
-// 将addCoins函数提供给子组件
+// 将addCoins函数和金币数据提供给子组件
 provide('addCoins', addCoins)
+provide('coins', coins)
 
 /**
  * 显示随机单词
@@ -262,7 +269,33 @@ watch(() => userInput.value, (newValue) => {
   }
 })
 
-// 初始加载
+// 处理键盘事件的函数
+const handleKeyPress = (event) => {
+  // 如果当前路径是/reader，不在这里处理键盘事件
+  if (route.path === '/reader' || event.isHandledByReader) {
+    return
+  }
+  
+  // Enter键 - 显示下一个词
+  if (event.key === 'Enter') {
+    // 如果用户正在输入，不响应Enter键
+    if (document.activeElement.tagName === 'INPUT' || 
+        document.activeElement.tagName === 'TEXTAREA') {
+      return
+    }
+    
+    const now = Date.now()
+    if (now - lastEnterTime.value < 300) {
+      return // 防止快速连续按Enter
+    }
+    lastEnterTime.value = now
+    
+    playNextSound()
+    showRandomWord()
+  }
+}
+
+// 组件挂载时初始化
 onMounted(() => {
   // 从本地存储加载音量设置
   const savedVolume = localStorage.getItem('soundVolume')
@@ -276,12 +309,16 @@ onMounted(() => {
   // 添加音乐播放器切换事件监听
   window.addEventListener('toggle-music-player', toggleMusicPlayer)
   
+  // 添加键盘事件监听器
+  window.addEventListener('keydown', handleKeyPress)
+  
   loadWordsList(currentList.value.file)
 })
 
 // 组件卸载时移除事件监听
 onBeforeUnmount(() => {
   window.removeEventListener('toggle-music-player', toggleMusicPlayer)
+  window.removeEventListener('keydown', handleKeyPress)
 })
 
 // 控制音乐播放器的显示状态
@@ -293,10 +330,22 @@ const showTodoList = ref(false)
 const isTodoRotating = ref(false)
 const todoListRef = ref(null)
 
+// shopping mall相关状态
+const showShoppingMall = ref(false)
+const shoppingMallRef = ref(null)
+
 // 简化todolist点击处理逻辑
 const handleTodoClick = () => {
   // 直接切换显示状态
   showTodoList.value = !showTodoList.value
+}
+
+// 处理商城图标点击
+const handleShoppingClick = () => {
+  // 切换显示状态
+  showShoppingMall.value = !showShoppingMall.value
+  console.log('商城面板状态:', showShoppingMall.value)
+  playTouchSound()
 }
 
 const handleTodoDoubleClick = (e) => {
@@ -325,8 +374,8 @@ const toggleMusicPlayer = () => {
             <i class="saving-dot"></i>
           </small>
           <small v-if="serverError" class="error-indicator">!</small>
-              </span>
-            </div>
+        </span>
+      </div>
       <div class="todolist">
         <span 
           class="todolist-icon" 
@@ -336,11 +385,20 @@ const toggleMusicPlayer = () => {
           @dblclick="handleTodoDoubleClick($event)"
           title="待办事项"
         >📋</span>
-          </div>
+      </div>
+      <div class="shopping-mall">
+        <span 
+          class="shopping-mall-icon"
+          @mouseenter="playTouchSound"
+          @click="handleShoppingClick"
+          title="购物商城"
+        >🛒</span>
+      </div>
     </div>
 
     <TodoList v-model:showTodoList="showTodoList" ref="todoListRef" />
     <NoteBook />
+    <ShoppingMall v-model:showShoppingMall="showShoppingMall" ref="shoppingMallRef" />
     
     <main class="main-content">
       <router-view v-slot="{ Component }">
@@ -351,6 +409,19 @@ const toggleMusicPlayer = () => {
     <div class="background-music">
       <music-player v-if="showMusicPlayer" ref="musicPlayerRef" />
     </div>
+    
+    <!-- 金币动画 -->
+    <div class="coin-animation" v-if="coinAnimating">
+      <div class="coin-icon">+1</div>
+    </div>
+    
+    <!-- 服务器状态提示 -->
+    <div class="server-status" v-if="serverError">
+      <i class="fas fa-exclamation-triangle"></i> 服务器连接失败
+    </div>
+    
+    <!-- 警告提示容器 -->
+    <alert-container />
   </div>
 </template>
 
@@ -377,7 +448,35 @@ input {
   /* 禁用自动填充 */
   -webkit-autofill: "off";
 }
-
+/* 印记 */
+.shopping-mall-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  user-select: none;
+  z-index: 2;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  animation: rotate 15s linear infinite;
+  animation-play-state: paused;
+  opacity: 0.5;
+  margin-left: 5px;
+}
+.shopping-mall:hover .shopping-mall-icon{
+  opacity: 1;
+}
 /* 禁用Edge/IE的明黄色自动填充背景 */
 input:-ms-input-placeholder {
   opacity: 1;
@@ -514,6 +613,7 @@ input:-ms-input-placeholder {
   animation: soft-breath 6s ease-in-out infinite;
   z-index: -1;
   filter: blur(3px);
+  pointer-events: none;
 }
 
 .money-box::after {
@@ -526,6 +626,7 @@ input:-ms-input-placeholder {
   animation: soft-breath-outer 6s ease-in-out infinite 0.5s;
   z-index: -2;
   filter: blur(5px);
+  pointer-events: none;
 }
 
 .money-box:hover {
@@ -1122,6 +1223,7 @@ input:-ms-input-placeholder {
   animation: soft-breath 6s ease-in-out infinite;
   z-index: -1;
   filter: blur(3px);
+  pointer-events: none;
 }
 
 .todolist-icon::after {
@@ -1134,6 +1236,7 @@ input:-ms-input-placeholder {
   animation: soft-breath-outer 6s ease-in-out infinite 0.5s;
   z-index: -2;
   filter: blur(5px);
+  pointer-events: none;
 }
 
 .todolist-icon:active {
@@ -1690,6 +1793,40 @@ input:-ms-input-placeholder {
     font-size: 16px;
     min-width: 67px;
     max-width: 136px;
+  }
+}
+
+.todolist-icon, .shopping-mall-icon {
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  
+}
+
+/* 超大屏幕（大型桌面） */
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .todolist-icon, .shopping-mall-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 34px;
+  }
+}
+
+/* 超大屏幕 4K */
+@media (min-width: 1921px) and (max-width: 2560px) {
+  .todolist-icon, .shopping-mall-icon {
+    width: 85px;
+    height: 85px;
+    font-size: 42px;
+  }
+}
+
+/* 超出2K */
+@media (min-width: 2561px) {
+  .todolist-icon, .shopping-mall-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 32px;
   }
 }
 </style>

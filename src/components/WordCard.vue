@@ -4,7 +4,7 @@
  * 单词卡片组件，用于显示单词、翻译和发音功能
  */
 
-import { ref, watch, onBeforeUnmount } from 'vue'
+import { ref, watch, onBeforeUnmount, onMounted } from 'vue'
 import { showError } from '../utils/errorNotification'
 
 // 组件属性定义
@@ -57,6 +57,53 @@ const loadVoices = () => {
 loadVoices()
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = loadVoices
+}
+
+// 跟踪连续按键状态
+const lastKeyTime = ref(0)
+const lastKey = ref(null)
+const DOUBLE_PRESS_DELAY = 300 // ms
+
+/**
+ * 处理键盘事件 - 全局监听双击shift和ctrl
+ */
+const handleKeyDown = (event) => {
+  const currentTime = new Date().getTime()
+  const key = event.key.toLowerCase()
+  
+  // 检测是否为我们关注的键
+  if (key === 'shift' || key === 'control') {
+    // 如果是同一个键且在时间阈值内，则视为双击
+    if (lastKey.value === key && currentTime - lastKeyTime.value < DOUBLE_PRESS_DELAY) {
+      // 双击Shift，切换翻译
+      if (key === 'shift') {
+        toggleTranslation()
+        // 阻止默认行为和事件传播
+        event.preventDefault()
+        event.stopPropagation()
+        console.log('双击Shift: 显示/隐藏翻译', showTranslation.value ? '显示' : '隐藏')
+      } 
+      // 双击Ctrl，播放发音
+      else if (key === 'control') {
+        playPronunciation()
+        // 阻止默认行为和事件传播
+        event.preventDefault()
+        event.stopPropagation()
+        console.log('双击Ctrl: 播放/停止发音')
+      }
+      
+      // 重置，防止三击触发
+      lastKey.value = null
+      lastKeyTime.value = 0
+    } else {
+      // 记录本次按键
+      lastKey.value = key
+      lastKeyTime.value = currentTime
+    }
+  } else {
+    // 不是我们关心的键，重置状态
+    lastKey.value = null
+  }
 }
 
 /**
@@ -186,7 +233,9 @@ const playPronunciation = async () => {
  * 切换翻译显示状态
  */
 const toggleTranslation = () => {
+  // 直接修改状态
   showTranslation.value = !showTranslation.value
+  console.log('切换翻译显示:', showTranslation.value ? '显示' : '隐藏')
 }
 
 // 设置音量的方法
@@ -221,10 +270,30 @@ watch(() => props.volume, (newVolume) => {
   setVolume(newVolume)
 })
 
-// 组件卸载时清理
+// 安装全局键盘事件监听器
+const setupKeyboardListeners = () => {
+  // 使用捕获阶段监听事件，确保在事件传播的最早阶段捕获它们
+  window.addEventListener('keydown', handleKeyDown, { capture: true, passive: false })
+}
+
+// 移除全局键盘事件监听器
+const cleanupKeyboardListeners = () => {
+  window.removeEventListener('keydown', handleKeyDown, { capture: true, passive: false })
+}
+
+// 在组件挂载时设置监听器
+onMounted(() => {
+  // 确保在页面加载完成后设置键盘监听
+  setupKeyboardListeners()
+})
+
+// 在组件销毁前清理
 onBeforeUnmount(() => {
-  stopAllAudio();
-});
+  // 清理键盘监听器
+  cleanupKeyboardListeners()
+  // 停止所有音频
+  stopAllAudio()
+})
 </script>
 
 <template>
@@ -241,11 +310,12 @@ onBeforeUnmount(() => {
     <div class="buttons-wrapper">
       <!-- 发音按钮：播放时显示停止图标 -->
       <button class="btn" @click="playPronunciation" :class="{ 'playing': isPlaying }"
-        :title="isPlaying ? '双击Ctrl' : '双击Ctrl'">
+        :title="isPlaying ? '停止播放 (双击Ctrl)' : '播放发音 (双击Ctrl)'">
         <i :class="isPlaying ? 'fas fa-stop' : 'fas fa-volume-up'">音</i>
       </button>
       <!-- 显示翻译按钮 -->
-      <button class="btn" @click="toggleTranslation" :class="{ 'active': showTranslation }" title="双击Shift">
+      <button class="btn" @click="toggleTranslation" :class="{ 'active': showTranslation }" 
+        title="显示/隐藏翻译 (双击Shift)">
         <i class="fas fa-language">{{ showTranslation ? '显' : '隐' }}</i>
       </button>
     </div>

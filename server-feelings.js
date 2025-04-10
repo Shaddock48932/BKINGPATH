@@ -15,6 +15,29 @@ if (!fs.existsSync(dataDir)) {
   console.log(`数据目录已创建: ${dataDir}`);
 }
 
+// 初始化默认商品数据
+const initDefaultProducts = () => {
+  const productsFilePath = path.join(dataDir, 'products.json');
+  
+  // 如果商品文件不存在，创建默认商品数据
+  if (!fs.existsSync(productsFilePath)) {
+    const defaultProducts = [
+      { id: 1, name: "amuse SUNDAY", description: "星期天", price: 4490 },
+    ];
+    
+    fs.writeFileSync(
+      productsFilePath, 
+      JSON.stringify(defaultProducts, null, 2), 
+      'utf8'
+    );
+    
+    console.log('创建了默认商品数据');
+  }
+};
+
+// 启动时初始化默认商品
+initDefaultProducts();
+
 const app = express();
 const PORT = 3031;
 
@@ -265,6 +288,171 @@ app.get('/api/get-all-bookmarks', (req, res) => {
   }
 });
 
+// API 路由：获取商品列表
+app.get('/api/get-products', (req, res) => {
+  try {
+    const filePath = path.join(dataDir, 'products.json');
+    
+    if (!fs.existsSync(filePath)) {
+      // 如果文件不存在，返回空数组
+      return handleResponse(res, [], '商品数据文件不存在，返回空列表');
+    }
+    
+    const fileData = fs.readFileSync(filePath, 'utf8');
+    const products = JSON.parse(fileData);
+    
+    return handleResponse(res, products, '成功获取商品列表');
+  } catch (error) {
+    return handleError(res, error, '服务器错误，无法获取商品列表');
+  }
+});
+
+// API 路由：添加新商品
+app.post('/api/add-product', (req, res) => {
+  try {
+    const { id, name, description, price } = req.body;
+    
+    // 验证必要字段
+    if (!name || !description || price === undefined || price <= 0) {
+      return res.status(400).json({
+        success: false,
+        message: '无效的商品数据，必须包含name、description和price'
+      });
+    }
+    
+    const filePath = path.join(dataDir, 'products.json');
+    let products = [];
+    
+    // 读取现有商品
+    if (fs.existsSync(filePath)) {
+      const fileData = fs.readFileSync(filePath, 'utf8');
+      products = JSON.parse(fileData);
+    }
+    
+    // 创建新商品
+    const newProduct = {
+      id: id || Date.now(),
+      name,
+      description,
+      price: Number(price),
+      createdAt: new Date().toISOString()
+    };
+    
+    // 添加到商品列表
+    products.push(newProduct);
+    
+    // 保存更新后的商品列表
+    const jsonData = JSON.stringify(products, null, 2);
+    fs.writeFileSync(filePath, jsonData, 'utf8');
+    
+    console.log(`新商品已添加: ${name} - ¥${price}`);
+    return handleResponse(res, newProduct, '商品已成功添加');
+  } catch (error) {
+    return handleError(res, error, '服务器错误，无法添加商品');
+  }
+});
+
+// API 路由：购买商品
+app.post('/api/purchase-product', (req, res) => {
+  try {
+    const { productId, price } = req.body;
+    
+    if (!productId || price === undefined) {
+      return res.status(400).json({
+        success: false,
+        message: '无效的购买数据，必须包含productId和price'
+      });
+    }
+    
+    // 获取商品数据
+    const productsFilePath = path.join(dataDir, 'products.json');
+    if (!fs.existsSync(productsFilePath)) {
+      return res.status(404).json({
+        success: false,
+        message: '商品数据不存在'
+      });
+    }
+    
+    const productsData = fs.readFileSync(productsFilePath, 'utf8');
+    const products = JSON.parse(productsData);
+    
+    // 检查商品是否存在
+    const product = products.find(p => p.id == productId);
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: `未找到ID为${productId}的商品`
+      });
+    }
+    
+    // 检查金币是否足够
+    const coinsFilePath = path.join(dataDir, 'user-coins.json');
+    let userCoins = { coins: 0 };
+    
+    if (fs.existsSync(coinsFilePath)) {
+      const coinsData = fs.readFileSync(coinsFilePath, 'utf8');
+      userCoins = JSON.parse(coinsData);
+    }
+    
+    if (userCoins.coins < price) {
+      return res.status(400).json({
+        success: false,
+        message: '金币不足，无法购买'
+      });
+    }
+    
+    // 扣除金币
+    userCoins.coins -= price;
+    userCoins.lastUpdated = new Date().toISOString();
+    
+    // 保存更新后的金币数据
+    fs.writeFileSync(coinsFilePath, JSON.stringify(userCoins, null, 2), 'utf8');
+    
+    // 记录购买记录
+    const purchasesFilePath = path.join(dataDir, 'purchases.json');
+    let purchases = [];
+    
+    if (fs.existsSync(purchasesFilePath)) {
+      const purchasesData = fs.readFileSync(purchasesFilePath, 'utf8');
+      purchases = JSON.parse(purchasesData);
+    }
+    
+    const purchase = {
+      id: Date.now(),
+      productId,
+      productName: product.name,
+      price,
+      timestamp: new Date().toISOString()
+    };
+    
+    purchases.push(purchase);
+    fs.writeFileSync(purchasesFilePath, JSON.stringify(purchases, null, 2), 'utf8');
+    
+    console.log(`商品已购买: ${product.name} - 金币:${price}`);
+    return handleResponse(res, { purchase, remainingCoins: userCoins.coins }, '购买成功');
+  } catch (error) {
+    return handleError(res, error, '服务器错误，无法完成购买');
+  }
+});
+
+// API 路由：获取购买历史
+app.get('/api/get-purchases', (req, res) => {
+  try {
+    const filePath = path.join(dataDir, 'purchases.json');
+    
+    if (!fs.existsSync(filePath)) {
+      return handleResponse(res, [], '购买历史文件不存在，返回空列表');
+    }
+    
+    const fileData = fs.readFileSync(filePath, 'utf8');
+    const purchases = JSON.parse(fileData);
+    
+    return handleResponse(res, purchases, '成功获取购买历史');
+  } catch (error) {
+    return handleError(res, error, '服务器错误，无法获取购买历史');
+  }
+});
+
 // 启动服务器
 app.listen(PORT, () => {
   console.log('\x1b[36m情思同步服务器正在运行，端口:', PORT, '\x1b[0m');
@@ -278,4 +466,8 @@ app.listen(PORT, () => {
   console.log('\x1b[35m- POST /api/save-bookmark - 保存阅读书签\x1b[0m');
   console.log('\x1b[35m- GET /api/get-bookmark/:bookId - 获取特定书籍书签\x1b[0m');
   console.log('\x1b[35m- GET /api/get-all-bookmarks - 获取所有书签\x1b[0m');
+  console.log('\x1b[35m- GET /api/get-products - 获取商品列表\x1b[0m');
+  console.log('\x1b[35m- POST /api/add-product - 添加新商品\x1b[0m');
+  console.log('\x1b[35m- POST /api/purchase-product - 购买商品\x1b[0m');
+  console.log('\x1b[35m- GET /api/get-purchases - 获取购买历史\x1b[0m');
 }); 

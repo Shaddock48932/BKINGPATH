@@ -82,6 +82,9 @@ const setSoundVolume = inject('setSoundVolume')
 const soundVolume = inject('soundVolume')
 const playButtonSound = inject('playButtonSound')
 
+// 注入alert服务
+const alert = inject('alert')
+
 // 音量设置
 const volume = ref(1)
 const bgmVolume = ref(0.5)
@@ -168,7 +171,7 @@ const handleMusicUpload = (event) => {
 
   // 检查文件类型
   if (!file.type.startsWith('audio/')) {
-    alert('请上传音频文件')
+    alert.showWarning('请上传音频文件')
     return
   }
 
@@ -183,7 +186,7 @@ const handleMusicUpload = (event) => {
     
     // 检查是否已存在同名音乐
     if (musicList.some(item => item.name === name)) {
-      alert('已存在同名音乐')
+      alert.showWarning('已存在同名音乐')
       URL.revokeObjectURL(url)
       return
     }
@@ -196,10 +199,10 @@ const handleMusicUpload = (event) => {
     playButtonSound()
     
     // 提示用户添加成功
-    alert(`已添加音乐：${name}`)
+    alert.showSuccess(`已添加音乐：${name}`)
   } catch (error) {
     console.error('添加音乐失败:', error)
-    alert('添加音乐失败')
+    alert.showError('添加音乐失败')
   }
 
   // 清空input，允许重复上传同一文件
