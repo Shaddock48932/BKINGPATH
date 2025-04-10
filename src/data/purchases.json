@@ -19,5 +19,12 @@
     "productName": "一杯水",
     "price": 1,
     "timestamp": "2025-04-09T14:22:56.317Z"
+  },
+  {
+    "id": 1744285457296,
+    "productId": 1744118594995,
+    "productName": "一杯水",
+    "price": 1,
+    "timestamp": "2025-04-10T11:44:17.296Z"
   }
 ]

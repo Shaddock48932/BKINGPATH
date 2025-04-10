@@ -343,23 +343,67 @@ const loadTodosFromServer = async () => {
     const result = await response.json();
     
     if (result.success && result.data && Array.isArray(result.data.todos)) {
-      // 过滤掉服务器返回的可重复任务，只保留普通任务
-      const regularTodos = result.data.todos.filter(todo => !todo.repeatable);
-      // 合并预定义的可重复任务和普通任务
-      todos.value = [...repeatableTasks, ...regularTodos];
+      // 合并预定义的可重复任务和从服务器获取的任务
+      // 识别哪些任务已经存在（可能已更新），哪些是全新的
+      const serverTodos = result.data.todos;
+      
+      // 处理可重复任务：如果服务器上有，使用服务器版本；否则使用预定义版本
+      const mergedTodos = [];
+      
+      // 创建一个已存在ID的Set用于快速查找
+      const existingIds = new Set();
+      
+      // 添加服务器上的所有任务，并记录ID
+      serverTodos.forEach(task => {
+        mergedTodos.push(task);
+        existingIds.add(task.id);
+      });
+      
+      // 添加预定义的可重复任务，但仅添加服务器上不存在的
+      repeatableTasks.forEach(predefinedTask => {
+        if (!existingIds.has(predefinedTask.id)) {
+          mergedTodos.push(predefinedTask);
+        }
+      });
+      
+      todos.value = mergedTodos;
       console.log('从服务器加载了待办事项数据:', todos.value.length);
       syncStatus.value = 'success';
+      
+      // 同时保存到localStorage作为备份
+      localStorage.setItem('todos-backup', JSON.stringify(todos.value));
     } else if (Array.isArray(result)) {
-      // 过滤掉服务器返回的可重复任务，只保留普通任务
-      const regularTodos = result.filter(todo => !todo.repeatable);
-      // 合并预定义的可重复任务和普通任务
-      todos.value = [...repeatableTasks, ...regularTodos];
+      // 直接处理简单数组响应
+      // 合并预定义的可重复任务和从服务器获取的任务
+      const serverTodos = result;
+      
+      // 处理可重复任务：如果服务器上有，使用服务器版本；否则使用预定义版本
+      const mergedTodos = [];
+      
+      // 创建一个已存在ID的Set用于快速查找
+      const existingIds = new Set();
+      
+      // 添加服务器上的所有任务，并记录ID
+      serverTodos.forEach(task => {
+        mergedTodos.push(task);
+        existingIds.add(task.id);
+      });
+      
+      // 添加预定义的可重复任务，但仅添加服务器上不存在的
+      repeatableTasks.forEach(predefinedTask => {
+        if (!existingIds.has(predefinedTask.id)) {
+          mergedTodos.push(predefinedTask);
+        }
+      });
+      
+      todos.value = mergedTodos;
       console.log('从服务器加载了待办事项数据:', todos.value.length);
       syncStatus.value = 'success';
+      
+      // 同时保存到localStorage作为备份
+      localStorage.setItem('todos-backup', JSON.stringify(todos.value));
     } else {
-      console.log('服务器中没有找到待办事项数据，初始化为空列表');
-      todos.value = [...repeatableTasks];
-      syncStatus.value = 'error';
+      console.log('服务器中没有找到待办事项数据，初始化默认任务');
       
       // 尝试从本地备份恢复
       const backupData = localStorage.getItem('todos-backup');
@@ -367,16 +411,22 @@ const loadTodosFromServer = async () => {
         try {
           const backupTodos = JSON.parse(backupData);
           if (Array.isArray(backupTodos) && backupTodos.length > 0) {
-            // 过滤掉备份中的可重复任务，只保留普通任务
-            const regularBackupTodos = backupTodos.filter(todo => !todo.repeatable);
-            // 合并预定义的可重复任务和备份的普通任务
-            todos.value = [...repeatableTasks, ...regularBackupTodos];
-            console.log('从本地备份恢复了待办事项数据:', regularBackupTodos.length);
+            todos.value = backupTodos;
+            console.log('从本地备份恢复了待办事项数据:', backupTodos.length);
+            
+            // 立即保存到服务器以同步备份数据
+            saveTodosToServer();
+            return;
           }
         } catch (error) {
           console.error('解析本地备份数据失败', error);
         }
       }
+      
+      // 如果没有备份，初始化为预定义的可重复任务
+      todos.value = [...repeatableTasks];
+      saveTodosToServer(); // 保存预定义任务到服务器
+      syncStatus.value = 'success';
     }
   } catch (error) {
     console.error('加载待办事项数据失败:', error);
@@ -388,10 +438,7 @@ const loadTodosFromServer = async () => {
       try {
         const backupTodos = JSON.parse(backupData);
         if (Array.isArray(backupTodos)) {
-          // 过滤掉备份中的可重复任务，只保留普通任务
-          const regularBackupTodos = backupTodos.filter(todo => !todo.repeatable);
-          // 合并预定义的可重复任务和备份的普通任务
-          todos.value = [...repeatableTasks, ...regularBackupTodos];
+          todos.value = backupTodos;
           console.log('从本地备份恢复了待办事项数据');
         }
       } catch (error) {
@@ -452,15 +499,31 @@ defineExpose({
 const executeRepeatableTask = (task) => {
   if (!task.repeatable) return;
   
-  // Update execution count and last executed time
+  // 更新执行次数和最后执行时间
   task.executionCount = (task.executionCount || 0) + 1;
-  task.lastExecuted = new Date().toISOString();
+  task.lastExecuted = Date.now();
   
-  // Save to localStorage
-  saveTodos();
+  // 增加金币奖励
+  if (addCoins) {
+    addCoins(task.reward);
+  }
   
-  // Show success notification
-  showNotification('Task executed successfully!');
+  // 保存到服务器
+  saveTodosToServer();
+  
+  // 显示通知消息
+  const successMessage = document.createElement('div');
+  successMessage.className = 'execute-success';
+  successMessage.textContent = `成功执行: ${task.text}`;
+  document.body.appendChild(successMessage);
+  
+  // 3秒后移除提示
+  setTimeout(() => {
+    successMessage.classList.add('fade-out');
+    setTimeout(() => {
+      document.body.removeChild(successMessage);
+    }, 500);
+  }, 2500);
 };
 </script>
 

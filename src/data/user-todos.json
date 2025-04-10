@@ -13,8 +13,8 @@
       "text": "leetcode简单难度题目",
       "reward": 30,
       "repeatable": true,
-      "executionCount": 0,
-      "lastExecuted": null
+      "executionCount": 1,
+      "lastExecuted": 1744284536625
     },
     {
       "id": "repeat_3",
@@ -51,5 +51,5 @@
       "repeatable": false
     }
   ],
-  "lastUpdated": "2025-04-09T14:43:32.377Z"
+  "lastUpdated": "2025-04-10T11:28:56.636Z"
 }

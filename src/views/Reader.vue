@@ -8,53 +8,53 @@
             <span class="book-menu-icon">📚</span>
           </button>
           <div class="book-dropdown">
-            <div class="book-list">
-              <div 
-                v-for="book in availableBooks" 
-                :key="book.id" 
-                class="book-item"
+          <div class="book-list">
+            <div 
+              v-for="book in availableBooks" 
+              :key="book.id" 
+              class="book-item"
                 @click="loadSelectedBook(book)"
-              >
+            >
                 <span class="book-title">{{ book.title }}</span>
+              </div>
               </div>
             </div>
           </div>
-        </div>
         <h1 class="app-title">{{ currentBook?.title || 'PDF阅读器' }}</h1>
         <span class="reading-progress">第 {{ displayStartPage }} - {{ displayEndPage }} / {{ totalPages }} 页</span>
       </div>
       
       <div class="header-right">
-        <div class="page-navigation">
-          <button 
-            class="nav-btn" 
-            @click="prevPage" 
-            :disabled="currentPage <= 1"
-            title="上一页"
-          >
-            <span class="nav-icon">◀</span>
-          </button>
-          
-          <div class="page-input-container">
-            <input 
-              type="number" 
-              v-model.number="pageInput" 
-              min="1" 
-              :max="totalPages" 
-              @change="goToPage(pageInput)"
-              class="page-input"
-            />
-            <span class="page-divider">/</span>
-            <span class="page-total">{{ totalPages }}</span>
-          </div>
-          
-          <button 
-            class="nav-btn" 
-            @click="nextPage" 
-            :disabled="currentPage >= totalPages"
-            title="下一页"
-          >
-            <span class="nav-icon">▶</span>
+          <div class="page-navigation">
+            <button 
+              class="nav-btn" 
+              @click="prevPage" 
+              :disabled="currentPage <= 1"
+              title="上一页"
+            >
+              <span class="nav-icon">◀</span>
+            </button>
+            
+            <div class="page-input-container">
+              <input 
+                type="number" 
+                v-model.number="pageInput" 
+                min="1" 
+                :max="totalPages" 
+                @change="goToPage(pageInput)"
+                class="page-input"
+              />
+              <span class="page-divider">/</span>
+              <span class="page-total">{{ totalPages }}</span>
+            </div>
+            
+            <button 
+              class="nav-btn" 
+              @click="nextPage" 
+              :disabled="currentPage >= totalPages"
+              title="下一页"
+            >
+              <span class="nav-icon">▶</span>
           </button>
         </div>
         
@@ -62,10 +62,10 @@
         <button class="bookmark-btn" @click="saveBookmark" title="保存书签">
           <span class="bookmark-icon">🔖</span>
           保存书签
-        </button>
-      </div>
-    </div>
-    
+            </button>
+          </div>
+        </div>
+        
     <div class="reader-container">
       <!-- 阅读内容 - 占据主要空间 -->
       <div class="content-panel">
@@ -83,17 +83,17 @@
           <div class="reader-content" v-if="!isLoading && !errorMessage">
             <div class="pages-container dual-page">
               <div class="page-wrapper">
-                <canvas ref="pdfCanvas" class="pdf-canvas"></canvas>
-              </div>
+            <canvas ref="pdfCanvas" class="pdf-canvas"></canvas>
+          </div>
               <div class="page-wrapper">
                 <canvas ref="secondPageCanvas" class="pdf-canvas"></canvas>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
-    
+            </div>
+          </div>
+      </div>
+          </div>
+          
     <!-- 快捷键提示 -->
     <div class="shortcut-tip">
       <div class="key-hint">←</div> <div class="key-hint">→</div> 翻页 
@@ -167,11 +167,11 @@ const loadSelectedBook = async (book) => {
   }
   
   // 更新当前书籍
-  currentBook.value = book;
-  
+    currentBook.value = book;
+    
   // 重置页面状态
-  currentPage.value = 1;
-  pageInput.value = 1;
+    currentPage.value = 1;
+    pageInput.value = 1;
   totalPages.value = 1;
   
   // 加载新的PDF
@@ -232,7 +232,7 @@ const loadPdf = async (url) => {
     
     // 设置加载进度回调
     loadingTask.onProgress = (data) => {
-      if (data.total) {
+        if (data.total) {
         loadingProgress.value = Math.round((data.loaded / data.total) * 100);
       }
     };
@@ -440,7 +440,7 @@ const zoomIn = () => {
 
 const zoomOut = () => {
   pdfScale.value = Math.max(pdfScale.value - 0.1, 0.5);
-  if (pdfDocument) {
+    if (pdfDocument) {
     renderCurrentPages();
   }
 };
@@ -1020,4 +1020,4 @@ onBeforeUnmount(() => {
     flex-direction: column;
   }
 }
-</style>
+</style> 

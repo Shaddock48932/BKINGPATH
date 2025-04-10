@@ -63,7 +63,7 @@
                     <li v-for="(purchase, index) in purchaseHistory" :key="index" class="purchase-item">
                         <div class="purchase-info">
                             <h4 class="purchase-name">{{ purchase.productName }}</h4>
-                            <p class="purchase-date">购买时间: {{ formatDate(purchase.purchaseDate) }}</p>
+                            <p class="purchase-date">购买时间: {{ formatDate(purchase.timestamp) }}</p>
                         </div>
                         <div class="purchase-price">{{ purchase.price }} 💸</div>
                     </li>
@@ -131,7 +131,6 @@ const emit = defineEmits(['update:showShoppingMall'])
 // 关闭商城面板
 const closeShoppingMall = () => {
     emit('update:showShoppingMall', false)
-    playButtonSound()
 }
 
 // 加载商品列表
@@ -181,87 +180,127 @@ const loadPurchaseHistory = async () => {
         console.log('加载购买记录...')
         
         // 尝试从服务器获取购买记录
-        const response = await fetch('http://localhost:3031/api/get-purchase-history')
+        const response = await fetch('http://localhost:3031/api/get-purchases');
         
         if (response.ok) {
-            const result = await response.json()
-            if (result && result.data && Array.isArray(result.data)) {
-                console.log('成功从服务器加载购买记录:', result.data.length)
-                purchaseHistory.value = result.data
+            const result = await response.json();
+            if (result && result.success && result.data && Array.isArray(result.data)) {
+                console.log('成功从服务器加载购买记录:', result.data.length);
+                purchaseHistory.value = result.data;
+                
+                // 同时保存到localStorage作为备份
+                localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory.value));
             } else if (Array.isArray(result)) {
-                console.log('成功从服务器加载购买记录:', result.length)
-                purchaseHistory.value = result
+                console.log('成功从服务器加载购买记录:', result.length);
+                purchaseHistory.value = result;
+                
+                // 同时保存到localStorage作为备份
+                localStorage.setItem('purchaseHistory', JSON.stringify(purchaseHistory.value));
             } else {
-                console.log('服务器返回的数据格式不正确，使用本地存储')
-                loadPurchaseHistoryFromLocalStorage()
+                console.log('服务器返回的数据格式不正确，使用本地存储');
+                loadPurchaseHistoryFromLocalStorage();
             }
         } else {
-            console.log('服务器响应错误，状态码:', response.status, '使用本地存储')
-            loadPurchaseHistoryFromLocalStorage()
+            console.log('服务器响应错误，状态码:', response.status, '使用本地存储');
+            loadPurchaseHistoryFromLocalStorage();
         }
     } catch (error) {
-        console.error('加载购买记录时发生错误:', error)
-        loadPurchaseHistoryFromLocalStorage()
+        console.error('加载购买记录时发生错误:', error);
+        loadPurchaseHistoryFromLocalStorage();
     }
 }
 
 // 从本地存储加载购买记录
 const loadPurchaseHistoryFromLocalStorage = () => {
-    const savedHistory = localStorage.getItem('purchaseHistory')
+    const savedHistory = localStorage.getItem('purchaseHistory');
     if (savedHistory) {
         try {
-            purchaseHistory.value = JSON.parse(savedHistory)
-            console.log('从本地存储加载购买记录:', purchaseHistory.value.length)
+            purchaseHistory.value = JSON.parse(savedHistory);
+            console.log('从本地存储加载购买记录:', purchaseHistory.value.length);
         } catch (e) {
-            console.error('解析本地购买记录时出错:', e)
-            purchaseHistory.value = []
+            console.error('解析本地购买记录时出错:', e);
+            purchaseHistory.value = [];
         }
     } else {
-        console.log('本地存储中无购买记录')
-        purchaseHistory.value = []
+        console.log('本地存储中无购买记录');
+        purchaseHistory.value = [];
     }
 }
 
-// 保存购买记录到本地存储
-const savePurchaseToLocalStorage = (productData) => {
+// 保存购买记录到服务器
+const savePurchaseToServer = async (productData) => {
     const purchase = {
         productId: productData.id,
         productName: productData.name,
         price: productData.price,
         purchaseDate: new Date().toISOString()
-    }
+    };
     
-    let savedHistory = []
     try {
-        const historyData = localStorage.getItem('purchaseHistory')
-        if (historyData) {
-            savedHistory = JSON.parse(historyData)
+        // 发送到服务器
+        const response = await fetch('http://localhost:3031/api/add-purchase', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(purchase)
+        });
+        
+        if (!response.ok) {
+            // 如果服务器保存失败，则保存到本地存储作为备份
+            console.error('保存购买记录到服务器失败');
+            savePurchaseToLocalStorage(purchase);
+        } else {
+            console.log('成功保存购买记录到服务器');
+            
+            // 同时保存到本地存储作为备份
+            savePurchaseToLocalStorage(purchase);
+            
+            // 如果当前在购买记录页面，重新加载购买记录
+            if (activeTab.value === 'purchases') {
+                loadPurchaseHistory();
+            }
         }
-    } catch (e) {
-        console.error('解析本地购买记录时出错:', e)
-    }
-    
-    savedHistory.push(purchase)
-    localStorage.setItem('purchaseHistory', JSON.stringify(savedHistory))
-    
-    // 如果当前在购买记录页面，更新显示
-    if (activeTab.value === 'purchases') {
-        purchaseHistory.value = savedHistory
+    } catch (error) {
+        console.error('保存购买记录到服务器失败:', error);
+        // 如果服务器保存失败，则保存到本地存储作为备份
+        savePurchaseToLocalStorage(purchase);
     }
 }
 
-// 修改购买商品函数以保存购买记录
-const purchaseProduct = async (product) => {
-    if (coins.value < product.price || purchaseInProgress.value) {
-        return
+// 保存购买记录到本地存储
+const savePurchaseToLocalStorage = (purchase) => {
+    let savedHistory = [];
+    try {
+        const historyData = localStorage.getItem('purchaseHistory');
+        if (historyData) {
+            savedHistory = JSON.parse(historyData);
+        }
+    } catch (e) {
+        console.error('解析本地购买记录时出错:', e);
     }
     
-    playButtonSound()
-    purchaseInProgress.value = true
+    savedHistory.push(purchase);
+    localStorage.setItem('purchaseHistory', JSON.stringify(savedHistory));
+    
+    // 如果当前在购买记录页面，更新显示
+    if (activeTab.value === 'purchases') {
+        purchaseHistory.value = savedHistory;
+    }
+}
+
+// 修改购买商品函数以保存购买记录到服务器
+const purchaseProduct = async (product) => {
+    if (coins.value < product.price || purchaseInProgress.value) {
+        return;
+    }
+    
+    playButtonSound();
+    purchaseInProgress.value = true;
     
     try {
         // 扣除金币
-        await addCoins(-product.price)
+        await addCoins(-product.price);
         
         // 调用购买API
         const response = await fetch('http://localhost:3031/api/purchase-product', {
@@ -276,33 +315,33 @@ const purchaseProduct = async (product) => {
         });
         
         if (response.ok) {
-            // 保存购买记录到本地
-            savePurchaseToLocalStorage(product)
+            // 保存购买记录到服务器
+            await savePurchaseToServer(product);
             
-            const successMessage = document.createElement('div')
-            successMessage.className = 'purchase-success'
-            successMessage.textContent = `成功购买: ${product.name}`
-            document.body.appendChild(successMessage)
+            const successMessage = document.createElement('div');
+            successMessage.className = 'purchase-success';
+            successMessage.textContent = `成功购买: ${product.name}`;
+            document.body.appendChild(successMessage);
             
             // 3秒后移除提示
             setTimeout(() => {
-                successMessage.classList.add('fade-out')
+                successMessage.classList.add('fade-out');
                 setTimeout(() => {
-                    document.body.removeChild(successMessage)
-                }, 500)
-            }, 2500)
+                    document.body.removeChild(successMessage);
+                }, 500);
+            }, 2500);
         } else {
             // 购买失败时返还金币
-            await addCoins(product.price)
-            alert('购买失败，请稍后再试')
+            await addCoins(product.price);
+            alert('购买失败，请稍后再试');
         }
     } catch (error) {
-        console.error('购买商品失败:', error)
+        console.error('购买商品失败:', error);
         // 出错时返还金币
-        await addCoins(product.price)
-        alert('购买失败，请稍后再试')
+        await addCoins(product.price);
+        alert('购买失败，请稍后再试');
     } finally {
-        purchaseInProgress.value = false
+        purchaseInProgress.value = false;
     }
 }
 
@@ -350,11 +389,11 @@ const handleClickOutside = (e) => {
     // 检查是否点击了商城图标
     const shoppingBtn = document.querySelector('.shopping-mall-icon');
     if (shoppingBtn && (shoppingBtn === e.target || shoppingBtn.contains(e.target))) {
-        return; // 如果点击了商城图标，在App.vue中处理
+        return; // 直接返回，不做任何处理
     }
     
     // 检查是否点击了面板外部
-    if (panel.value && !panel.value.contains(e.target) && props.showShoppingMall) {
+    if (panel.value && !panel.value.contains(e.target) && isExpanded.value) {
         closeShoppingMall();
     }
 }
@@ -424,6 +463,8 @@ defineExpose({
     font-family: 'Comic Sans MS', cursive, sans-serif;
     transform-origin: top center;
 }
+
+
 
 .shopping-panel::before {
     content: '';
